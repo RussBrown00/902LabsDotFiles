@@ -47,4 +47,8 @@ CUR_DIR=`pwd`
 HOME=`echo ~/`
 DOTFILES=DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
+mkdir -p ~/.vim/tmp/backup
+mkdir -p ~/.vim/tmp/swap
+mkdir -p ~/.vim/tmp/undo
+
 popd
