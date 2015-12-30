@@ -6,7 +6,16 @@ echo
 echo -e "\033[32mUpdating submodules."
 echo -e "\033[0m"
 
-git submodule update --init
+git submodule update --init --recursive
+
+echo
+echo -e "\033[32mSetting up You Complete Me"
+echo -e "\033[0m"
+
+
+cd vim/bundle/you-complete-me
+./install.py
+cd ../../../
 
 echo
 echo -e "\033[32mCreating VIM dotfile links in home dir."

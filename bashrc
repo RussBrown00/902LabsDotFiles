@@ -2,13 +2,11 @@
 # Set file open limit
 ulimit -n 2048
 
-
 #
 # Console Settings
 export LANG=en_US.UTF-8
 export EDITOR=vim
 export TERM=xterm-256color
-
 
 #
 # Setup file list defaults

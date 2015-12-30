@@ -93,3 +93,11 @@
 	sslverify = false
 [push]
 	default = simple
+[merge]
+	tool = bc3
+[mergetool]
+	bc3 = trustExitCode
+[diff]
+	tool = bc3
+[difftool]
+	bc3 = trustExitCode
