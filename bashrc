@@ -8,6 +8,10 @@ export LANG=en_US.UTF-8
 export EDITOR=vim
 export TERM=xterm-256color
 
+function alert {
+	osascript -e 'tell app "System Events" to display dialog "'$1'"'
+}
+
 #
 # Setup file list defaults
 alias ls='ls -ahl --color=auto'

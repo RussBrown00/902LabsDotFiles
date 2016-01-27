@@ -30,6 +30,9 @@ let g:tcommentMapLeaderOp2 = ""
 " Create the only ones that matters
 noremap <silent> <Leader>c :TComment<cr>
 
+" vim-json settings
+let g:vim_json_syntax_conceal = 0
+
 " EasyMotion
 " let g:EasyMotion_do_mapping = 0
 
