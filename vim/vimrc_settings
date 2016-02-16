@@ -96,11 +96,8 @@ set hlsearch
 au BufWinLeave ?* mkview 1
 au BufWinEnter ?* silent loadview 1
 
-" in many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-  " set -g mode-mouse on
-endif
+set mouse=a
+set ttymouse=sgr
 
 if !empty($MY_RUBY_HOME)
  let g:ruby_path = join(split(glob($MY_RUBY_HOME.'/lib/ruby/*.*')."\n".glob($MY_RUBY_HOME.'/lib/ruby/site_ruby/*'),"\n"),',')

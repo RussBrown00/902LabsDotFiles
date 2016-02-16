@@ -83,3 +83,6 @@ nnoremap <silent> <Leader>A yiw:Ack <C-r>"<cr>
 inoremap <c-u> <c-g>u<c-u>
 
 nmap <silent> ,/ :nohlsearch<CR>
+
+map <c-h> :tabprevious<CR>
+map <c-l> :tabnext<CR>

@@ -63,15 +63,14 @@
     un = reset --hard
     unum = reset --hard upstream/master
     unun = reset --hard upstream/next
+    untm = reset --hard team/master
 
     last = log -1 HEAD
     undo = checkout HEAD --
     unstage = reset HEAD --
 
     fu = fetch upstream
-
-    killu = reset --hard upstream/master
-    killun = reset --hard upstream/next
+    ft = fetch team
 
     sl = stash list
     sp = stash pop
