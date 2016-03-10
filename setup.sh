@@ -46,7 +46,7 @@ echo -e "\033[32mCreating TMUX dotfile links in home dir."
 echo -e "\033[0m"
 
 ln -s $DOTHOME/tmux ~/.tmux
-ln -s ~/.tmux/tmux.conf .tmux.conf
+ln -s ~/.tmux/tmux.conf ~/.tmux.conf
 
 echo
 echo -e "\033[32m902 Labs dotfiles installed!"
