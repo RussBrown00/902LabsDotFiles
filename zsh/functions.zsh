@@ -68,3 +68,25 @@ function trash () {
     fi
   done
 }
+
+# OSX Specific Functions
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	function alert {
+		osascript -e 'tell app "System Events" to display dialog "'$1'"'
+	}
+
+	function md5sum {
+		md5 $@ | awk '{print $NF}'
+	}
+fi
+
+# DOCKER
+if [[ "$OSTYPE" != "darwin"* ] AND [ -f "/usr/bin/docker" ]]; then
+	function docker {
+		sudo /usr/bin/docker $@
+	}
+
+	function docker-compose {
+		sudo /usr/local/bin/docker-compose $@
+	}
+fi
