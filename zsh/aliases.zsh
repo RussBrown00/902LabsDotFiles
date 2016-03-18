@@ -11,7 +11,8 @@ alias bower='noglob bower'
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222'
 
 #GREP
-alias grep='grep -n --color'
+alias grep='grep --color'
+alias grepn='grep -n --color'
 
 #GIT
 alias g='git'

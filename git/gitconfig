@@ -1,93 +1,87 @@
-[user]
-        email = russ@902labs.com
-        name = Russell Brown
-
-[credential "https://github.ua.com"]
-	username = rbrown
-
 [core]
 	editor = vim
-	excludesfile = ~/.gitignore
 	pager = less
+	excludesfile = ~/.gitignore
 
 [alias]
-    aa = add --all
+	aa = add --all
 
-    # BRANCHES
-    bv = branch -v
-    ba = branch -ra
-    bd = branch -D
-    br = branch
+	# BRANCHES
+	bv = branch -v
+	ba = branch -ra
+	bd = branch -D
+	br = branch
 
-    # COMMITS
-    ca = commit --amend
-    cm = commit -v
-    ci = commit -a -v
+	# COMMITS
+	ca = commit --amend
+	cm = commit -v
+	ci = commit -a -v
 
 	# CHECKOUTS
-    co = checkout
-    cb = checkout -b
+	co = checkout
+	cb = checkout -b
 
-    di = diff
+	di = diff
 
-    # LOG RELATED
-    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-    lg = log --graph --oneline --decorate
+	# LOG RELATED
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	lg = log --graph --oneline --decorate
 
-    ri = rebase -i
-    rom = rebase master
-    rum = rebase upstream/master
-    #ro = rebase --onto
+	ri = rebase -i
+	rom = rebase master
+	rum = rebase upstream/master
+	#ro = rebase --onto
 
-    mf = merge --ff -v
-    mm = merge --no-ff
-    ms = merge --squash
+	mf = merge --ff -v
+	mm = merge --no-ff
+	ms = merge --squash
 
-    pl = pull -v
-    plff = pull --ff-only
-    st = status --short --branch
-    tg = tag -a
+	pl = pull -v
+	plff = pull --ff-only
+	st = status --short --branch
+	tg = tag -a
 
-    pu = push --tags
-    pf = push -f
-    po = push origin
+	pu = push --tags
+	pf = push -f
+	po = push origin
 	pbase = "!f() { git push --force team $2:refs/head/$1; }; f"
 
-    pof = push -f origin
+	pof = push -f origin
 
-    pom = push origin master
-    pomf = push -f origin master
-    pon = push origin next
-    ponf = push -f origin next
+	pom = push origin master
+	pomf = push -f origin master
+	pon = push origin next
+	ponf = push -f origin next
 
-    un = reset --hard
-    unum = reset --hard upstream/master
-    unun = reset --hard upstream/next
-    untm = reset --hard team/master
+	un = reset --hard
+	unum = reset --hard upstream/master
+	unun = reset --hard upstream/next
+	untm = reset --hard team/master
 
-    last = log -1 HEAD
-    undo = checkout HEAD --
-    unstage = reset HEAD --
+	last = log -1 HEAD
+	undo = checkout HEAD --
+	unstage = reset HEAD --
 
-    fu = fetch upstream
-    ft = fetch team
+	fu = fetch upstream
+	ft = fetch team
 
-    sl = stash list
-    sp = stash pop
-    ss = stash show -v
-    sc = stash clear
+	sl = stash list
+	sp = stash pop
+	ss = stash show -v
+	sc = stash clear
 
-    rs = remote show
-    rso = remote show origin
+	rs = remote show
+	rso = remote show origin
+	permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
 
 [color]
-    grep = auto
-    diff = auto
-    status = auto
-    branch = auto
+	grep = auto
+	diff = auto
+	status = auto
+	branch = auto
 
 [branch]
-    autosetuprebase = always
+	autosetuprebase = always
 [http]
 	sslverify = false
 [push]

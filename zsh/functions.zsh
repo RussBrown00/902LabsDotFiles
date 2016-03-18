@@ -90,3 +90,11 @@ if [ "$OSTYPE" != "darwin" ] && [ -f "/usr/bin/docker" ]; then
 		sudo /usr/local/bin/docker-compose $@
 	}
 fi
+
+function docker-pull {
+	docker images | grep "$1" | awk '{print $1}' | xargs -L1 sudo docker pull
+}
+
+
+
+
