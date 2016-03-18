@@ -81,7 +81,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 # DOCKER
-if [[ "$OSTYPE" != "darwin"* ] AND [ -f "/usr/bin/docker" ]]; then
+if [ "$OSTYPE" != "darwin" ] && [ -f "/usr/bin/docker" ]; then
 	function docker {
 		sudo /usr/bin/docker $@
 	}
