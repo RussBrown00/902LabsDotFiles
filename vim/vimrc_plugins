@@ -80,7 +80,8 @@ let g:ctrlp_switch_buffer = 0
 let g:ctrlp_use_caching = 0
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|dist$\|node_modules$\|project_files$\|test$',
-    \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+    \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$'
+\ }
 
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor

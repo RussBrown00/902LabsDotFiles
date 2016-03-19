@@ -31,7 +31,17 @@ echo -e "\033[32mCreating GIT dotfile links in home dir."
 echo -e "\033[0m"
 
 ln -s $DOTHOME/git/gvimrc ~/.gvimrc
-ln -s $DOTHOME/git/gitconfig ~/.gitignore
+ln -s $DOTHOME/git/gitignore ~/.gitignore
+
+# Make sure a gitconfig exists
+touch ~/.gitconfig
+
+# Prepend an include file
+echo "[include]" > /tmp/902labsgitconfig
+echo "	path = $DOTHOM/git/gitconfig" >> /tmp/902labsgitconfig
+echo "" >> /tmp/902labsgitconfig
+cat ~/.gitconfg >> /tmp/902labsgitconfig
+
 ln -s $DOTHOME/git/gitconfig ~/.gitconfig
 
 echo
@@ -60,4 +70,6 @@ mkdir -p ~/.vim/tmp/backup
 mkdir -p ~/.vim/tmp/swap
 mkdir -p ~/.vim/tmp/undo
 
-popd
+echo ".gitconfig file setup. Please review for correctness"
+
+cd $DOTHOME
