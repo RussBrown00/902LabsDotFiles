@@ -19,8 +19,8 @@ alias g='git'
 alias got='git'
 alias gut='git'
 
-#Python
-alias pythong='python'
+#OTHER
+alias weather='curl -4 http://wttr.in'
 
 #DOCKER
 if [[ -f "/usr/bin/docker" ]]; then

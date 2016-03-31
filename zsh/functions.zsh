@@ -95,6 +95,24 @@ function docker-pull {
 	docker images | grep "$1" | awk '{print $1}' | xargs -L1 sudo docker pull
 }
 
+function chmod-files {
+	if [ -z $1 ]; then
+		PERM=644
+	else
+		PERM=$1
+	fi
 
+	find . -type f -exec chmod $PERM {} \;
+}
+
+function chmod-folders {
+	if [ -z $1 ]; then
+		PERM=755
+	else
+		PERM=$1
+	fi
+
+	find . -type d -exec chmod $PERM {} \;
+}
 
 
