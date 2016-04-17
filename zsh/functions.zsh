@@ -115,4 +115,8 @@ function chmod-folders {
 	find . -type d -exec chmod $PERM {} \;
 }
 
-
+function git-clone-remote {
+	ORIGIN=$(git remote -v | grep origin | head -n 1 | awk '{print $2}')
+	NEW=${ORIGIN/:$1/:$2}
+	git remote add $2 $NEW
+}
