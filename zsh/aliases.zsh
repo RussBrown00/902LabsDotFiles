@@ -22,6 +22,9 @@ alias gut='git'
 #OTHER
 alias weather='curl -4 http://wttr.in'
 
+#VIM
+alias clear-vim-swap="find ~/.vim/tmp -type f -name \"\.*sw[klmnop]\" -delete"
+
 #DOCKER
 if [[ -f "/usr/bin/docker" ]]; then
 	alias docker-rm='docker rm -f $(docker ps -a -q)'
