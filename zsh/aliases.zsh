@@ -25,6 +25,7 @@ alias weather='curl -4 http://wttr.in'
 #DOCKER
 if [[ -f "/usr/bin/docker" ]]; then
 	alias docker-rm='docker rm -f $(docker ps -a -q)'
+	alias docker-cleanup='docker-rm; docker volume ls -qf dangling=true | xargs -r sudo docker volume rm'
 	alias docker-ps='docker ps'
 	alias docker-psa='docker ps -a'
 fi
