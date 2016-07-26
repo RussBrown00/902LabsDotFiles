@@ -69,6 +69,14 @@ function trash () {
   done
 }
 
+
+# AWK Commands
+function aprint() {
+	awk "{print \$${1:-1}}";
+}
+
+
+
 # OSX Specific Functions
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	function alert {
@@ -95,6 +103,10 @@ function docker-pull {
 	docker images | grep "$1" | awk '{print $1}' | xargs -L1 sudo docker pull
 }
 
+function containerid() {
+	docker ps | grep $1 | aprint 1
+}
+
 function chmod-files {
 	if [ -z $1 ]; then
 		PERM=644
@@ -119,4 +131,5 @@ function git-clone-remote {
 	ORIGIN=$(git remote -v | grep origin | head -n 1 | awk '{print $2}')
 	NEW=${ORIGIN/:$1/:$2}
 	git remote add $2 $NEW
+	git fetch $2
 }

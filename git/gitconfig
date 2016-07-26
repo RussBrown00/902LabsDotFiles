@@ -22,6 +22,7 @@
 	cb = checkout -b
 
 	di = diff
+	dh = rev-parse HEAD
 
 	# LOG RELATED
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
@@ -31,6 +32,9 @@
 	rom = rebase master
 	rum = rebase upstream/master
 	#ro = rebase --onto
+	rba = rebase --abort
+	rbs = rebase --skip
+	rbc = rebase --continue
 
 	mf = merge --ff -v
 	mm = merge --no-ff
