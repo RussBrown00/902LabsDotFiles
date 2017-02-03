@@ -133,3 +133,12 @@ function git-clone-remote {
 	git remote add $2 $NEW
 	git fetch $2
 }
+
+function json {
+	echo $1 | python -m json.tool
+}
+
+function greum {
+	HASH=$(git ll | head -n 1 | awk '{print $1}')
+	git fu; git unm; git ms $HASH;
+}

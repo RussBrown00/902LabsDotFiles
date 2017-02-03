@@ -3,3 +3,4 @@ vim/view
 .vim/tmp
 vim/.netrwhist
 .DS_Store
+zsh/cache
