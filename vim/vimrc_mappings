@@ -75,6 +75,9 @@ nnoremap <leader>[ :tabp<enter>
 nnoremap <leader>] :tabn<enter>
 nnoremap <leader>n :tabnew<enter>
 
+" ACK
+nnoremap <Leader>a :Ack!<Space>
+
 " Ack for word under cursor
 nnoremap <silent> <Leader>A yiw:Ack <C-r>"<cr>
 

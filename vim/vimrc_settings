@@ -105,3 +105,8 @@ endif
 
 " Close NERDTree After Opening File
 let NERDTreeQuitOnOpen=1
+
+" ACK / Search settings
+if executable('ag')
+	let g:ackprg = 'ag --vimgrep'
+endif
