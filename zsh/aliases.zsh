@@ -16,6 +16,7 @@ alias grepn='grep -n --color'
 
 #GIT
 alias g='git'
+alias gt='git'
 alias got='git'
 alias gut='git'
 
