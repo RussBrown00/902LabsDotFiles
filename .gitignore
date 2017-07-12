@@ -4,3 +4,4 @@ vim/view
 vim/.netrwhist
 .DS_Store
 zsh/cache
+neovim/view/*

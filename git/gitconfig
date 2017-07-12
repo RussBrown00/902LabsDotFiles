@@ -14,7 +14,7 @@
 
 	# COMMITS
 	ca = commit --amend
-	cm = commit -v
+	cm = commit -am
 	ci = commit -a -v
 
 	# CHECKOUTS
@@ -22,10 +22,12 @@
 	cb = checkout -b
 
 	di = diff
+	dum = diff upstream/master
 	dh = rev-parse HEAD
 
 	# LOG RELATED
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	#lh = --no-pager log --numstat -4
 	lg = log --graph --oneline --decorate
 
 	ri = rebase -i
@@ -48,6 +50,8 @@
 	pu = push --tags
 	pf = push -f
 	po = push origin
+	pt = push team
+	ptf = push team -f
 	pbase = "!f() { git push --force team $2:refs/head/$1; }; f"
 
 	pof = push -f origin

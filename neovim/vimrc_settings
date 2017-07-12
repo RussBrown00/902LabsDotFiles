@@ -1,0 +1,108 @@
+" Use Vim settings, rather than Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+scriptencoding utf-8
+set encoding=utf-8
+
+set nocompatible
+
+" Disable modeline security vulns
+set modelines=0
+
+" Tab / Auto Indent Settings
+set autoindent
+set smartindent
+set noexpandtab
+set copyindent
+set preserveindent
+set softtabstop=4
+set shiftwidth=4
+set tabstop=4
+
+set listchars=eol:¬,tab:▸\ ,trail:·,extends:>,precedes:·,nbsp:·
+set list
+
+set clipboard=unnamed
+" Wrapping
+"set nowrap
+"set textwidth=72
+"set colorcolumn=80
+"set formatoptions=qrn1
+"set sidescroll=5
+
+" wildmenu completion
+set wildmenu
+set wildmode=list:longest
+
+set wildignore+=.hg,.git,.svn                    " version control
+set wildignore+=*.aux,*.out,*.toc                " latex intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.scssc                          " Compiled scss files
+set wildignore+=*.spl                            " compiled spelling word lists
+set wildignore+=*.sw?                            " vim swap files
+set wildignore+=*.ds_store                       " osx stuffs
+set wildignore+=vendor/bundle/*,vendor/cache/*   " Gem bundle
+set wildignore+=node_modules/*                   " Node modules
+set wildignore+=tmp/*                            " tmp files
+
+" backup and swap
+set undodir=~/.vim/tmp/undo//
+set backupdir=~/.vim/tmp/backup//
+set directory=~/.vim/tmp/swap//
+" set nobackup
+
+" color scheme
+syntax enable
+
+set t_Co=256  " make use of 256 terminal colors
+let g:solarized_termcolors=256
+
+"set background=dark
+colorscheme distinguished
+
+" random settings
+set backspace=indent,eol,start
+set history=1000		" keep 50 lines of command line history
+set history=1000
+set ruler		" show the cursor position all the time
+set showcmd		" display incomplete commands
+set incsearch		" do incremental searching
+set encoding=utf-8
+set scrolloff=5
+set pastetoggle=<f6>
+set showmode
+set hidden      " buffers with edits can exist without being 'open'
+set wildmenu
+set wildmode=list:longest
+set visualbell
+set ttyfast
+set backspace=indent,eol,start  " allow backspacing over everything in insert mode
+set laststatus=2
+" set relativenumber
+set number
+
+" Get rid of save confirmation message
+set shortmess=a
+set cmdheight=2
+
+" searching and movement ====================================================
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set showmatch
+set hlsearch
+
+set mouse=a
+
+if !empty($MY_RUBY_HOME)
+ let g:ruby_path = join(split(glob($MY_RUBY_HOME.'/lib/ruby/*.*')."\n".glob($MY_RUBY_HOME.'/lib/ruby/site_ruby/*'),"\n"),',')
+endif
+
+" Close NERDTree After Opening File
+let NERDTreeQuitOnOpen=0
+
+" ACK / Search settings
+if executable('ag')
+	let g:ackprg = 'ag --vimgrep'
+endif

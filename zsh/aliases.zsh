@@ -21,6 +21,7 @@ alias gut='git'
 
 #OTHER
 alias weather='curl -4 http://wttr.in'
+alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
 
 #VIM
 alias clear-vim-swap="find ~/.vim/tmp -type f -name \"\.*sw[klmnop]\" -delete"

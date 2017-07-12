@@ -1,0 +1,19 @@
+" Commands
+" ------------------------------------------------------------
+
+" easily get to vim config
+command! Vimrc        :e ~/.config/nvimrc
+command! VimCommands  :e ~/.config/nvim/vimrc_commands
+command! VimFunctions :e ~/.config/nvim/vimrc_functions
+command! VimMaps      :e ~/.config/nvim/vimrc_mappings
+command! VimPlugins   :e ~/.config/nvim/vimrc_plugins
+command! VimSettings  :e ~/.config/nvim/vimrc_settings
+command! VimAutocmds  :e ~/.config/nvim/vimrc_autocmds
+command! VimBundles   :e ~/dotfiles/vim_bundles
+command! VimNT :NERDTree ~/.confg/nvim
+
+" easily get to bashrc
+command! Bashrc :e ~/.bashrc
+
+" pretty format an xml snippet
+command! Tidy -range=% :<line1>,<line2>!tidy -xml -i -q -w 0<CR>

@@ -69,13 +69,17 @@ function trash () {
   done
 }
 
-
 # AWK Commands
 function aprint() {
 	awk "{print \$${1:-1}}";
 }
 
-
+# Cleanup all VIM artifacts
+function vimclean() {
+	bash -c "rm -Rf ~/.vim/tmp/backup/*";
+	bash -c "rm -Rf ~/.vim/tmp/swap/*";
+	bash -c "rm -Rf ~/.vim/tmp/undo/*";
+}
 
 # OSX Specific Functions
 if [[ "$OSTYPE" == "darwin"* ]]; then
