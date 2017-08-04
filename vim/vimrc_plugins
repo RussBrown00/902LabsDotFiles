@@ -11,6 +11,7 @@ set runtimepath+=~/.vim/bundle/jshint2
 
 
 " NERDTree
+let NERDTreeQuitOnOpen=1 " Close NERDTree After Opening File
 let NERDTreeShowHidden=1
 let NERDTreeMapOpenVSplit='v'
 let NERDTreeMapOpenSplit='s'
@@ -124,13 +125,18 @@ let g:airline#extensions#csv#enabled = 0
 let g:airline#extensions#csv#enabled = 0
 let g:airline#extensions#vimagit#enabled = 0
 let g:airline#extensions#eclim#enabled = 0
-let g:airline#extensions#tabline#show_tabs = 0
 let g:airline#extensions#ale#enabled = 0
 let g:airline#extensions#neomake#enabled = 0
 let g:airline#extensions#po#enabled = 0
 let g:airline#extensions#ycm#enabled = 0
 let g:airline#extensions#taboo#enabled = 0
+
+" This basically disables the white space checking
+" I did this for performance reasons.
 let g:airline#extensions#whitespace#max_lines = 1
+
+let g:airline#extensions#tabline#show_tabs = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " vim-airline customization
 function! AirlineInit()
@@ -143,6 +149,3 @@ function! AirlineInit()
   let g:airline_section_z = airline#section#create(['linenr', ':%c'])
 endfunction
 autocmd User AirlineAfterInit call AirlineInit()
-
-set shortmess=a
-set cmdheight=2

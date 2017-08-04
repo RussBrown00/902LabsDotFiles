@@ -82,8 +82,9 @@ set laststatus=2
 set number
 
 " Get rid of save confirmation message
-set shortmess=a
+set shortmess=aWAT
 set cmdheight=2
+set report=99999
 
 " searching and movement ====================================================
 set ignorecase
@@ -98,9 +99,6 @@ au BufWinEnter ?* silent loadview 1
 
 set mouse=a
 set ttymouse=sgr
-
-" Close NERDTree After Opening File
-let NERDTreeQuitOnOpen=1
 
 " ACK / Search settings
 if executable('ag')
