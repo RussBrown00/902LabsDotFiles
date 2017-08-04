@@ -11,6 +11,7 @@ set runtimepath+=~/.vim/bundle/jshint2
 
 
 " NERDTree
+let NERDTreeShowHidden=1
 let NERDTreeMapOpenVSplit='v'
 let NERDTreeMapOpenSplit='s'
 let NERDTreeHijackNetrw='0'
@@ -80,6 +81,8 @@ let g:ctrlp_prompt_mappings = {
 " Set the max files
 let g:ctrlp_max_files = 10000
 
+let g:ctrlp_dotfiles = 1
+let g:ctrlp_show_hidden = 1
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_use_caching = 0

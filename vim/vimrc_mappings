@@ -91,7 +91,3 @@ map <c-h> :tabprevious<CR>
 map <c-l> :tabnext<CR>
 
 map <c-n> :NERDTreeToggle<CR>
-
-" GUID Plugin: vim-nuuid
-" let g:nuuid_no_mappings = 1
-" nnoremap <Leader>u <Plug>Nuuid
