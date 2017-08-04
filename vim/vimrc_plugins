@@ -118,3 +118,31 @@ let g:markdown_fenced_languages = ['ruby', 'coffeescript=coffee', 'coffee', 'htm
 " vim-jsx specific settings
 let g:syntastic_javascript_checkers = ['jsxhint']
 let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
+
+" vim-airline config
+let g:airline#extensions#csv#enabled = 0
+let g:airline#extensions#csv#enabled = 0
+let g:airline#extensions#vimagit#enabled = 0
+let g:airline#extensions#eclim#enabled = 0
+let g:airline#extensions#tabline#show_tabs = 0
+let g:airline#extensions#ale#enabled = 0
+let g:airline#extensions#neomake#enabled = 0
+let g:airline#extensions#po#enabled = 0
+let g:airline#extensions#ycm#enabled = 0
+let g:airline#extensions#taboo#enabled = 0
+let g:airline#extensions#whitespace#max_lines = 1
+
+" vim-airline customization
+function! AirlineInit()
+  let g:airline_section_b = ''
+  let g:airline_section_x = airline#section#create(['branch'])
+  let g:airline_section_y = '%3p%%'
+
+  call airline#parts#define_raw('linenr', '%l')
+  call airline#parts#define_accent('linenr', 'bold')
+  let g:airline_section_z = airline#section#create(['linenr', ':%c'])
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
+
+set shortmess=a
+set cmdheight=2
