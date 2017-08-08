@@ -79,18 +79,18 @@ let g:ctrlp_prompt_mappings = {
     \ }
 
 "
-" Set the max files
-let g:ctrlp_max_files = 10000
-
-let g:ctrlp_dotfiles = 1
-let g:ctrlp_show_hidden = 1
+let g:ctrlp_max_files = 200
+let g:ctrlp_dotfiles = 0
+let g:ctrlp_show_hidden = 0
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
-let g:ctrlp_use_caching = 0
+let g:ctrlp_use_caching = 1
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|dist$\|node_modules$\|project_files$\|test$',
-    \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$'
+    \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|dist$|public$\|node_modules$\|project_files$',
+    \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$|\.DS_Store$'
 \ }
+
+let g:ctrlp_cache_dir = $HOME . '/.vim/tmp/ctrp_cache'
 
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
@@ -120,32 +120,25 @@ let g:markdown_fenced_languages = ['ruby', 'coffeescript=coffee', 'coffee', 'htm
 let g:syntastic_javascript_checkers = ['jsxhint']
 let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
 
-" vim-airline config
-let g:airline#extensions#csv#enabled = 0
-let g:airline#extensions#csv#enabled = 0
-let g:airline#extensions#vimagit#enabled = 0
-let g:airline#extensions#eclim#enabled = 0
-let g:airline#extensions#ale#enabled = 0
-let g:airline#extensions#neomake#enabled = 0
-let g:airline#extensions#po#enabled = 0
-let g:airline#extensions#ycm#enabled = 0
-let g:airline#extensions#taboo#enabled = 0
 
-" This basically disables the white space checking
-" I did this for performance reasons.
-let g:airline#extensions#whitespace#max_lines = 1
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'filename', 'modified' ] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'readonly', 'filetype' ] ]
+      \ },
+      \ 'component_function': {
+      \   'readonly': 'LightlineReadonly',
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ 'component': {
+      \   'charvaluehex': '0x%B'
+      \ },
+      \ }
 
-let g:airline#extensions#tabline#show_tabs = 1
-let g:airline#extensions#tabline#enabled = 1
-
-" vim-airline customization
-function! AirlineInit()
-  let g:airline_section_b = ''
-  let g:airline_section_x = airline#section#create(['branch'])
-  let g:airline_section_y = '%3p%%'
-
-  call airline#parts#define_raw('linenr', '%l')
-  call airline#parts#define_accent('linenr', 'bold')
-  let g:airline_section_z = airline#section#create(['linenr', ':%c'])
+function! LightlineReadonly()
+	return &readonly && &filetype !=# 'help' ? 'RO' : ''
 endfunction
-autocmd User AirlineAfterInit call AirlineInit()

@@ -46,9 +46,6 @@
 [submodule "vim/bundle/textobj-word-column.vim"]
 	path = vim/bundle/textobj-word-column.vim
 	url = https://github.com/coderifous/textobj-word-column.vim.git
-[submodule "vim/bundle/vim-airline"]
-	path = vim/bundle/vim-airline
-	url = https://github.com/vim-airline/vim-airline.git
 [submodule "vim/bundle/gundo.vim"]
 	path = vim/bundle/gundo.vim
 	url = https://github.com/sjl/gundo.vim.git
@@ -73,3 +70,6 @@
 [submodule "vim/bundle/git-gutter"]
 	path = vim/bundle/git-gutter
 	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "vim/bundle/lightline"]
+	path = vim/bundle/lightline
+	url = https://github.com/itchyny/lightline.vim.git

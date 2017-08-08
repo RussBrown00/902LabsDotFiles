@@ -69,6 +69,7 @@ DOTFILES=DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 mkdir -p ~/.vim/tmp/backup
 mkdir -p ~/.vim/tmp/swap
 mkdir -p ~/.vim/tmp/undo
+mkdir -p ~/.vim/tmp/ctrp_cache
 
 echo ".gitconfig file setup. Please review for correctness"
 
