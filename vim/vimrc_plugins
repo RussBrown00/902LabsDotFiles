@@ -125,12 +125,13 @@ let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'filename', 'modified' ] ],
+      \             [ 'gitbranch', 'filename' ] ],
       \   'right': [ [ 'lineinfo' ],
       \              [ 'percent' ],
       \              [ 'readonly', 'filetype' ] ]
       \ },
       \ 'component_function': {
+      \   'filename': 'LightlineFilename',
       \   'readonly': 'LightlineReadonly',
       \   'gitbranch': 'fugitive#head'
       \ },
@@ -139,6 +140,16 @@ let g:lightline = {
       \ },
       \ }
 
+function! LightlineFilename()
+  let filename = expand('%:f') !=# '' ? expand('%:f') : '[No Name]'
+  let modified = &modified ? ' +' : ''
+  return filename . modified
+endfunction
+
 function! LightlineReadonly()
 	return &readonly && &filetype !=# 'help' ? 'RO' : ''
 endfunction
+
+let g:unite_force_overwrite_statusline = 0
+let g:vimfiler_force_overwrite_statusline = 0
+let g:vimshell_force_overwrite_statusline = 0
