@@ -91,3 +91,4 @@ map <c-h> :tabprevious<CR>
 map <c-l> :tabnext<CR>
 
 map <c-n> :NERDTreeToggle<CR>
+map <c-o> :ZoomWin<CR>
