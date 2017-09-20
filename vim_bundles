@@ -26,3 +26,4 @@ bundle  "you-complete-me",          :git  =>  "https://github.com/Valloric/YouCo
 bundle  "git-gutter"                :git  =>  "https://github.com/airblade/vim-gitgutter.git"
 bundle  "lightline"                 :git  =>  "https://github.com/itchyny/lightline.vim.git"
 bundle  "vim-ag"                    :git  =>  "https://github.com/rking/ag.vim.git"
+bundle  "zoomwin"                   :git  =>  "https://github.com/drn/zoomwin-vim.git"
