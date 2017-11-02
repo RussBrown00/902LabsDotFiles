@@ -146,3 +146,12 @@ function greum {
 	HASH=$(git ll | head -n 1 | awk '{print $1}')
 	git fu; git unm; git ms $HASH;
 }
+
+function killbyport {
+	if [ -z $1 ]; then
+		echo "Please add an argument for port"
+	else
+		PORT=$1
+		lsof -t -i:$PORT | xargs kill &> /dev/null && echo "Closed Process runnin on $PORT" || echo "Nothing Running on $PORT"
+	fi
+}
