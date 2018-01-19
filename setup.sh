@@ -12,9 +12,14 @@ echo
 echo -e "\033[32mSetting up You Complete Me"
 echo -e "\033[0m"
 
-
+# Compile You Complete Me
 cd vim/bundle/you-complete-me
 ./install.py
+cd ../../../
+
+# Download and build Polyglot lib
+cd vim/bundle/vim-polyglot
+./build
 cd ../../../
 
 echo

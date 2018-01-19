@@ -106,3 +106,8 @@ set ttymouse=sgr
 if executable('ag')
 	let g:ackprg = 'ag --vimgrep'
 endif
+
+
+" Hightlight console.log statements
+" highlight ConsoleLogStmnt cterm=bold term=bold ctermbg=13 ctermfg=236
+" match ConsoleLogStmnt /console\.log/
