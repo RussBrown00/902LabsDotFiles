@@ -14,7 +14,7 @@ echo -e "\033[0m"
 
 # Compile You Complete Me
 cd vim/bundle/you-complete-me
-./install.py
+./install.py --clang-completer
 cd ../../../
 
 # Download and build Polyglot lib
@@ -54,7 +54,13 @@ echo -e "\033[32mCreating GIT dotfile links in home dir."
 echo -e "\033[0m"
 
 ln -s $DOTHOME/zsh ~/.zsh
-ln -s ~/.zsh/zshrc ~/.zshrc
+
+if [ ! -f '~/.zsh/zshrc' ] then
+	touch ~/.zshrc
+fi
+
+{ echo 'source ~/.zsh/zshrc'; cat ~/.zshrc; } > ~/.zshrc
+
 
 echo
 echo -e "\033[32mCreating TMUX dotfile links in home dir."
