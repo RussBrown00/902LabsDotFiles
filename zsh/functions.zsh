@@ -76,9 +76,11 @@ function aprint() {
 
 # Cleanup all VIM artifacts
 function vimclean() {
-	bash -c "rm -Rf ~/.vim/tmp/backup/*";
-	bash -c "rm -Rf ~/.vim/tmp/swap/*";
-	bash -c "rm -Rf ~/.vim/tmp/undo/*";
+	find ~/.vim/tmp/ctrp_cache -name "*" | tail -n +2 | xargs rm;
+	find ~/.vim/tmp/backup -name "*" | tail -n +2 | xargs rm;
+	find ~/.vim/tmp/swap -name "*" | tail -n +2 | xargs rm;
+	find ~/.vim/tmp/undo -name "*" | tail -n +2 | xargs rm;
+	find ~/.vim/view -name "*" | tail -n +2 | xargs rm;
 }
 
 # OSX Specific Functions
