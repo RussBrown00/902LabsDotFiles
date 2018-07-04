@@ -20,6 +20,8 @@ alias gt='git'
 alias got='git'
 alias gut='git'
 
+alias npmpub='mv .npmrc ._npmrc; npm publish; mv ._npmrc .npmrc;'
+
 #OTHER
 alias weather='curl -4 http://wttr.in'
 alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"

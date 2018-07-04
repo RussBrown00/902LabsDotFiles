@@ -47,15 +47,18 @@
 	st = status --short --branch
 	tg = tag -a
 
+	p = push
 	pu = push --tags
 	pf = push -f
 	po = push origin
+	pm = push master
 	pt = push team
 	ptf = push team -f
 	pbase = "!f() { git push --force team $2:refs/head/$1; }; f"
 
 	pof = push -f origin
 
+	pum = push upstream master
 	pom = push origin master
 	pomf = push -f origin master
 	pon = push origin next

@@ -69,6 +69,12 @@ function trash () {
   done
 }
 
+function rereplace() {
+	echo "Running: ag --hidden -l $1 | xargs sed -i \"\" \"s/$1/$2/g\""
+	ag --hidden -l $1 | xargs sed -i "" "s/$1/$2/g"
+	ag --hidden $1
+}
+
 # AWK Commands
 function aprint() {
 	awk "{print \$${1:-1}}";
@@ -76,11 +82,11 @@ function aprint() {
 
 # Cleanup all VIM artifacts
 function vimclean() {
-	find ~/.vim/tmp/ctrp_cache -name "*" | tail -n +2 | xargs rm;
-	find ~/.vim/tmp/backup -name "*" | tail -n +2 | xargs rm;
-	find ~/.vim/tmp/swap -name "*" | tail -n +2 | xargs rm;
-	find ~/.vim/tmp/undo -name "*" | tail -n +2 | xargs rm;
-	find ~/.vim/view -name "*" | tail -n +2 | xargs rm;
+	find ~/.vim/tmp/ctrp_cache -name "*" | tail -n +2 | xargs rm -Rf;
+	find ~/.vim/tmp/backup -type f -name "*" | tail -n +2 | xargs rm;
+	find ~/.vim/tmp/swap -type f -name "*" | tail -n +2 | xargs rm;
+	find ~/.vim/tmp/undo -type f -name "*" | tail -n +2 | xargs rm;
+	find ~/.vim/view -type f -name "*" | tail -n +2 | xargs rm;
 }
 
 # OSX Specific Functions
