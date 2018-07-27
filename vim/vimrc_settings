@@ -35,12 +35,13 @@ set wildmode=list:longest
 
 set wildignore+=.hg,.git,.svn                    " version control
 set wildignore+=*.aux,*.out,*.toc                " latex intermediate files
-set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+" set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+set wildignore+=*.ai,*.psd   " binary images
 set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
 set wildignore+=*.scssc                          " Compiled scss files
 set wildignore+=*.spl                            " compiled spelling word lists
 set wildignore+=*.sw?                            " vim swap files
-set wildignore+=*.ds_store                       " osx stuffs
+set wildignore+=*.ds_store,.DS_Store,.ds_store   " osx stuffs
 set wildignore+=vendor/bundle/*,vendor/cache/*   " Gem bundle
 set wildignore+=node_modules/*                   " Node modules
 set wildignore+=tmp/*                            " tmp files
