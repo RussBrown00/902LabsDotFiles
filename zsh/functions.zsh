@@ -101,6 +101,39 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 # DOCKER
+
+if [ -f "/usr/bin/docker" ] || [ -f "/usr/local/bin/docker" ]; then
+	alias docker-ps='docker ps'
+	alias docker-psa='docker ps -a'
+
+	containerip() {
+		docker inspect $1 | grep "\"IPAddress\"" | head -n 1 | cut -d':' -f2 | cut -d'"' -f2
+	}
+
+	if [ ! -z "$UA_UTILS" ]; then
+		alias dockerbuild="$UA_UTILS/docker/build.sh"
+		alias dockerbuild-ab="$UA_UTILS/docker/build.sh armourbox-master-latest"
+	fi
+
+	function docker-rm {
+		docker rm $@ $(docker ps -a -q)
+	}
+
+	function docker-shell {
+		docker exec -it $1 bash
+	}
+
+	function docker-rs {
+		docker ps -qaf "name=$1" | xargs docker restart
+	}
+
+	docker-clean() {
+		docker rm -f $(docker ps -a -q)
+		docker rmi $(docker images -q -f dangling=true)
+		docker volume rm $(docker volume ls -qf dangling=true)
+	}
+fi
+
 if [ "$OSTYPE" != "darwin" ] && [ -f "/usr/bin/docker" ]; then
 	function docker {
 		sudo /usr/bin/docker $@
