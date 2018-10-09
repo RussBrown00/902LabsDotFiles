@@ -7,10 +7,10 @@
 	aa = add --all
 
 	# BRANCHES
-	bv = branch -v
+	br = !git --no-pager branch
+	bv = !git --no-pager branch -v
 	ba = branch -ra
 	bd = branch -D
-	br = branch
 
 	# COMMITS
 	ca = commit --amend
