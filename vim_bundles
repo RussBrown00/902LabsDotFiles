@@ -26,3 +26,4 @@ bundle  "lightline"                 :git  =>  "https://github.com/itchyny/lightl
 bundle  "vim-ag"                    :git  =>  "https://github.com/rking/ag.vim.git"
 bundle  "zoomwin"                   :git  =>  "https://github.com/drn/zoomwin-vim.git"
 bundle  "markdown-preview"          :git  =>  "https://github.com/JamshedVesuna/vim-markdown-preview.git"
+bundle  "vim-prettier"              :git  =>  "https://github.com/prettier/vim-prettier.git"

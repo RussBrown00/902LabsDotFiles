@@ -2,6 +2,6 @@
 .vim/tmp
 vim/tmp
 vim/view
-vim/bundle
+!vim/bundle
 vim/.netrwhist
 zsh/cache
