@@ -85,3 +85,6 @@
 [submodule "vim/bundle/vim-prettier"]
 	path = vim/bundle/vim-prettier
 	url = https://github.com/prettier/vim-prettier.git
+[submodule "vim/bundle/vim-graphql"]
+	path = vim/bundle/vim-graphql
+	url = https://github.com/jparise/vim-graphql.git
