@@ -3,7 +3,7 @@
 
 augroup whitespace
   " before writing to any file, this function call will remove any extra white space at the end of a line
-  autocmd BufWritePre,FileWritePre .*,*.*,Dockerfile,Jenkinsfile call RemoveWhiteSpace()
+  autocmd BufWritePre,FileWritePre * call RemoveWhiteSpace()
 augroup end
 
 " Create directories on demand when saving files.
