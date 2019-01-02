@@ -88,3 +88,6 @@
 [submodule "vim/bundle/vim-graphql"]
 	path = vim/bundle/vim-graphql
 	url = https://github.com/jparise/vim-graphql.git
+[submodule "vim/bundle/vim-localvimrc"]
+	path = vim/bundle/vim-localvimrc
+	url = https://github.com/embear/vim-localvimrc.git

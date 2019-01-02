@@ -53,6 +53,7 @@ packages/*
 
 # Other
 .env
+.vimrc
 *.iml
 .agignore
 .vimrc_proj
