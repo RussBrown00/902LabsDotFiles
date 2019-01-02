@@ -27,4 +27,3 @@ bundle  "vim-ag"                    :git  =>  "https://github.com/rking/ag.vim.g
 bundle  "zoomwin"                   :git  =>  "https://github.com/drn/zoomwin-vim.git"
 bundle  "markdown-preview"          :git  =>  "https://github.com/JamshedVesuna/vim-markdown-preview.git"
 bundle  "vim-graphql"               :git  =>  "https://github.com/jparise/vim-graphql.git"
-bundle  "vim-localvimrc"            :git  =>  "https://github.com/embear/vim-localvimrc.git"
