@@ -22,3 +22,6 @@ export LC_COLLATE=C
 
 LS_COLORS='di=1;34:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=1;36:*.rpm=90:*.tar=1;31'
 export LS_COLORS
+
+# ZFZ / RipGrep Settings
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
