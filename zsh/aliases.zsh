@@ -28,3 +28,5 @@ alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pb
 
 #VIM
 alias clear-vim-swap="find ~/.vim/tmp -type f -name \"\.*sw[klmnop]\" -delete"
+
+alias fzfp='vim `fzf --preview="cat {}" --preview-window=right:70%:wrap`'
