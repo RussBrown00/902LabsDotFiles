@@ -53,6 +53,7 @@ packages/*
 
 # Other
 .env
+.nvmrc
 .vimrc
 *.iml
 .agignore

@@ -2,6 +2,13 @@
 export PATH=bin:script:~/.rbenv/bin:~/.bin:node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:~/.cabal/bin:$HOME/Library/Haskell/bin:$PATH
 export PATH=$PATH:/opt/boxen/homebrew/opt/go/libexec/bin
 
+CURRENT_DIRECTORY=$(pwd)
+
+if [ -d "$CURRENT_DIRECTORY/.bin" ]; then
+	export PATH="$PATH:$CURRENT_DIRECTORY/.bin"
+fi
+
+
 # Setup terminal, and turn on colors
 export EDITOR=vim
 export LANG=en_US.UTF-8

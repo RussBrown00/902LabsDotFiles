@@ -15,6 +15,7 @@
 	# COMMITS
 	ca = commit --amend
 	cm = commit -am
+	cmn = commit -amn
 	ci = commit -a -v
 
 	# CHECKOUTS
@@ -48,16 +49,14 @@
 	tg = tag -a
 
 	p = push
-	pu = push --tags
+	pt = push --tags
 	pf = push -f
-	po = push origin
 	pm = push master
-	pt = push team
-	ptf = push team -f
-	pbase = "!f() { git push --force team $2:refs/head/$1; }; f"
 
+	po = push origin
 	pof = push -f origin
 
+	pu = push upstream
 	pum = push upstream master
 	pom = push origin master
 	pomf = push -f origin master
@@ -67,14 +66,13 @@
 	un = reset --hard
 	unum = reset --hard upstream/master
 	unun = reset --hard upstream/next
-	untm = reset --hard team/master
 
 	last = log -1 HEAD
 	undo = checkout HEAD --
 	unstage = reset HEAD --
 
 	fu = fetch upstream
-	ft = fetch team
+	fo = fetch origin
 
 	sl = stash list
 	sp = stash pop
