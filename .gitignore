@@ -1,7 +1,8 @@
+!vim/bundle
 .DS_Store
 .vim/tmp
+neovim/plugged/
+vim/.netrwhist
 vim/tmp
 vim/view
-!vim/bundle
-vim/.netrwhist
 zsh/cache

@@ -55,6 +55,7 @@ packages/*
 .env
 .nvmrc
 .vimrc
+.vimrc_proj
 *.iml
 .agignore
 .vimrc_proj
