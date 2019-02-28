@@ -1,4 +1,3 @@
-!vim/bundle
 .DS_Store
 .vim/tmp
 neovim/plugged/
@@ -6,3 +5,4 @@ vim/.netrwhist
 vim/tmp
 vim/view
 zsh/cache
+vim/bundle

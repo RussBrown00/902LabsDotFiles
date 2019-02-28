@@ -5,12 +5,23 @@
 " If we start up vim with --noplugins then we get faster startup, but some of
 " the commands in this file might error if the plugins aren't loaded.
 
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+
+call deoplete#custom#option({
+  \ 'smart_case': v:true,
+  \ 'profile': v:true,
+  \ })
+
+call deoplete#custom#source(
+  \ 'file', 'enable_buffer_path', v:true)
+
 " JSHint 2
 set runtimepath+=~/.vim/bundle/jshint2
 
 " Polyglot
 " let g:polyglot_disabled = ['ts']
-let g:typescript_compiler_options = '--jsx'
+let g:typescript_compiler_options='--jsx'
 
 " vim-jsx-typescript
 " set filetypes as typescript.tsx
@@ -48,7 +59,7 @@ let g:tcommentMapLeaderOp1 = ""
 let g:tcommentMapLeaderOp2 = ""
 
 " Create the only ones that matters
-noremap <silent> <Leader>c :TComment<cr>
+noremap <Leader>cc :TComment<cr>
 
 " vim-json settings
 let g:vim_json_syntax_conceal = 0
@@ -109,11 +120,6 @@ let g:ctrlp_cache_dir = $HOME . '/.vim/tmp/ctrp_cache'
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
   let g:ctrlp_user_command = 'ag %s -loc --nocolor -g ""'
-endif
-
-" Add support for ripgrep/fzf
-if executable('fzf') && executable('rg')
-	command! -bang -nargs=* Rg call fzf#vim#grep('rg --glob "!.git/*" --column --line-number --no-heading --fixed-strings --smart-case --hidden --follow  --color "always" '.shellescape(<q-args>), 1, <bang>0)
 endif
 
 " Supertab settings

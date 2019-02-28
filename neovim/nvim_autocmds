@@ -57,6 +57,10 @@ if has("autocmd")
   autocmd BufWinLeave * call clearmatches()
 
   autocmd BufNewFile,BufRead *.md setlocal spell
+
+  autocmd BufNewFile,BufRead nvim_* set filetype=vim
+  autocmd BufNewFile,BufRead nvimrc* set filetype=vim
+  autocmd BufNewFile,BufRead vimrc* set filetype=vim
   autocmd BufNewFile,BufRead *.elm set filetype=elm
   autocmd BufNewFile,BufRead *.purs set filetype=purescript
   autocmd BufNewFile,BufRead *.cr set filetype=crystal

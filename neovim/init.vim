@@ -12,9 +12,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'godlygeek/tabular'
   Plug 'ervandew/supertab'
   Plug 'scrooloose/syntastic'
-  Plug 'rking/ag.vim'
-  " Plug 'kien/ctrlp.vim'
-  " Plug 'tpope/vim-fugi'
+  Plug '/usr/local/opt/fzf'
+  Plug 'junegunn/fzf.vim'
+
 
   " Multiline editing
   Plug 'coderifous/textobj-word-column.vim'
@@ -30,6 +30,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'moll/vim-node'
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
+
 
   " Auto complete
   "Plug 'Valloric/YouCompleteMe'
@@ -47,8 +48,4 @@ source $HOME/.config/nvim/nvim_autocmds
 
 if filereadable(".vimrc_proj")
     so .vimrc_proj
-endif
-
-if filereadable("/usr/local/opt/fzf/README.md")
-	set rtp+=/usr/local/opt/fzf
 endif
