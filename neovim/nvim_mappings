@@ -94,3 +94,9 @@ map <c-n> :NERDTreeToggle<CR>
 map <c-o> :ZoomWin<CR>
 
 nnoremap <silent> <C-p> :FZF<CR>
+
+noremap <Leader><tab> :NERDTreeToggle<cr>
+
+" tComment
+map <silent> <Leader>cc :TComment<cr>
+map <silent> <Leader>c<Space> :TComment<cr>

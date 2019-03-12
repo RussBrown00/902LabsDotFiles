@@ -30,6 +30,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'moll/vim-node'
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
+  Plug 'jshint/jshint'
 
 
   " Auto complete
@@ -46,6 +47,4 @@ source $HOME/.config/nvim/nvim_commands
 source $HOME/.config/nvim/nvim_mappings
 source $HOME/.config/nvim/nvim_autocmds
 
-if filereadable(".vimrc_proj")
-    so .vimrc_proj
-endif
+set exrc
