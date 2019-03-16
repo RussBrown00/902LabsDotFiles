@@ -17,9 +17,9 @@ set smartindent
 set noexpandtab
 set copyindent
 set preserveindent
-set softtabstop=4
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=3
+set softtabstop=3
+set tabstop=3
 
 set list
 set listchars=eol:¬,tab:▸\ ,trail:·,extends:>,precedes:·,nbsp:·
@@ -62,8 +62,10 @@ set backup
 syntax enable
 
 set t_Co=256  " make use of 256 terminal colors
-let g:solarized_termcolors=256
+set termguicolors
 
+" let g:gruvbox_italic=1
+set bg=dark
 colorscheme distinguished
 
 " random settings

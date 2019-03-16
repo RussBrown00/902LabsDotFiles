@@ -26,4 +26,4 @@ bundle  "lightline",                :git  =>  "https://github.com/itchyny/lightl
 bundle  "vim-ag",                   :git  =>  "https://github.com/rking/ag.vim.git"
 bundle  "zoomwin",                  :git  =>  "https://github.com/drn/zoomwin-vim.git"
 bundle  "vim-js-pretty-template",   :git  =>  "https://github.com/Quramy/vim-js-pretty-template.git"
-bundle  "tsuquyomi",                :git  =>  "https://github.com/Quramy/tsuquyomi.git"
+bundle  "tsuquyomi",                :git  =>  "https://github.com:/Quramy/tsuquyomi.git"

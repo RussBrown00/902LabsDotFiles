@@ -5,22 +5,9 @@
 " If we start up vim with --noplugins then we get faster startup, but some of
 " the commands in this file might error if the plugins aren't loaded.
 
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-
-call deoplete#custom#option({
-  \ 'smart_case': v:true,
-  \ 'profile': v:true,
-  \ })
-
-call deoplete#custom#source(
-  \ 'file', 'enable_buffer_path', v:true)
-
-" JSHint 2
-set runtimepath+=~/.vim/bundle/jshint2
 
 " Polyglot
-" let g:polyglot_disabled = ['ts']
+let g:polyglot_disabled = ['ts', 'typescript']
 let g:typescript_compiler_options='--jsx'
 
 " vim-jsx-typescript

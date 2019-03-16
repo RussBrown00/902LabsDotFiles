@@ -94,7 +94,7 @@
 [http]
 	sslverify = false
 [push]
-	default = simple
+	default = current
 [merge]
 	tool = bc3
 [mergetool]

@@ -83,4 +83,5 @@ if has("autocmd")
   autocmd FileType js              setlocal smartindent   " enable the smartindenting (si) feature for the following files
   autocmd FileType txt             setlocal fo+=tn
 
+  autocmd FileType javascript nmap <buffer> gf <Plug>(enhanced-resolver-go-cursor)
 end

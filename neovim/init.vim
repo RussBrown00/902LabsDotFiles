@@ -1,5 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
   " Look and Feel
+  " Plug 'morhetz/gruvbox'
+  Plug 'larsbs/vimterial_dark'
   Plug 'airblade/vim-gitgutter'
   Plug 'itchyny/lightline.vim'
 
@@ -14,6 +16,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'scrooloose/syntastic'
   Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf.vim'
+  Plug 'davidosomething/vim-enhanced-resolver', { 'do': 'npm install --global enhanced-resolve-cli' }
 
 
   " Multiline editing
@@ -30,12 +33,12 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'moll/vim-node'
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
-  Plug 'jshint/jshint'
+  " Plug 'jshint/jshint'
 
 
   " Auto complete
-  "Plug 'Valloric/YouCompleteMe'
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Valloric/YouCompleteMe'
+  " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'tpope/vim-endwise'
 call plug#end()
 
