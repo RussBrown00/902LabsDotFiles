@@ -89,6 +89,12 @@ function vimclean() {
 	find ~/.vim/view -type f -name "*" | tail -n +2 | xargs rm;
 }
 
+function nvimclean() {
+	find ~/.tmp/neovim/undo -name "*" | tail -n +2 | xargs rm -Rf;
+	find ~/.tmp/neovim/backup -name "*" | tail -n +2 | xargs rm -Rf;
+	find ~/.tmp/neovim/swap -name "*" | tail -n +2 | xargs rm -Rf;
+}
+
 # OSX Specific Functions
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	function alert {
