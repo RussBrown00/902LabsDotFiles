@@ -1,4 +1,3 @@
-set exrc
 set secure
 
 " Use Vim settings, rather than Vi settings (much better!).

@@ -7,8 +7,7 @@
 
 
 " Polyglot
-let g:polyglot_disabled = ['ts', 'typescript']
-let g:typescript_compiler_options='--jsx'
+" let g:polyglot_disabled = ['ts', 'typescript']
 
 " vim-jsx-typescript
 " set filetypes as typescript.tsx

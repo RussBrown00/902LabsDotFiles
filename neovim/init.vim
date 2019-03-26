@@ -50,4 +50,5 @@ source $HOME/.config/nvim/nvim_commands
 source $HOME/.config/nvim/nvim_mappings
 source $HOME/.config/nvim/nvim_autocmds
 
+" Load local .vimrc file
 set exrc

@@ -17,6 +17,7 @@
 	cm = commit -am
 	cmn = commit -amn
 	ci = commit -a -v
+	can = commit -v -a --no-edit --amend
 
 	# CHECKOUTS
 	co = checkout
