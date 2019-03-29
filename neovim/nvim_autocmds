@@ -75,23 +75,23 @@ if has("autocmd")
   	  autocmd BufWritePre *.hs %!import-sort
   	  autocmd BufWritePost *.hs call RestoreInsert()
 
-  	  autocmd FileType ruby            setlocal shiftwidth=2 tabstop=2 softtabstop=2
-  	  autocmd FileType coffee          setlocal shiftwidth=2 tabstop=2 softtabstop=2
-  	  autocmd FileType c,h,js          setlocal mps+==:;
-  	  autocmd FileType c,h             setlocal cindent
-  	  autocmd FileType txt             setlocal fo+=tn
+  	  autocmd FileType ruby,coffee                    setlocal shiftwidth=2 tabstop=2 softtabstop=2
+  	  autocmd FileType coffee                         setlocal shiftwidth=2 tabstop=2 softtabstop=2
+  	  autocmd FileType c,h,js                         setlocal mps+==:;
+  	  autocmd FileType c,h                            setlocal cindent
+  	  autocmd FileType txt                            setlocal fo+=tn
 
-  	  autocmd FileType javascript      setlocal shiftwidth=3 tabstop=3 softtabstop=3
-  	  autocmd FileType javascript      setlocal smartindent
-  	  autocmd FileType javascript      setlocal smartindent
+  	  autocmd FileType javascript                     setlocal shiftwidth=3 tabstop=3 softtabstop=3
+  	  autocmd FileType javascript                     setlocal smartindent
+  	  autocmd FileType javascript                     setlocal smartindent
 
-  	  autocmd FileType typescript      setlocal shiftwidth=2 tabstop=2 softtabstop=2
-  	  autocmd FileType typescript      setlocal expandtab
-  	  autocmd FileType typescript      setlocal nosmarttab
+  	  autocmd FileType typescript,typescript.tsx      setlocal shiftwidth=2 tabstop=2 softtabstop=2
+  	  autocmd FileType typescript,typescript.tsx      setlocal expandtab
+  	  autocmd FileType typescript,typescript.tsx      setlocal nosmarttab
 
-  	  autocmd FileType yaml            setlocal shiftwidth=2 tabstop=2 softtabstop=2
-  	  autocmd FileType yaml            setlocal expandtab
-  	  autocmd FileType yaml            setlocal nosmarttab
+  	  autocmd FileType yaml                           setlocal shiftwidth=2 tabstop=2 softtabstop=2
+  	  autocmd FileType yaml                           setlocal expandtab
+  	  autocmd FileType yaml                           setlocal nosmarttab
 
   	  autocmd FileType javascript nmap <buffer> gf <Plug>(enhanced-resolver-go-cursor)
   augroup END
