@@ -70,6 +70,8 @@ if has("autocmd")
   	  autocmd bufnewfile,bufread *.rabl       setlocal filetype=ruby
   	  autocmd bufnewfile,bufread *.coffee.erb setlocal filetype=coffee
   	  autocmd BufRead,BufNewFile *.es6        setlocal filetype=javascript
+  	  autocmd BufRead,BufNewFile *.js         setlocal filetype=javascript
+  	  autocmd BufRead,BufNewFile *.jsx        setlocal filetype=javascript.jsx
 
   	  autocmd BufWritePre *.hs normal! mZ
   	  autocmd BufWritePre *.hs %!import-sort
