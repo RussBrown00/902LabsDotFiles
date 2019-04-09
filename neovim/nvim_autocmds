@@ -91,9 +91,9 @@ if has("autocmd")
   	  autocmd FileType typescript,typescript.tsx      setlocal expandtab
   	  autocmd FileType typescript,typescript.tsx      setlocal nosmarttab
 
-  	  autocmd FileType yaml                           setlocal shiftwidth=2 tabstop=2 softtabstop=2
-  	  autocmd FileType yaml                           setlocal expandtab
-  	  autocmd FileType yaml                           setlocal nosmarttab
+  	  autocmd FileType yaml,json                      setlocal shiftwidth=2 tabstop=2 softtabstop=2
+  	  autocmd FileType yaml,json                      setlocal expandtab
+  	  autocmd FileType yaml,json                      setlocal nosmarttab
 
   	  autocmd FileType javascript nmap <buffer> gf <Plug>(enhanced-resolver-go-cursor)
   augroup END
