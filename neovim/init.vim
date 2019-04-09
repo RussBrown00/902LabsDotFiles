@@ -37,9 +37,10 @@ call plug#begin('~/.config/nvim/plugged')
 
 
   " Auto complete
-  Plug 'Valloric/YouCompleteMe'
+  " Plug 'Valloric/YouCompleteMe'
   " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'tpope/vim-endwise'
+  " Plug 'tpope/vim-endwise'
+  Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 call plug#end()
 
 
