@@ -100,3 +100,22 @@ noremap <Leader><tab> :NERDTreeToggle<cr>
 " tComment
 map <silent> <Leader>cc :TComment<cr>
 map <silent> <Leader>c<Space> :TComment<cr>
+
+" vim-multiple-cursors
+let g:multi_cursor_use_default_mapping=0
+
+" Default map
+let g:multi_cursor_start_word_key      = '<C-q>'
+let g:multi_cursor_select_all_word_key = '<A-q>'
+let g:multi_cursor_start_key           = 'g<C-q>'
+let g:multi_cursor_select_all_key      = 'g<A-q>'
+let g:multi_cursor_next_key            = '<C-n>'
+let g:multi_cursor_prev_key            = '<C-p>'
+let g:multi_cursor_skip_key            = '<C-x>'
+let g:multi_cursor_quit_key            = '<Esc>'
+let g:multi_cursor_start_key           = 'g<C-m>'
+let g:multi_cursor_select_all_key      = 'g<A-m>'
+let g:multi_cursor_next_key            = '<C-n>'
+let g:multi_cursor_prev_key            = '<C-p>'
+let g:multi_cursor_skip_key            = '<C-x>'
+let g:multi_cursor_quit_key            = '<Esc>'

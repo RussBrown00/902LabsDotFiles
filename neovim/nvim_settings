@@ -118,3 +118,6 @@ endif
 " Hightlight console.log statements
 " highlight ConsoleLogStmnt cterm=bold term=bold ctermbg=13 ctermfg=236
 " match ConsoleLogStmnt /console\.log/
+
+" Make the background transparent
+hi Normal guibg=NONE ctermbg=NONE
