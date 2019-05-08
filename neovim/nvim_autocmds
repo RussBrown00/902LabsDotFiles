@@ -83,9 +83,9 @@ if has("autocmd")
   	  autocmd FileType c,h                            setlocal cindent
   	  autocmd FileType txt                            setlocal fo+=tn
 
-  	  autocmd FileType javascript                     setlocal shiftwidth=3 tabstop=3 softtabstop=3
-  	  autocmd FileType javascript                     setlocal smartindent
-  	  autocmd FileType javascript                     setlocal smartindent
+  	  autocmd FileType javascript,javascript.jsx      setlocal shiftwidth=3 tabstop=3 softtabstop=3
+  	  autocmd FileType javascript,javascript.jsx      setlocal smartindent
+  	  autocmd FileType javascript,javascript.jsx      setlocal noexpandtab
 
   	  autocmd FileType typescript,typescript.tsx      setlocal shiftwidth=2 tabstop=2 softtabstop=2
   	  autocmd FileType typescript,typescript.tsx      setlocal expandtab

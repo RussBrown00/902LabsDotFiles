@@ -20,7 +20,6 @@ call plug#begin('~/.config/nvim/plugged')
 
 
   " Multiline editing
-  " Plug 'coderifous/textobj-word-column.vim'
   Plug 'terryma/vim-multiple-cursors'
 
 
@@ -35,13 +34,13 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'moll/vim-node'
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
-  " Plug 'jshint/jshint'
+  Plug 'w0rp/ale'
 
   " post install (yarn install | npm install) then load plugin only for editing supported files
   Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
-	" Sortinh
-	Plug 'JPricey/vim-order-css'
+  " Sortinh
+  Plug 'JPricey/vim-order-css'
 
 
   " Auto complete
