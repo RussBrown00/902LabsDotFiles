@@ -120,4 +120,4 @@ endif
 " match ConsoleLogStmnt /console\.log/
 
 " Make the background transparent
-hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE

@@ -1,27 +1,20 @@
 call plug#begin('~/.config/nvim/plugged')
   " Look and Feel
-  " Plug 'morhetz/gruvbox'
   Plug 'larsbs/vimterial_dark'
   Plug 'airblade/vim-gitgutter'
   Plug 'itchyny/lightline.vim'
 
-
   " Functionality
-  Plug 'tpope/vim-pathogen'
   Plug 'tpope/vim-git'
-  Plug 'tsaleh/vim-align'
   Plug 'scrooloose/nerdtree'
   Plug 'godlygeek/tabular'
-  Plug 'ervandew/supertab'
-  Plug 'scrooloose/syntastic'
   Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf.vim'
   Plug 'davidosomething/vim-enhanced-resolver', { 'do': 'npm install --global enhanced-resolve-cli' }
-
+  Plug 'w0rp/ale'
 
   " Multiline editing
   Plug 'terryma/vim-multiple-cursors'
-
 
   " Language / formating
   Plug 'sheerun/vim-polyglot'
@@ -31,10 +24,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'kana/vim-textobj-user'
   Plug 'sjl/gundo.vim'
   Plug 'danro/rename.vim'
-  Plug 'moll/vim-node'
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
-  Plug 'w0rp/ale'
 
   " post install (yarn install | npm install) then load plugin only for editing supported files
   Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
@@ -42,12 +33,7 @@ call plug#begin('~/.config/nvim/plugged')
   " Sortinh
   Plug 'JPricey/vim-order-css'
 
-
-  " Auto complete
-  " Plug 'Valloric/YouCompleteMe'
-  " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  " Plug 'tpope/vim-endwise'
-  Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+  Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
 call plug#end()
 
 
