@@ -40,6 +40,6 @@ function! DoWindowSwap()
 endfunction
 
 " Mark Window
-nmap <silent> <leader>wm :call MarkWindowSwap()<CR>
+nnoremap <silent> <leader>wm :call MarkWindowSwap()<CR>
 " Swap Window
-nmap <silent> <leader>ws :call DoWindowSwap()<CR>
+nnoremap <silent> <leader>ws :call DoWindowSwap()<CR>
