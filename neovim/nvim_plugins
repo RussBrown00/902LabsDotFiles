@@ -7,7 +7,7 @@
 
 
 " Polyglot
-" let g:polyglot_disabled = ['ts', 'typescript']
+let g:polyglot_disabled = ['markdown']
 
 " vim-jsx-typescript
 " set filetypes as typescript.tsx
@@ -106,8 +106,6 @@ endfunction
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
-
-nnoremap <leader>F :Prettier<cr>
 
 let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 let g:ale_sign_warning = '.'
