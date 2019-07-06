@@ -29,7 +29,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'gabrielelana/vim-markdown'
 
   " post install (yarn install | npm install) then load plugin only for editing supported files
-  Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'tsx', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
   " Sortinh
   Plug 'JPricey/vim-order-css'
@@ -37,13 +37,14 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
 call plug#end()
 
-
+" Further configuration settings
 source $HOME/.config/nvim/nvim_settings
 source $HOME/.config/nvim/nvim_plugins
-source $HOME/.config/nvim/nvim_mappings
 source $HOME/.config/nvim/nvim_autocmds
+
+" Functions and mappings
 source $HOME/.config/nvim/nvim_functions
-source $HOME/.config/nvim/nvim_commands
+source $HOME/.config/nvim/nvim_mappings
 
 " Load local .vimrc file
 set exrc

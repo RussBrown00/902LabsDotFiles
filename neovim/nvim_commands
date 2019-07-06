@@ -1,8 +1,0 @@
-" Commands
-" ------------------------------------------------------------
-
-" pretty format an xml snippet
-command! Tidy -range=% :<line1>,<line2>!tidy -xml -i -q -w 0<CR>
-
-" Run prettier command sometimes this mapping disapears?????
-map <Leader>F :Prettier<CR>

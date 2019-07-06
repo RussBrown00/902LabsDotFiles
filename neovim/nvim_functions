@@ -20,6 +20,12 @@ function! IgnoreWhiteSpace()
   autocmd! whitespace
 endfunction
 
+function ClearSearchHistory()
+	:call histdel('/')
+endfunction
+
+nnoremap <silent> <leader>/ :call ClearSearchHistory()<CR>
+
 function! MarkWindowSwap()
     let g:markedWinNum = winnr()
 endfunction
@@ -41,5 +47,6 @@ endfunction
 
 " Mark Window
 nnoremap <silent> <leader>mw :call MarkWindowSwap()<CR>
+
 " Swap Window
 nnoremap <silent> <leader>ms :call DoWindowSwap()<CR>

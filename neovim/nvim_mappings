@@ -1,4 +1,6 @@
-" remap leader key
+" shouldn't need to shift for colon
+nnoremap ; :" remap leader key
+
 let mapleader = ","
 " hit jj to escape instead of moving your hand
 inoremap jj <esc>
@@ -6,44 +8,15 @@ inoremap jj <esc>
 " searching and movement ====================================================
 
 " sane regex
-nnoremap / /\v
-vnoremap / /\v
-nnoremap <leader><space> :noh<cr>
+"nnoremap / /\v
+"vnoremap / /\v
 
-nnoremap <tab> %
-vnoremap <tab> %
+"nnoremap <tab> %
+"vnoremap <tab> %
 
 " move by screen line instead of file line
 nnoremap j gj
 nnoremap k gk
-
-" shouldn't need to shift for colon
-nnoremap ; :
-
-" Alignment Shortcuts
-vnoremap <Leader>a :Align
-vnoremap <Leader>ah :Align =><cr>
-vnoremap <Leader>ae :Align =<cr>
-
-function! s:align_columns() range
-  " execute a:firstline . ',' . a:lastline '!column -t'
-  '<,'>!column -t
-  '<,'>s/  \([^ ]\)/ \1/g
-  nohls
-  normal gv=
-  redraw " gets rid of: Press Enter to continue
-endfunction
-
-vnoremap <silent> <Leader>ac :call <SID>align_columns()<cr>
-
-function! s:sort_rows() range
-  '<,'>!sort
-  nohls
-  normal gv=
-  redraw " gets rid of: Press Enter to continue
-endfunction
-
-vnoremap <silent> <Leader>sr :call <SID>sort_rows()<cr>
 
 " remap f1 to escape to stop hitting help by accident
 inoremap <f1> <esc>
@@ -85,13 +58,12 @@ nnoremap <leader>n :tabnew<enter>
 " so that you can undo ctrl-u after inserting a line break.
 inoremap <c-u> <c-g>u<c-u>
 
-nmap <silent> ,/ :nohlsearch<CR>
+"nmap <silent> ,/ :nohlsearch<CR>
 
 map <c-h> :tabprevious<CR>
 map <c-l> :tabnext<CR>
 
 map <c-n> :NERDTreeToggle<CR>
-map <c-o> :ZoomWin<CR>
 
 nnoremap <silent> <C-p> :FZF<CR>
 
@@ -104,7 +76,7 @@ map <silent> <Leader>c<Space> :TComment<cr>
 " vim-multiple-cursors
 let g:multi_cursor_use_default_mapping=0
 
-" Default map
+" Multiple Cursor Mappings
 let g:multi_cursor_start_word_key      = '<C-q>'
 let g:multi_cursor_select_all_word_key = '<A-q>'
 let g:multi_cursor_start_key           = 'g<C-q>'
@@ -119,3 +91,8 @@ let g:multi_cursor_next_key            = '<C-n>'
 let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
+
+" Run prettier command sometimes this mapping disapears?????
+map <Leader>F :Prettier<CR>
+
+nnoremap <leader><space> :noh<CR><CR>:<backspace>
