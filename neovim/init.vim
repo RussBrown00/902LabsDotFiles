@@ -1,6 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
   " Look and Feel
-  Plug 'larsbs/vimterial_dark'
+  Plug 'ayu-theme/ayu-vim'
   Plug 'airblade/vim-gitgutter'
   Plug 'itchyny/lightline.vim'
 
@@ -27,6 +27,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
   Plug 'gabrielelana/vim-markdown'
+  Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
   " post install (yarn install | npm install) then load plugin only for editing supported files
   Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'tsx', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }

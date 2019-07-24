@@ -20,7 +20,7 @@ function! IgnoreWhiteSpace()
   autocmd! whitespace
 endfunction
 
-function ClearSearchHistory()
+function! ClearSearchHistory()
 	:call histdel('/')
 endfunction
 
