@@ -4,25 +4,16 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'itchyny/lightline.vim'
 
-  " Functionality
-  Plug 'tpope/vim-git'
-  Plug 'scrooloose/nerdtree'
-  Plug 'godlygeek/tabular'
-  Plug '/usr/local/opt/fzf'
-  Plug 'junegunn/fzf.vim'
-  Plug 'davidosomething/vim-enhanced-resolver', { 'do': 'npm install --global enhanced-resolve-cli' }
-  Plug 'w0rp/ale'
-
   " Multiline editing
   Plug 'terryma/vim-multiple-cursors'
 
   " Language / formating
   Plug 'sheerun/vim-polyglot'
   Plug 'peitalin/vim-jsx-typescript'
-  Plug 'jparise/vim-graphql'
+  " Plug 'jparise/vim-graphql'
   Plug 'vim-scripts/tComment'
-  Plug 'kana/vim-textobj-user'
-  Plug 'sjl/gundo.vim'
+  "Plug 'kana/vim-textobj-user'
+  " Plug 'sjl/gundo.vim'
   Plug 'danro/rename.vim'
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
@@ -32,10 +23,20 @@ call plug#begin('~/.config/nvim/plugged')
   " post install (yarn install | npm install) then load plugin only for editing supported files
   Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'tsx', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
-  " Sortinh
-  Plug 'JPricey/vim-order-css'
+  " Sorting
+  " vim-order needs python support which isn't working for some reason locally
+  " Plug 'JPricey/vim-order-css'
 
-  Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
+  " Functionality
+  Plug 'tpope/vim-git'
+  Plug 'scrooloose/nerdtree'
+  Plug 'godlygeek/tabular'
+  Plug '/usr/local/opt/fzf'
+  Plug 'junegunn/fzf.vim'
+  Plug 'davidosomething/vim-enhanced-resolver', { 'do': 'npm install --global enhanced-resolve-cli' }
+  " Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+  Plug 'ervandew/supertab'
+  Plug 'w0rp/ale'
 call plug#end()
 
 " Further configuration settings
