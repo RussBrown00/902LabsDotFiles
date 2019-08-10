@@ -96,5 +96,7 @@ if has("autocmd")
   	  autocmd FileType yaml,json                      setlocal nosmarttab
 
   	  autocmd FileType javascript nmap <buffer> gf <Plug>(enhanced-resolver-go-cursor)
+
+  	  autocmd BufWritePre,InsertLeave *.js,*.jsx,*.ts,*.tsx,*.json,*.gql,*.yaml Neoformat prettier
   augroup END
 end

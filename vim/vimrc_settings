@@ -87,6 +87,12 @@ set laststatus=2
 " set relativenumber
 set number
 
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" always show signcolumns
+set signcolumn=yes
+
 " Get rid of save confirmation message
 set shortmess=aWAT
 set cmdheight=2

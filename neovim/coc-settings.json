@@ -1,0 +1,5 @@
+{
+  "tsserver.enableJavascript": false,
+  "coc.preferences.formatOnType": false,
+  "coc.preferences.formatOnSaveFiletypes": []
+}

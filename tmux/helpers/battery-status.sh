@@ -12,8 +12,8 @@ POWER=$(pmset -g batt | grep [0-9]* | awk 'match($0, /true$/) {
     print substr($0, RSTART, RLENGTH)
 }')
 
-if [ -z "$POWER" ]; then
-	echo "♥ $PCT, $LEFT remaining "
-else
+if [ "$LEFT" == "0:00" ]; then
 	echo "♥ $PCT "
+else
+	echo "♥ $PCT, $LEFT Remaining "
 fi

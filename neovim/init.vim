@@ -8,12 +8,11 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'terryma/vim-multiple-cursors'
 
   " Language / formating
+  Plug 'sbdchd/neoformat'
   Plug 'sheerun/vim-polyglot'
   Plug 'peitalin/vim-jsx-typescript'
-  " Plug 'jparise/vim-graphql'
+  Plug 'jparise/vim-graphql'
   Plug 'vim-scripts/tComment'
-  "Plug 'kana/vim-textobj-user'
-  " Plug 'sjl/gundo.vim'
   Plug 'danro/rename.vim'
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
@@ -34,8 +33,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf.vim'
   Plug 'davidosomething/vim-enhanced-resolver', { 'do': 'npm install --global enhanced-resolve-cli' }
-  " Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
-  Plug 'ervandew/supertab'
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'w0rp/ale'
 call plug#end()
 
