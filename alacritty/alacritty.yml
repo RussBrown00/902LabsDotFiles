@@ -34,8 +34,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 0
-    y: 0
+    x: 1
+    y: 1
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
@@ -52,7 +52,7 @@ window:
   decorations: none
 
   # When true, alacritty starts maximized.
-  start_maximized: false
+  startup_mode: Maximized
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -134,11 +134,12 @@ font:
   # effect.
   use_thin_strokes: true
 
-# Display the time it takes to redraw each frame.
-render_timer: false
+debug:
+  # Display the time it takes to redraw each frame.
+  render_timer: false
+  # Keep the log file after quitting Alacritty.
+  persistent_logging: false
 
-# Keep the log file after quitting Alacritty.
-persistent_logging: false
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
@@ -162,9 +163,9 @@ colors:
   #
   # Colors which should be used to draw the terminal cursor. If these are unset,
   # the cursor color will be the inverse of the cell color.
-  cursor:
-    text: '0x000000'
-    cursor: '0xffffff'
+  # cursor:
+  #   text: '0x000000'
+  #   cursor: '0xffffff'
 
   # Selection colors
   #

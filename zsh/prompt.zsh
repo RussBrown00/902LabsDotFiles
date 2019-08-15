@@ -27,5 +27,6 @@ function dir_prompt_info {
 	echo ${PWD/#$HOME/~} | awk -F/ '{print $NF}'
 }
 
-PROMPT='$HOST:$(dir_prompt_info)${PR_BOLD_WHITE}>%{${reset_color}%} '
+PROMPT='⚡︎:$(dir_prompt_info)${PR_BOLD_WHITE}>%{${reset_color}%} '
+# PROMPT='$(hostname):$(dir_prompt_info)${PR_BOLD_WHITE}>%{${reset_color}%} '
 # PROMPT='$(dir_prompt_info) $(git_prompt_info)${PR_BOLD_WHITE}>%{${reset_color}%} '

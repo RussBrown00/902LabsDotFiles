@@ -13,7 +13,7 @@ POWER=$(pmset -g batt | grep [0-9]* | awk 'match($0, /true$/) {
 }')
 
 if [ "$LEFT" == "0:00" ]; then
-	echo "♥ $PCT "
+	echo "⚡︎ $PCT "
 else
-	echo "♥ $PCT, $LEFT Remaining "
+	echo "⚡︎ $PCT, $LEFT Remaining "
 fi
