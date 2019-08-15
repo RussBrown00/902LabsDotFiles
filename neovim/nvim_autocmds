@@ -87,9 +87,9 @@ if has("autocmd")
   	  autocmd FileType javascript,javascript.jsx      setlocal smartindent
   	  autocmd FileType javascript,javascript.jsx      setlocal noexpandtab
 
-  	  autocmd FileType typescript,typescript.tsx      setlocal shiftwidth=2 tabstop=2 softtabstop=2
-  	  autocmd FileType typescript,typescript.tsx      setlocal expandtab
-  	  autocmd FileType typescript,typescript.tsx      setlocal nosmarttab
+  	  autocmd FileType typescript,typescript.tsx,zsh  setlocal shiftwidth=2 tabstop=2 softtabstop=2
+  	  autocmd FileType typescript,typescript.tsx,zsh  setlocal expandtab
+  	  autocmd FileType typescript,typescript.tsx,zsh  setlocal nosmarttab
 
   	  autocmd FileType yaml,json                      setlocal shiftwidth=2 tabstop=2 softtabstop=2
   	  autocmd FileType yaml,json                      setlocal expandtab
