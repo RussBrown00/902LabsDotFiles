@@ -124,3 +124,5 @@ endif
 
 " Make the background transparent
 " hi Normal guibg=NONE ctermbg=NONE
+"
+let g:LanguageClient_useVirtualText = 0

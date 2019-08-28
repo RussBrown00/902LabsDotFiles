@@ -1,18 +1,24 @@
 #!/bin/bash
 
-PCT=$(pmset -g batt | grep [0-9]* | awk 'match($0, /[0-9]*\%/) {
+STATE=$(pmset -g batt);
+
+PCT=$(echo $STATE | grep [0-9]* | awk 'match($0, /[0-9]*\%/) {
     print substr($0, RSTART, RLENGTH)
 }')
 
-LEFT=$(pmset -g batt | grep [0-9]* | awk 'match($0, /[0-9]*\:[0-9]*/) {
+LEFT=$(echo $STATE | grep [0-9]* | awk 'match($0, /[0-9]*\:[0-9]*/) {
     print substr($0, RSTART, RLENGTH)
 }')
 
-POWER=$(pmset -g batt | grep [0-9]* | awk 'match($0, /true$/) {
+NOESTIMATE=$(echo $STATE | grep [0-9]* | awk 'match($0, /no estimate/) {
     print substr($0, RSTART, RLENGTH)
 }')
 
-if [ "$LEFT" == "0:00" ]; then
+POWER=$(echo $STATE | grep [0-9]* | awk 'match($0, /true$/) {
+    print substr($0, RSTART, RLENGTH)
+}')
+
+if [ "$LEFT" == "0:00" ] || [ -n "$NOESTIMATE" ]; then
 	echo "⚡︎ $PCT "
 else
 	echo "⚡︎ $PCT, $LEFT Remaining "
