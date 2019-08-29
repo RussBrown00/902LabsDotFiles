@@ -3,7 +3,7 @@
 
 augroup whitespace
   " before writing to any file, this function call will remove any extra white space at the end of a line
-  autocmd BufWritePre,FileWritePre * call RemoveWhiteSpace()
+  autocmd BufWritePre,FileWritePre * :%s/\s+$//e
 augroup end
 
 " Create directories on demand when saving files.

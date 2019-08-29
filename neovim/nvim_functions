@@ -8,18 +8,6 @@ function! ReplaceM()
     :%s/^M/\r/g
 endfunction
 
-" Removes superfluous white space from the end of a line
-function! RemoveWhiteSpace()
-    let save_cursor = getpos(".")
-    %s/\s*$//g
-    call setpos('.', save_cursor)
-endfunction
-
-function! IgnoreWhiteSpace()
-  set nolist
-  autocmd! whitespace
-endfunction
-
 function! ClearSearchHistory()
 	:call histdel('/')
 endfunction
