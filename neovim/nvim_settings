@@ -62,13 +62,12 @@ set t_Co=256  " make use of 256 terminal colors
 set termguicolors
 
 " color scheme
-set bg=dark
 colorscheme distinguished
+" colorscheme one
 
-" let ayucolor="light"  " for light version of theme
-" let ayucolor="mirage" " for mirage version of theme
-" let ayucolor="dark"   " for dark version of theme
-" colorscheme ayu
+"set bg=dark
+set background=dark " for the dark version
+" set background=light " for the light version
 
 " random settings
 set backspace=indent,eol,start

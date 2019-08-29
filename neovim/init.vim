@@ -3,6 +3,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'ayu-theme/ayu-vim'
   Plug 'airblade/vim-gitgutter'
   Plug 'itchyny/lightline.vim'
+  Plug 'rakr/vim-one'
 
   " Multiline editing
   Plug 'terryma/vim-multiple-cursors'
