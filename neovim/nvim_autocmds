@@ -38,65 +38,65 @@ endfunction
 if has("autocmd")
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
-  	  au!
+   au!
 
-  	  " When editing a file, always jump to the last known cursor position.
-  	  " Don't do it when the position is invalid or when inside an event handler
-  	  " (happens when dropping a file on gvim).
-  	  autocmd BufReadPost * call RestoreCursor()
+   " When editing a file, always jump to the last known cursor position.
+   " Don't do it when the position is invalid or when inside an event handler
+   " (happens when dropping a file on gvim).
+   autocmd BufReadPost * call RestoreCursor()
 
-  	  autocmd BufWinEnter,WinEnter * setlocal cursorline
-  	  autocmd BufWinLeave,WinLeave * setlocal nocursorline
+   autocmd BufWinEnter,WinEnter * setlocal cursorline
+   autocmd BufWinLeave,WinLeave * setlocal nocursorline
 
-  	  " autocmd BufWinEnter,WinEnter * setlocal colorcolumn=80
-  	  " autocmd BufWinLeave,WinLeave * setlocal colorcolumn=0
+   " autocmd BufWinEnter,WinEnter * setlocal colorcolumn=80
+   " autocmd BufWinLeave,WinLeave * setlocal colorcolumn=0
 
-  	  " autocmd BufWinEnter,WinEnter * setlocal cursorcolumn
-  	  " autocmd BufWinLeave,WinLeave * setlocal nocursorcolumn
+   " autocmd BufWinEnter,WinEnter * setlocal cursorcolumn
+   " autocmd BufWinLeave,WinLeave * setlocal nocursorcolumn
 
-  	  autocmd BufWinLeave * call clearmatches()
+   autocmd BufWinLeave * call clearmatches()
 
-  	  autocmd BufNewFile,BufRead *.md setlocal spell
+   autocmd BufNewFile,BufRead *.md setlocal spell
 
-  	  autocmd BufNewFile,BufRead nvim_*       set filetype=vim
-  	  autocmd BufNewFile,BufRead nvimrc*      set filetype=vim
-  	  autocmd BufNewFile,BufRead vimrc*       set filetype=vim
-  	  autocmd BufNewFile,BufRead *.elm        set filetype=elm
-  	  autocmd BufNewFile,BufRead *.purs       set filetype=purescript
-  	  autocmd BufNewFile,BufRead *.cr         set filetype=crystal
-  	  autocmd BufNewFile,BufRead *.ts         set filetype=typescript
-  	  autocmd BufNewFile,BufRead *.tsx        set filetype=typescript.tsx
-  	  autocmd BufNewFile,BufRead *.vue        set filetype=vue
-  	  autocmd bufnewfile,bufread *.rabl       setlocal filetype=ruby
-  	  autocmd bufnewfile,bufread *.coffee.erb setlocal filetype=coffee
-  	  autocmd BufRead,BufNewFile *.es6        setlocal filetype=javascript
-  	  autocmd BufRead,BufNewFile *.js         setlocal filetype=javascript
-  	  autocmd BufRead,BufNewFile *.jsx        setlocal filetype=javascript.jsx
+   autocmd BufNewFile,BufRead nvim_*       set filetype=vim
+   autocmd BufNewFile,BufRead nvimrc*      set filetype=vim
+   autocmd BufNewFile,BufRead vimrc*       set filetype=vim
+   autocmd BufNewFile,BufRead *.elm        set filetype=elm
+   autocmd BufNewFile,BufRead *.purs       set filetype=purescript
+   autocmd BufNewFile,BufRead *.cr         set filetype=crystal
+   autocmd BufNewFile,BufRead *.ts         set filetype=typescript
+   autocmd BufNewFile,BufRead *.tsx        set filetype=typescript.tsx
+   autocmd BufNewFile,BufRead *.vue        set filetype=vue
+   autocmd bufnewfile,bufread *.rabl       setlocal filetype=ruby
+   autocmd bufnewfile,bufread *.coffee.erb setlocal filetype=coffee
+   autocmd BufRead,BufNewFile *.es6        setlocal filetype=javascript
+   autocmd BufRead,BufNewFile *.js         setlocal filetype=javascript
+   autocmd BufRead,BufNewFile *.jsx        setlocal filetype=javascript.jsx
 
-  	  autocmd BufWritePre *.hs normal! mZ
-  	  autocmd BufWritePre *.hs %!import-sort
-  	  autocmd BufWritePost *.hs call RestoreInsert()
+   autocmd BufWritePre *.hs normal! mZ
+   autocmd BufWritePre *.hs %!import-sort
+   autocmd BufWritePost *.hs call RestoreInsert()
 
-  	  autocmd FileType ruby,coffee                    setlocal shiftwidth=2 tabstop=2 softtabstop=2
-  	  autocmd FileType coffee                         setlocal shiftwidth=2 tabstop=2 softtabstop=2
-  	  autocmd FileType c,h,js                         setlocal mps+==:;
-  	  autocmd FileType c,h                            setlocal cindent
-  	  autocmd FileType txt                            setlocal fo+=tn
+   autocmd FileType ruby,coffee                    setlocal shiftwidth=2 tabstop=2 softtabstop=2
+   autocmd FileType coffee                         setlocal shiftwidth=2 tabstop=2 softtabstop=2
+   autocmd FileType c,h,js                         setlocal mps+==:;
+   autocmd FileType c,h                            setlocal cindent
+   autocmd FileType txt                            setlocal fo+=tn
 
-  	  autocmd FileType javascript,javascript.jsx      setlocal shiftwidth=3 tabstop=3 softtabstop=3
-  	  autocmd FileType javascript,javascript.jsx      setlocal smartindent
-  	  autocmd FileType javascript,javascript.jsx      setlocal noexpandtab
+   autocmd FileType javascript,javascript.jsx      setlocal shiftwidth=3 tabstop=3 softtabstop=3
+   autocmd FileType javascript,javascript.jsx      setlocal smartindent
+   autocmd FileType javascript,javascript.jsx      setlocal noexpandtab
 
-  	  autocmd FileType typescript,typescript.tsx,zsh  setlocal shiftwidth=2 tabstop=2 softtabstop=2
-  	  autocmd FileType typescript,typescript.tsx,zsh  setlocal expandtab
-  	  autocmd FileType typescript,typescript.tsx,zsh  setlocal nosmarttab
+   autocmd FileType typescript,typescript.tsx,zsh  setlocal shiftwidth=2 tabstop=2 softtabstop=2
+   autocmd FileType typescript,typescript.tsx,zsh  setlocal expandtab
+   autocmd FileType typescript,typescript.tsx,zsh  setlocal nosmarttab
 
-  	  autocmd FileType yaml,json                      setlocal shiftwidth=2 tabstop=2 softtabstop=2
-  	  autocmd FileType yaml,json                      setlocal expandtab
-  	  autocmd FileType yaml,json                      setlocal nosmarttab
+   autocmd FileType yaml,json                      setlocal shiftwidth=2 tabstop=2 softtabstop=2
+   autocmd FileType yaml,json                      setlocal expandtab
+   autocmd FileType yaml,json                      setlocal nosmarttab
 
-  	  autocmd FileType javascript nmap <buffer> gf <Plug>(enhanced-resolver-go-cursor)
+   autocmd FileType javascript nmap <buffer> gf <Plug>(enhanced-resolver-go-cursor)
 
-  	  autocmd BufWritePre,InsertLeave *.js,*.jsx,*.ts,*.tsx,*.json,*.gql,*.yaml Neoformat prettier
+   autocmd BufWritePre,InsertLeave *.js,*.jsx,*.ts,*.tsx,*.json,*.gql,*.yaml Neoformat prettier
   augroup END
 end
