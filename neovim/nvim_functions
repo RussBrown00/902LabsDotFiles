@@ -38,3 +38,15 @@ nnoremap <silent> <leader>mw :call MarkWindowSwap()<CR>
 
 " Swap Window
 nnoremap <silent> <leader>ms :call DoWindowSwap()<CR>
+
+function DarkMode()
+  colorscheme distinguished
+  set background=dark
+  exec "!tmux source-file ~/.tmux/theme01.conf"
+endfunction
+
+function LightMode()
+  colorscheme one
+  set background=light
+  exec "!tmux source-file ~/.tmux/theme-bright.conf"
+endfunction

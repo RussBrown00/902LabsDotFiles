@@ -34,7 +34,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf.vim'
   Plug 'davidosomething/vim-enhanced-resolver', { 'do': 'npm install --global enhanced-resolve-cli' }
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'zxqfl/tabnine-vim'
   " Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'w0rp/ale'
 call plug#end()
