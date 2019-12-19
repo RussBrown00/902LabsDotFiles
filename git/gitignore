@@ -43,8 +43,8 @@ nb-configuration.xml
 *.sublime-workspace
 
 # Dart
-packages
-packages/*
+# packages
+# packages/*
 
 # Vagrant
 .vagrant
