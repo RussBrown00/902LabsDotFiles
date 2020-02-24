@@ -1,9 +1,14 @@
 #!/bin/bash
 
+BLUEUTILPATH=$(echo $(which blueutil) | grep "not found")
 AIRPODS=$(blueutil --paired | grep AirPods)
 
 if [ -z "$AIRPODS" ]; then
-	echo "Airpods Not-Paired"
+	if [ ! -z BLUEUTILPATH ]; then
+		echo "blueutil not installed."
+	else
+		echo "Airpods Not-Paired"
+	fi
 else
 	NOT=$(echo $AIRPODS | grep "not connected")
 
