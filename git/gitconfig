@@ -11,6 +11,7 @@
 	bv = !git --no-pager branch -v
 	ba = branch -ra
 	bd = branch -D
+	bm = branch -m
 
 	# COMMITS
 	ca = commit --amend
