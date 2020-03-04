@@ -38,6 +38,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'zxqfl/tabnine-vim'
   " Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'w0rp/ale'
+
+  " Utils
+  Plug 'mtth/scratch.vim'
 call plug#end()
 
 " Further configuration settings
