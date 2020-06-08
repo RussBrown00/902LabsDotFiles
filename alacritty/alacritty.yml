@@ -309,6 +309,9 @@ selection:
 # Allow terminal applications to change Alacritty's window title.
 dynamic_title: true
 
+hide_cursor_when_typing: false
+custom_cursor_colors: false
+
 cursor:
   # Cursor style
   #
@@ -317,6 +320,7 @@ cursor:
   #   - _ Underline
   #   - | Beam
   style: Block
+  cursor: '0xffffff'
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
