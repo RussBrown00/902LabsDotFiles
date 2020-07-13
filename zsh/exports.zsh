@@ -4,10 +4,12 @@ export PATH=$PATH:/opt/boxen/homebrew/opt/go/libexec/bin
 
 CURRENT_DIRECTORY=$(pwd)
 
-if [ -d "$CURRENT_DIRECTORY/.bin" ]; then
-	export PATH="$PATH:$CURRENT_DIRECTORY/.bin"
-fi
-
+# chpwd -- Run every folder change
+function chpwd {
+  if [ -d "$CURRENT_DIRECTORY/.bin" ]; then
+	  export PATH="$PATH:$CURRENT_DIRECTORY/.bin"
+  fi
+}
 
 # Setup terminal, and turn on colors
 export EDITOR=vim

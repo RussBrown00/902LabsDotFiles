@@ -202,3 +202,7 @@ function killbyport {
 		lsof -t -i:$PORT | xargs kill &> /dev/null && echo "Closed Process runnin on $PORT" || echo "Nothing Running on $PORT"
 	fi
 }
+
+function js-code-stats {
+  docker run --rm -v $1:/tmp aldanial/cloc --3 --match-f='.*\.jsx?' /tmp
+}
