@@ -75,8 +75,7 @@ augroup vimrcEx
   autocmd BufWritePre *.hs %!import-sort
   autocmd BufWritePost *.hs call RestoreInsert()
 
-  autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.json,*.gql Neoformat prettier
-  " autocmd BufWritePre,InsertLeave *.js,*.jsx,*.ts,*.tsx,*.json,*.gql Neoformat prettier
+  autocmd BufWritePre *.ts,*.tsx Neoformat tslint
 augroup END
 
 augroup filePrefs
@@ -92,11 +91,11 @@ augroup filePrefs
 
   autocmd FileType typescript,typescript.tsx,zsh  setlocal shiftwidth=2 tabstop=2 softtabstop=2
   autocmd FileType typescript,typescript.tsx,zsh  setlocal expandtab
-  autocmd FileType typescript,typescript.tsx,zsh  setlocal nosmarttab
+  autocmd FileType typescript,typescript.tsx,zsh  setlocal smarttab
 
   autocmd FileType yaml,json,vim                  setlocal shiftwidth=2 tabstop=2 softtabstop=2
   autocmd FileType yaml,json,vim                  setlocal expandtab
-  autocmd FileType yaml,json,vim                  setlocal nosmarttab
+  autocmd FileType yaml,json,vim                  setlocal smarttab
 
   autocmd FileType javascript nmap <buffer> gf <Plug>(enhanced-resolver-go-cursor)
 augroup END

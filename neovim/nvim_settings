@@ -13,12 +13,20 @@ set modelines=0
 " Tab / Auto Indent Settings
 set autoindent
 set smartindent
-set noexpandtab
+" set noexpandtab
 set copyindent
 set preserveindent
-set shiftwidth=3
-set softtabstop=3
-set tabstop=3
+" set shiftwidth=3
+" set softtabstop=3
+" set tabstop=3
+
+" Default RentPath spacing
+set autoindent
+set smartindent
+set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 
 set list
 set listchars=eol:¬,tab:▸\ ,trail:·,extends:>,precedes:·,nbsp:·

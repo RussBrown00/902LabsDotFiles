@@ -25,6 +25,7 @@
 	cb = checkout -b
 
 	di = diff
+	dom = diff origin/master
 	dum = diff upstream/master
 	dh = rev-parse HEAD
 
@@ -66,6 +67,7 @@
 	ponf = push -f origin next
 
 	un = reset --hard
+	unom = reset --hard origin/master
 	unum = reset --hard upstream/master
 	unun = reset --hard upstream/next
 
@@ -74,7 +76,9 @@
 	unstage = reset HEAD --
 
 	fu = fetch upstream
+	fum = fetch upstream master
 	fo = fetch origin
+	fom = fetch origin master
 
 	sl = stash list
 	sp = stash pop

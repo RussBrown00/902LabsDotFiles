@@ -93,6 +93,6 @@ let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
 " Run prettier command sometimes this mapping disapears?????
-map <Leader>F :Prettier<CR>
+" map <Leader>F :Prettier<CR>
 
 nnoremap <leader><space> :noh<CR><CR>:<backspace>
