@@ -30,8 +30,11 @@
 	dh = rev-parse HEAD
 
 	# LOG RELATED
+	last = !git log -1 HEAD --pretty=format:\"%h\" | awk '{print $1}'
+	head = !git branch --show-current | xargs git log master..
+	ohead = !git branch --show-current | xargs git log origin/master..
+	uhead = !git branch --show-current | xargs git log upstream/master..
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-	#lh = --no-pager log --numstat -4
 	lg = log --graph --oneline --decorate
 
 	ri = rebase -i
@@ -71,7 +74,6 @@
 	unum = reset --hard upstream/master
 	unun = reset --hard upstream/next
 
-	last = log -1 HEAD
 	undo = checkout HEAD --
 	unstage = reset HEAD --
 
