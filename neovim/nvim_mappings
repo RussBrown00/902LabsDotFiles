@@ -92,8 +92,11 @@ let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
+map <Leader>S :sort u<CR>
+
 " Run prettier command sometimes this mapping disapears?????
-" map <Leader>F :Prettier<CR>
+" map <Leader>F :PrettierAsync<CR>
+map <Leader>F :PrettierPartial<CR>
 
 nnoremap <leader><space> :noh<CR><CR>:<backspace>
 

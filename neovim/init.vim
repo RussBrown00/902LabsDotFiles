@@ -3,8 +3,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'ayu-theme/ayu-vim'
   Plug 'airblade/vim-gitgutter'
   Plug 'itchyny/lightline.vim'
-  Plug 'rakr/vim-one'
-  Plug 'morhetz/gruvbox'
+  Plug 'sonph/onehalf', {'rtp': 'vim/'}
+  " Plug 'rakr/vim-one'
+  " Plug 'morhetz/gruvbox'
 
   " Multiline editing
   Plug 'terryma/vim-multiple-cursors'
@@ -22,7 +23,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
   " post install (yarn install | npm install) then load plugin only for editing supported files
-  " Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'tsx', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'tsx', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
   " Sorting
   " vim-order needs python support which isn't working for some reason locally
@@ -36,7 +37,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'junegunn/fzf.vim'
   Plug 'davidosomething/vim-enhanced-resolver', { 'do': 'npm install --global enhanced-resolve-cli' }
   " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'zxqfl/tabnine-vim'
+  " Plug 'zxqfl/tabnine-vim'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'w0rp/ale'
 

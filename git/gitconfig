@@ -34,7 +34,7 @@
 	head = !git branch --show-current | xargs git log master..
 	ohead = !git branch --show-current | xargs git log origin/master..
 	uhead = !git branch --show-current | xargs git log upstream/master..
-	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%C(cyan)\\ [%cn]" --decorate --numstat
 	lg = log --graph --oneline --decorate
 
 	ri = rebase -i

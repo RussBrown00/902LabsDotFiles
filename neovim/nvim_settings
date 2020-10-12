@@ -21,12 +21,12 @@ set preserveindent
 " set tabstop=3
 
 " Default RentPath spacing
-set autoindent
-set smartindent
-set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+set autoindent
+set smartindent
+set expandtab
 
 set list
 set listchars=eol:¬,tab:▸\ ,trail:·,extends:>,precedes:·,nbsp:·
@@ -65,7 +65,8 @@ set undoreload=10000
 set undofile
 set backup
 
-syntax enable
+" syntax enable
+syntax on
 set t_Co=256  " make use of 256 terminal colors
 set termguicolors
 
@@ -73,15 +74,32 @@ set termguicolors
 " colorscheme distinguished
 " colorscheme one
 
+" colorscheme ayu
 " let ayucolor="light"  " for light version of theme
 " let ayucolor="mirage" " for mirage version of theme
-let ayucolor="dark"   " for dark version of theme
+" let ayucolor="dark"   " for dark version of theme
 
-colorscheme ayu
-
-"set bg=dark
-set background=dark " for the dark version
+" colorscheme distinguished
+" set bg=dark
+" set background=dark " for the dark version
 " set background=light " for the light version
+
+" colorscheme one
+" set background=dark " for the dark version
+" set background=light " for the light version
+" let g:airline_theme='one'
+
+" autocmd vimenter * colorscheme gruvbox
+" colorscheme gruvbox
+" set background=dark
+" let g:gruvbox_italic = 1
+
+set t_Co=256
+set cursorline
+colorscheme onehalfdark
+let g:airline_theme='onehalfdark'
+set background=dark
+
 
 " random settings
 set backspace=indent,eol,start
@@ -139,3 +157,9 @@ endif
 " hi Normal guibg=NONE ctermbg=NONE
 "
 let g:LanguageClient_useVirtualText = 0
+
+" Prettier RentPath Options
+let g:prettier#autoformat_config_files = ["~/.prettierrc"]
+let g:prettier#config#use_tabs = 'false'
+let g:prettier#config#parser = 'typescript'
+let g:prettier#partial_format=1
