@@ -57,17 +57,13 @@ set undoreload=10000
 set undofile
 set backup
 
-syntax enable
+syntax on
 set t_Co=256  " make use of 256 terminal colors
 set termguicolors
-
-" color scheme
-colorscheme distinguished
-" colorscheme one
-
-"set bg=dark
-set background=dark " for the dark version
-" set background=light " for the light version
+set cursorline
+colorscheme onehalfdark
+let g:airline_theme='onehalfdark'
+set background=dark
 
 " random settings
 set backspace=indent,eol,start

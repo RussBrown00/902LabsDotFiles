@@ -206,3 +206,13 @@ function killbyport {
 function js-code-stats {
   docker run --rm -v $1:/tmp aldanial/cloc --3 --match-f='.*\.jsx?' /tmp
 }
+
+function sys-alert {
+  MSG="display notification \"$1\""
+
+	if [ ! -z $2 ]; then
+	  MSG="$MSG with title \"$2\""
+  fi
+
+  osascript -e "$MSG"
+}

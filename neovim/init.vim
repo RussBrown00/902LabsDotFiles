@@ -1,9 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
   " Look and Feel
-  Plug 'ayu-theme/ayu-vim'
   Plug 'airblade/vim-gitgutter'
-  Plug 'itchyny/lightline.vim'
-  Plug 'rakr/vim-one'
+  Plug 'sonph/onehalf', {'rtp': 'vim/'}
 
   " Multiline editing
   Plug 'terryma/vim-multiple-cursors'
@@ -34,9 +32,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf.vim'
   Plug 'davidosomething/vim-enhanced-resolver', { 'do': 'npm install --global enhanced-resolve-cli' }
-  " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'zxqfl/tabnine-vim'
-  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'w0rp/ale'
 
   " Utils

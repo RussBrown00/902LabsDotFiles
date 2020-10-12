@@ -24,5 +24,6 @@ if [ -d "$HOME/.nvm" ]; then
     fi
   }
   add-zsh-hook chpwd load-nvmrc
+  chpwd
   load-nvmrc
 fi
