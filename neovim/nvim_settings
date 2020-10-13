@@ -65,6 +65,10 @@ colorscheme onehalfdark
 let g:airline_theme='onehalfdark'
 set background=dark
 
+
+" Override NonText to be less intrusive
+hi NonText guifg=#474d59 ctermfg=237
+
 " random settings
 set backspace=indent,eol,start
 set history=1000                   " keep 50 lines of command line history
