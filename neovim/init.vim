@@ -17,6 +17,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'mxw/vim-jsx'
   Plug 'gabrielelana/vim-markdown'
   Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+  Plug 'mustache/vim-mustache-handlebars'
 
   " post install (yarn install | npm install) then load plugin only for editing supported files
   Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'tsx', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }

@@ -65,9 +65,13 @@ colorscheme onehalfdark
 let g:airline_theme='onehalfdark'
 set background=dark
 
-
-" Override NonText to be less intrusive
-hi NonText guifg=#474d59 ctermfg=237
+" syntax on
+" set t_Co=256  " make use of 256 terminal colors
+" set termguicolors
+" set cursorline
+" colorscheme onehalflight
+" let g:airline_theme='onehalflight'
+" set background=light
 
 " random settings
 set backspace=indent,eol,start
