@@ -54,6 +54,7 @@ let g:gundo_preview_bottom = 1
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabLongestHighlight = 1
 
+let g:fzf_layout = { 'down': '40%' }
 
 " Syntastic settings
 let g:syntastic_scss_sass_args="--load-path ./bower_components"
@@ -133,3 +134,6 @@ let g:ale_linters = {
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
+
+" Taboo Settings
+set sessionoptions+=tabpages,globals

@@ -1,11 +1,8 @@
 call plug#begin('~/.config/nvim/plugged')
   " Look and Feel
-  Plug 'ayu-theme/ayu-vim'
   Plug 'airblade/vim-gitgutter'
-  Plug 'itchyny/lightline.vim'
   Plug 'sonph/onehalf', {'rtp': 'vim/'}
-  " Plug 'rakr/vim-one'
-  " Plug 'morhetz/gruvbox'
+  Plug 'gcmt/taboo.vim'
 
   " Multiline editing
   Plug 'terryma/vim-multiple-cursors'

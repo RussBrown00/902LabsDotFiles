@@ -65,40 +65,21 @@ set undoreload=10000
 set undofile
 set backup
 
-" syntax enable
 syntax on
 set t_Co=256  " make use of 256 terminal colors
 set termguicolors
-
-" color scheme
-" colorscheme distinguished
-" colorscheme one
-
-" colorscheme ayu
-" let ayucolor="light"  " for light version of theme
-" let ayucolor="mirage" " for mirage version of theme
-" let ayucolor="dark"   " for dark version of theme
-
-" colorscheme distinguished
-" set bg=dark
-" set background=dark " for the dark version
-" set background=light " for the light version
-
-" colorscheme one
-" set background=dark " for the dark version
-" set background=light " for the light version
-" let g:airline_theme='one'
-
-" autocmd vimenter * colorscheme gruvbox
-" colorscheme gruvbox
-" set background=dark
-" let g:gruvbox_italic = 1
-
-set t_Co=256
 set cursorline
 colorscheme onehalfdark
 let g:airline_theme='onehalfdark'
 set background=dark
+
+" syntax on
+" set t_Co=256  " make use of 256 terminal colors
+" set termguicolors
+" set cursorline
+" colorscheme onehalflight
+" let g:airline_theme='onehalflight'
+" set background=light
 
 
 " random settings
