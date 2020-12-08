@@ -129,3 +129,6 @@ endif
 " hi Normal guibg=NONE ctermbg=NONE
 "
 let g:LanguageClient_useVirtualText = 0
+
+" Taboo Settings
+set sessionoptions+=tabpages,globals

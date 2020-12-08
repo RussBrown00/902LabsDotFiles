@@ -2,6 +2,7 @@ call plug#begin('~/.config/nvim/plugged')
   " Look and Feel
   Plug 'airblade/vim-gitgutter'
   Plug 'sonph/onehalf', {'rtp': 'vim/'}
+  Plug 'gcmt/taboo.vim'
 
   " Multiline editing
   Plug 'terryma/vim-multiple-cursors'
@@ -9,6 +10,7 @@ call plug#begin('~/.config/nvim/plugged')
   " Language / formating
   Plug 'sbdchd/neoformat'
   Plug 'sheerun/vim-polyglot'
+  Plug 'csscomb/vim-csscomb'
   Plug 'peitalin/vim-jsx-typescript'
   Plug 'jparise/vim-graphql'
   Plug 'vim-scripts/tComment'

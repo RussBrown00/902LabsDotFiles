@@ -36,6 +36,9 @@ let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.bak$', '\~$']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
             " ^^ if NERD Tree is the only open buffer, close vim
 
+" FZF
+let g:fzf_layout = { 'down': '40%' }
+
 " vim-json settings
 let g:vim_json_syntax_conceal = 0
 
