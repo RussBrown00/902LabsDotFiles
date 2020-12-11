@@ -98,6 +98,13 @@ map <Leader>S :sort u<CR>
 " map <Leader>F :PrettierAsync<CR>
 map <Leader>F :PrettierPartial<CR>
 
+" Copy relative path
+map <Leader>fr :let @+ = expand("%")<CR>
+" Copy full path
+map <Leader>fp :let @+ = expand("%:p")<CR>
+" Copy file name
+map <Leader>fn :let @+ = expand("%:t")<CR>
+
 nnoremap <leader><space> :noh<CR><CR>:<backspace>
 
 " Remap keys for gotos
