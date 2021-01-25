@@ -36,12 +36,12 @@ call plug#begin('~/.config/nvim/plugged')
   " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   " Plug 'zxqfl/tabnine-vim'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'neoclide/coc-tabnine'
   Plug 'neoclide/coc-jest'
-  Plug 'neoclide/coc-yaml'
-  Plug 'neoclide/coc-tsserver'
-  Plug 'neoclide/coc-tslint'
   Plug 'neoclide/coc-json'
+  Plug 'neoclide/coc-tabnine'
+  Plug 'neoclide/coc-tslint'
+  Plug 'neoclide/coc-tsserver'
+  Plug 'neoclide/coc-yaml'
   Plug 'w0rp/ale'
 
   " Utils
