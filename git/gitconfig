@@ -15,7 +15,7 @@
 
 	# COMMITS
 	ca = commit --amend
-	can = commit --no-edit --amend
+	can = commit --amend --no-edit
 	ci = commit -a -v
 	cm = commit -am
 	cmn = commit -amn

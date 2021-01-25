@@ -128,3 +128,10 @@ function! s:show_documentation()
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
+
+" Copy relative path
+map <Leader>fr :let @+ = expand("%")<CR>
+" Copy full path
+map <Leader>fp :let @+ = expand("%:p")<CR>
+" Copy file name
+map <Leader>fn :let @+ = expand("%:t")<CR>
