@@ -25,21 +25,21 @@
 	cb = checkout -b
 
 	di = diff
-	dom = diff origin/master
-	dum = diff upstream/master
+	dom = diff origin/main
+	dum = diff upstream/main
 	dh = rev-parse HEAD
 
 	# LOG RELATED
 	last = !git log -1 HEAD --pretty=format:\"%h\" | awk '{print $1}'
-	head = !git branch --show-current | xargs git log master..
-	ohead = !git branch --show-current | xargs git log origin/master..
-	uhead = !git branch --show-current | xargs git log upstream/master..
+	head = !git branch --show-current | xargs git log main..
+	ohead = !git branch --show-current | xargs git log origin/main..
+	uhead = !git branch --show-current | xargs git log upstream/main..
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%C(cyan)\\ [%cn]" --decorate --numstat
 	lg = log --graph --oneline --decorate
 
 	ri = rebase -i
-	rom = rebase master
-	rum = rebase upstream/master
+	rom = rebase main
+	rum = rebase upstream/main
 	#ro = rebase --onto
 	rba = rebase --abort
 	rbs = rebase --skip
@@ -57,30 +57,30 @@
 	p = push
 	pt = push --tags
 	pf = push -f
-	pm = push master
+	pm = push main
 
 	po = push origin
 	pof = push -f origin
 
 	pu = push upstream
-	pum = push upstream master
-	pom = push origin master
-	pomf = push -f origin master
+	pum = push upstream main
+	pom = push origin main
+	pomf = push -f origin main
 	pon = push origin next
 	ponf = push -f origin next
 
 	un = reset --hard
-	unom = reset --hard origin/master
-	unum = reset --hard upstream/master
+	unom = reset --hard origin/main
+	unum = reset --hard upstream/main
 	unun = reset --hard upstream/next
 
 	undo = checkout HEAD --
 	unstage = reset HEAD --
 
 	fu = fetch upstream
-	fum = fetch upstream master
+	fum = fetch upstream main
 	fo = fetch origin
-	fom = fetch origin master
+	fom = fetch origin main
 
 	sl = stash list
 	sp = stash pop
