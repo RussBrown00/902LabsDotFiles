@@ -20,6 +20,9 @@ hi tsxAttributeBraces guifg=#F99575
 hi tsxEqual guifg=#F99575
 hi tsxAttrib guifg=#F8BD7F cterm=italic
 
+" NEOFORMAT
+let g:neoformat_only_msg_on_error = 1
+
 " NERDTree
 let NERDTreeQuitOnOpen=1 " Close NERDTree After Opening File
 let NERDTreeShowHidden=1
@@ -136,3 +139,6 @@ let g:ale_linters = {
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
+
+" Taboo Settings
+set sessionoptions+=tabpages,globals

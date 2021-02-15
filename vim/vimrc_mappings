@@ -90,7 +90,7 @@ nmap <silent> ,/ :nohlsearch<CR>
 map <c-h> :tabprevious<CR>
 map <c-l> :tabnext<CR>
 
-map <c-n> :NERDTreeToggle<CR>
+map <c-N> :NERDTreeToggle<CR>
 map <c-o> :ZoomWin<CR>
 
 nnoremap <silent> <C-p> :FZF<CR>

@@ -73,24 +73,6 @@ noremap <Leader><tab> :NERDTreeToggle<cr>
 map <silent> <Leader>cc :TComment<cr>
 map <silent> <Leader>c<Space> :TComment<cr>
 
-" vim-multiple-cursors
-let g:multi_cursor_use_default_mapping=0
-
-" Multiple Cursor Mappings
-let g:multi_cursor_start_word_key      = '<C-q>'
-let g:multi_cursor_select_all_word_key = '<A-q>'
-let g:multi_cursor_start_key           = 'g<C-q>'
-let g:multi_cursor_select_all_key      = 'g<A-q>'
-let g:multi_cursor_next_key            = '<C-n>'
-let g:multi_cursor_prev_key            = '<C-p>'
-let g:multi_cursor_skip_key            = '<C-x>'
-let g:multi_cursor_quit_key            = '<Esc>'
-let g:multi_cursor_start_key           = 'g<C-m>'
-let g:multi_cursor_select_all_key      = 'g<A-m>'
-let g:multi_cursor_next_key            = '<C-n>'
-let g:multi_cursor_prev_key            = '<C-p>'
-let g:multi_cursor_skip_key            = '<C-x>'
-let g:multi_cursor_quit_key            = '<Esc>'
 
 " Sort selected text
 map <Leader>S :sort u<CR>
@@ -100,8 +82,6 @@ map <Leader>F :PrettierAsync<CR>
 
 " Run prettier on the selected text
 map <Leader>P :PrettierPartial<CR>
-
-
 
 " Run prettier command sometimes this mapping disapears?????
 map <Leader>F :Prettier<CR>
@@ -116,3 +96,26 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Refresh the file syntax highlighting
 map <F12> :syntax sync fromstart<CR>
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Copy relative path
+map <Leader>fr :let @+ = expand("%")<CR>
+" Copy full path
+map <Leader>fp :let @+ = expand("%:p")<CR>
+" Copy file name
+map <Leader>fn :let @+ = expand("%:t")<CR>

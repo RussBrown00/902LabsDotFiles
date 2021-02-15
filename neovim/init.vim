@@ -5,7 +5,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'gcmt/taboo.vim'
 
   " Multiline editing
-  Plug 'terryma/vim-multiple-cursors'
+  " Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
   " Language / formating
   Plug 'sbdchd/neoformat'
@@ -35,7 +35,16 @@ call plug#begin('~/.config/nvim/plugged')
   Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf.vim'
   Plug 'davidosomething/vim-enhanced-resolver', { 'do': 'npm install --global enhanced-resolve-cli' }
+
+  " COC
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'neoclide/coc-jest'
+  Plug 'neoclide/coc-json'
+  Plug 'neoclide/coc-tabnine'
+  Plug 'neoclide/coc-tslint'
+  Plug 'neoclide/coc-tsserver'
+  Plug 'neoclide/coc-yaml'
+  
   Plug 'w0rp/ale'
 
   " Utils
