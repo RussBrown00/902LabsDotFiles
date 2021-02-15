@@ -26,6 +26,7 @@
 
 	di = diff
 	dum = diff upstream/master
+	dom = diff origin/master
 	dh = rev-parse HEAD
 
 	# LOG RELATED
@@ -66,15 +67,18 @@
 	ponf = push -f origin next
 
 	un = reset --hard
+	unom = reset --hard origin/master
 	unum = reset --hard upstream/master
 	unun = reset --hard upstream/next
 
-	last = log -1 HEAD
+	last = !git log -1 HEAD --pretty=format:\"%h\" | awk '{print $1}'
 	undo = checkout HEAD --
 	unstage = reset HEAD --
 
-	fu = fetch upstream
 	fo = fetch origin
+	fom = fetch origin/master
+	fu = fetch upstream
+	fum = fetch upstream/master
 
 	sl = stash list
 	sp = stash pop
