@@ -8,6 +8,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'terryma/vim-multiple-cursors'
 
   " Language / formating
+  Plug 'axelf4/vim-strip-trailing-whitespace'
   Plug 'sbdchd/neoformat'
   Plug 'sheerun/vim-polyglot'
   Plug 'peitalin/vim-jsx-typescript'
