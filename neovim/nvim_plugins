@@ -6,9 +6,6 @@
 " the commands in this file might error if the plugins aren't loaded.
 
 
-" Polyglot
-let g:polyglot_disabled = ['markdown']
-
 " vim-jsx-typescript
 " set filetypes as typescript.tsx
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx

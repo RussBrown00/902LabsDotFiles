@@ -7,9 +7,12 @@ call plug#begin('~/.config/nvim/plugged')
   " Multiline editing
   " Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
+" Polyglot Language Formatting
+  let g:polyglot_disabled = ['markdown']
+  Plug 'sheerun/vim-polyglot'
+
   " Language / formating
   Plug 'sbdchd/neoformat'
-  Plug 'sheerun/vim-polyglot'
   Plug 'csscomb/vim-csscomb'
   Plug 'peitalin/vim-jsx-typescript'
   Plug 'jparise/vim-graphql'
