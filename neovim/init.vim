@@ -42,7 +42,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'neoclide/coc-json'
   Plug 'neoclide/coc-tabnine'
   Plug 'neoclide/coc-tslint'
-  Plug 'neoclide/coc-tsserver'
+  " Plug 'neoclide/coc-tsserver'
   Plug 'neoclide/coc-yaml'
   
   Plug 'w0rp/ale'

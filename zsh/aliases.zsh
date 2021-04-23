@@ -33,4 +33,7 @@ alias fzfp='vim `fzf --preview="cat {}" --preview-window=right:70%:wrap`'
 
 alias flush-dns="sudo killall -HUP mDNSResponder; sudo dscacheutil -flushcache; SLEEP 2; echo macOS DNS Cache Reset"
 
+alias copy="tr -d '\n' | pbcopy"
+
+# alias epoch="EPTMP=$(date '+%s'); echo $EPTMP | copy; echo $EPTMP"
 alias epoch="date '+%s'"
