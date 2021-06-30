@@ -40,13 +40,13 @@ nnoremap <silent> <leader>mw :call MarkWindowSwap()<CR>
 nnoremap <silent> <leader>ms :call DoWindowSwap()<CR>
 
 function DarkMode()
-  colorscheme distinguished
+  colorscheme onehalfdark
+  let g:airline_theme='onehalfdark'
   set background=dark
-  exec "!tmux source-file ~/.tmux/theme01.conf"
 endfunction
 
 function LightMode()
-  colorscheme one
+  colorscheme onehalflight
+  let g:airline_theme='onehalflight'
   set background=light
-  exec "!tmux source-file ~/.tmux/theme-bright.conf"
 endfunction

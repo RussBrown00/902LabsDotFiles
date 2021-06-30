@@ -69,18 +69,17 @@ syntax on
 set t_Co=256  " make use of 256 terminal colors
 set termguicolors
 set cursorline
-colorscheme onehalfdark
-let g:airline_theme='onehalfdark'
-set background=dark
 
-" syntax on
-" set t_Co=256  " make use of 256 terminal colors
-" set termguicolors
-" set cursorline
-" colorscheme onehalflight
-" let g:airline_theme='onehalflight'
-" set background=light
-
+" dark mode enabled?
+if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
+  colorscheme onehalfdark
+  let g:airline_theme='onehalfdark'
+  set background=dark
+else
+  colorscheme onehalflight
+  let g:airline_theme='onehalflight'
+  set background=light
+endif
 
 " random settings
 set backspace=indent,eol,start
