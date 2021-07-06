@@ -1,11 +1,6 @@
 " Auto commands
 " ------------------------------------------------------------
 
-augroup whitespace
-  " before writing to any file, this function call will remove any extra white space at the end of a line
-  autocmd BufWritePre,FileWritePre * :%s/\s+$//e
-augroup end
-
 " Create directories on demand when saving files.
 " From http://stackoverflow.com/questions/4292733/vim-creating-parent-directories-on-save
 augroup BWCCreateDir

@@ -12,6 +12,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'sheerun/vim-polyglot'
 
   " Language / formating
+  Plug 'axelf4/vim-strip-trailing-whitespace'
   Plug 'sbdchd/neoformat'
   Plug 'csscomb/vim-csscomb'
   Plug 'peitalin/vim-jsx-typescript'
@@ -45,8 +46,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'neoclide/coc-json'
   Plug 'neoclide/coc-tabnine'
   Plug 'neoclide/coc-tslint'
-  " Plug 'neoclide/coc-tsserver'
   Plug 'neoclide/coc-yaml'
+  Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
+  " Plug 'neoclide/coc-tsserver'
   
   Plug 'w0rp/ale'
 
