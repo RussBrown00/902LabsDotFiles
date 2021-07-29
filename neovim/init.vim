@@ -26,7 +26,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'mustache/vim-mustache-handlebars'
 
   " post install (yarn install | npm install) then load plugin only for editing supported files
-  Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'tsx', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'tsx', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html', 'mdx'] }
 
   " Sorting
   " vim-order needs python support which isn't working for some reason locally
@@ -64,6 +64,8 @@ source $HOME/.config/nvim/nvim_autocmds
 " Functions and mappings
 source $HOME/.config/nvim/nvim_functions
 source $HOME/.config/nvim/nvim_mappings
+
+source $HOME/.config/nvim/nvim_theme
 
 " Load local .vimrc file
 set exrc

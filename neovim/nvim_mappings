@@ -77,14 +77,11 @@ map <silent> <Leader>c<Space> :TComment<cr>
 " Sort selected text
 map <Leader>S :sort u<CR>
 
-" Run prettier on the entire file
-map <Leader>F :PrettierAsync<CR>
-
 " Run prettier on the selected text
 map <Leader>P :PrettierPartial<CR>
 
 " Run prettier command sometimes this mapping disapears?????
-map <Leader>F :Prettier<CR>
+map <Leader>F :Neoformat prettier<CR>
 
 nnoremap <leader><space> :noh<CR><CR>:<backspace>
 

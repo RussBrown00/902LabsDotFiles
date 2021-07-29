@@ -57,22 +57,6 @@ set undoreload=10000
 set undofile
 set backup
 
-syntax on
-set t_Co=256  " make use of 256 terminal colors
-set termguicolors
-set cursorline
-colorscheme onehalfdark
-let g:airline_theme='onehalfdark'
-set background=dark
-
-" syntax on
-" set t_Co=256  " make use of 256 terminal colors
-" set termguicolors
-" set cursorline
-" colorscheme onehalflight
-" let g:airline_theme='onehalflight'
-" set background=light
-
 " random settings
 set backspace=indent,eol,start
 set history=1000                   " keep 50 lines of command line history
