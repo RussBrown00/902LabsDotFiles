@@ -8,7 +8,8 @@ call plug#begin('~/.config/nvim/plugged')
   " Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 " Polyglot Language Formatting
-  let g:polyglot_disabled = ['markdown']
+  " let g:polyglot_disabled = ['markdown']
+  " Plug 'gabrielelana/vim-markdown'
   Plug 'sheerun/vim-polyglot'
 
   " Language / formating
