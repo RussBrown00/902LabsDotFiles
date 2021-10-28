@@ -46,6 +46,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'neoclide/coc-jest'
   Plug 'neoclide/coc-json'
   Plug 'neoclide/coc-tabnine'
+  Plug 'neoclide/coc-eslint'
   Plug 'neoclide/coc-tslint'
   Plug 'neoclide/coc-yaml'
   Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}

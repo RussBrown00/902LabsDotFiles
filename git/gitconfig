@@ -76,9 +76,9 @@
 	unstage = reset HEAD --
 
 	fo = fetch origin
-	fom = fetch origin/master
+	fom = fetch origin master
 	fu = fetch upstream
-	fum = fetch upstream/master
+	fum = fetch upstream master
 
 	sl = stash list
 	sp = stash pop
