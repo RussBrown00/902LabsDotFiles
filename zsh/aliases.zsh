@@ -37,3 +37,7 @@ alias copy="tr -d '\n' | pbcopy"
 
 # alias epoch="EPTMP=$(date '+%s'); echo $EPTMP | copy; echo $EPTMP"
 alias epoch="date '+%s'"
+
+if command -v nvim 1>/dev/null 2>&1; then
+  alias vim="$(which nvim)"
+fi
