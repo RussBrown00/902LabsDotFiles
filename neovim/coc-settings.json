@@ -1,7 +1,16 @@
 {
-  "python.jediEnabled": true,
-  "tsserver.enableJavascript": false,
-  "coc.preferences.formatOnType": false,
+	"coc.source.emoji.filetypes": ["markdown"],
+	"codeLens.enable": true,
+	"diagnostic.displayByAle": true,
+	"diagnostic.errorSign": "✘",
+	"diagnostic.hintSign": "➤"
+	"diagnostic.infoSign": "i",
+	"diagnostic.warningSign": "⚠",
+	"eslint.codeAction.showDocumentation": { "enabled": true },
+	"eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx"],
   "coc.preferences.formatOnSaveFiletypes": [],
-  "tabnine.disable_filetyps": ["python"]
+  "coc.preferences.formatOnType": false,
+  "python.jediEnabled": true,
+  "tabnine.disable_filetypes": ["python"],
+  "tsserver.enableJavascript": false
 }

@@ -13,6 +13,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'sheerun/vim-polyglot'
 
   " Language / formating
+  " Plug 'eslint/eslint'
+  Plug 'dense-analysis/ale'
   Plug 'axelf4/vim-strip-trailing-whitespace'
   Plug 'sbdchd/neoformat'
   Plug 'ambv/black'
@@ -42,6 +44,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf.vim'
   Plug 'davidosomething/vim-enhanced-resolver', { 'do': 'npm install --global enhanced-resolve-cli' }
+  Plug 'MattesGroeger/vim-bookmarks'
 
   " COC
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -53,10 +56,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'neoclide/coc-tslint'
   Plug 'neoclide/coc-yaml'
   Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
-  " Plug 'neoclide/coc-tsserver'
+  Plug 'neoclide/coc-tsserver'
   
-  Plug 'w0rp/ale'
-
   " Utils
   Plug 'mtth/scratch.vim'
 call plug#end()
