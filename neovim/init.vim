@@ -15,6 +15,7 @@ call plug#begin('~/.config/nvim/plugged')
   " Language / formating
   Plug 'axelf4/vim-strip-trailing-whitespace'
   Plug 'sbdchd/neoformat'
+  Plug 'ambv/black'
   Plug 'csscomb/vim-csscomb'
   Plug 'peitalin/vim-jsx-typescript'
   Plug 'jparise/vim-graphql'
@@ -25,9 +26,10 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'gabrielelana/vim-markdown'
   Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
   Plug 'mustache/vim-mustache-handlebars'
+  Plug 'davidhalter/jedi-vim'
 
   " post install (yarn install | npm install) then load plugin only for editing supported files
-  Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'tsx', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html', 'mdx'] }
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'tsx', 'css', 'less', 'scss', 'json', 'py', 'graphql', 'markdown', 'vue', 'yaml', 'html', 'mdx'] }
 
   " Sorting
   " vim-order needs python support which isn't working for some reason locally
@@ -43,10 +45,11 @@ call plug#begin('~/.config/nvim/plugged')
 
   " COC
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'neoclide/coc-eslint'
   Plug 'neoclide/coc-jest'
   Plug 'neoclide/coc-json'
+  Plug 'neoclide/coc-python'
   Plug 'neoclide/coc-tabnine'
-  Plug 'neoclide/coc-eslint'
   Plug 'neoclide/coc-tslint'
   Plug 'neoclide/coc-yaml'
   Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}

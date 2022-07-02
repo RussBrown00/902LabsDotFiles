@@ -66,3 +66,33 @@ function LightMode()
   let g:airline_theme='onehalflight'
   set background=light
 endfunction
+
+
+" Automatically switch light/dark background + theme
+function! SetAppearance(...)
+  try
+    let s:mode = systemlist("defaults read -g AppleInterfaceStyle")[0]
+    let s:new_bg = ""
+    let s:new_theme = ""
+
+    if s:mode ==? "Dark"
+      colorscheme onehalfdark
+      let g:airline_theme='onehalfdark'
+      set background=dark
+    else
+      colorscheme onehalflight
+      let g:airline_theme='onehalflight'
+      set background=light
+    endif
+
+    if &background !=? s:new_bg
+      let &background = s:new_bg
+      execute 'colorscheme '.s:new_theme
+    endif
+  catch
+    " Ignore errors
+  endtry
+endfunction
+
+call SetAppearance()
+call timer_start(4000, "SetAppearance", {"repeat": -1})

@@ -1,5 +1,7 @@
 {
+  "python.jediEnabled": true,
   "tsserver.enableJavascript": false,
   "coc.preferences.formatOnType": false,
-  "coc.preferences.formatOnSaveFiletypes": []
+  "coc.preferences.formatOnSaveFiletypes": [],
+  "tabnine.disable_filetyps": ["python"]
 }

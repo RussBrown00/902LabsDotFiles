@@ -48,8 +48,6 @@ brew "openconnect"
 brew "osx-cpu-temp"
 brew "pandoc"
 brew "tidy-html5"
-brew "php@7.2", restart_service: true
-brew "php@7.3", link: true
 brew "reattach-to-user-namespace"
 brew "ripgrep"
 brew "tmux"

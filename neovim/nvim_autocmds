@@ -70,6 +70,7 @@ augroup vimrcEx
   autocmd BufWritePre *.hs %!import-sort
   autocmd BufWritePost *.hs call RestoreInsert()
 
+  autocmd BufWritePre *.py Neoformat black
   autocmd BufWritePre *.js,*.jsx,*.mdx,*.ts,*.tsx,*.json,*.gql Neoformat prettier
   " autocmd BufWritePre,InsertLeave *.js,*.jsx,*.ts,*.tsx,*.json,*.gql Neoformat prettier
 augroup END
@@ -77,7 +78,7 @@ augroup END
 augroup filePrefs
   autocmd FileType ruby,coffee                    setlocal shiftwidth=2 tabstop=2 softtabstop=2
   autocmd FileType coffee                         setlocal shiftwidth=2 tabstop=2 softtabstop=2
-  autocmd FileType c,h,js                         setlocal mps+==:;
+  autocmd FileType c,h                            setlocal mps+==:;
   autocmd FileType c,h                            setlocal cindent
   autocmd FileType txt                            setlocal fo+=tn
 
@@ -96,6 +97,10 @@ augroup filePrefs
   autocmd FileType yaml,json,vim                  setlocal shiftwidth=2 tabstop=2 softtabstop=2
   autocmd FileType yaml,json,vim                  setlocal expandtab
   autocmd FileType yaml,json,vim                  setlocal nosmarttab
+
+  autocmd FileType python                         setlocal shiftwidth=4 tabstop=4 softtabstop=4
+  autocmd FileType python                         setlocal expandtab
+  autocmd FileType python                         setlocal smarttab
 
   autocmd FileType javascript nmap <buffer> gf <Plug>(enhanced-resolver-go-cursor)
 augroup END

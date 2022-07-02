@@ -1,5 +1,6 @@
 .DS_Store
 .vim/tmp
+alacritty/colors.yml
 neovim/.netrwhist
 neovim/plugged/
 vim/.netrwhist

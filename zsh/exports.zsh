@@ -9,6 +9,10 @@ function chpwd {
   if [ -d "$CURRENT_DIRECTORY/.bin" ]; then
 	  export PATH="$PATH:$CURRENT_DIRECTORY/.bin"
   fi
+
+  if [ -r $PWD/.zsh_config ]; then
+    source $PWD/.zsh_config
+  fi
 }
 
 # Setup terminal, and turn on colors

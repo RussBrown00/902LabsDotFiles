@@ -17,6 +17,9 @@ node_modules
 bower_modules
 npm-debug.log
 
+# Python
+__pycache__
+
 # Netbeans
 nbproject
 .nbproject
@@ -52,6 +55,7 @@ nb-configuration.xml
 
 
 # Other
+.zsh_config
 .env
 .nvmrc
 .vimrc
@@ -59,3 +63,4 @@ nb-configuration.xml
 *.iml
 .agignore
 .vimrc_proj
+.coverage

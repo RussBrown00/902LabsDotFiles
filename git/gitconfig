@@ -68,6 +68,8 @@
 
 	un = reset --hard
 	unom = reset --hard origin/master
+	unod = reset --hard origin/develop
+	unud = reset --hard upstream/develop
 	unum = reset --hard upstream/master
 	unun = reset --hard upstream/next
 
@@ -77,8 +79,10 @@
 
 	fo = fetch origin
 	fom = fetch origin master
+	fod = fetch origin develop
 	fu = fetch upstream
 	fum = fetch upstream master
+	fud = fetch upstream develop
 
 	sl = stash list
 	sp = stash pop
@@ -109,3 +113,6 @@
 	tool = bc3
 [difftool]
 	bc3 = trustExitCode
+[user]
+	name = Russell Brown
+	email = russ@902labs.com
