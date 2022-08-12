@@ -28,7 +28,7 @@ export ARCHFLAGS='-arch x86_64'
 export LESS='--ignore-case --raw-control-chars'
 export PAGER='most'
 export EDITOR='vim'
-export PYTHONPATH=/usr/local/lib/python2.6/site-packages
+# export PYTHONPATH=/usr/local/lib/python2.6/site-packages
 
 # CTAGS Sorting in VIM/Emacs is better behaved with this in place
 export LC_COLLATE=C
@@ -38,3 +38,7 @@ export LS_COLORS
 
 # ZFZ / RipGrep Settings
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"

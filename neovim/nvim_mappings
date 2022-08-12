@@ -83,7 +83,7 @@ map <Leader>P :PrettierPartial<CR>
 " Run prettier command sometimes this mapping disapears?????
 map <Leader>F :Neoformat prettier<CR>
 
-autocmd FileType python map <Leader>F :Neoformat black<CR>
+" autocmd FileType python map <Leader>F :Neoformat black<CR>
 
 nnoremap <leader><space> :noh<CR><CR>:<backspace>
 

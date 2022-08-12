@@ -75,19 +75,19 @@ font:
   # The normal (roman) font face to use.
   # Style can be specified to pick a specific face.
   normal:
-    family: Hack
+    family: Hack Nerd Font
     # family: Inconsolata
     # style: Retina
 
   # The bold font face
   bold:
-    family: Hack
+    family: Hack Nerd Font
     # family: Inconsolata
     # style: Bold
 
   # The italic font face
   italic:
-    family: Hack
+    family: Hack Nerd Font
     # family: Inconsolata
     # style: "Medium Italic"
 

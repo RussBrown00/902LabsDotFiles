@@ -70,7 +70,8 @@ augroup vimrcEx
   autocmd BufWritePre *.hs %!import-sort
   autocmd BufWritePost *.hs call RestoreInsert()
 
-  autocmd BufWritePre *.py Neoformat black
+  " autocmd BufWritePre *.py Neoformat black
+  autocmd BufWritePre *.py Neoformat prettier
   autocmd BufWritePre *.js,*.jsx,*.mdx,*.ts,*.tsx,*.json,*.gql Neoformat prettier
   " autocmd BufWritePre,InsertLeave *.js,*.jsx,*.ts,*.tsx,*.json,*.gql Neoformat prettier
 augroup END

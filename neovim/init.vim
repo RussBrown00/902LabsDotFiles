@@ -14,10 +14,11 @@ call plug#begin('~/.config/nvim/plugged')
 
   " Language / formating
   " Plug 'eslint/eslint'
+  Plug 'hashivim/vim-terraform'
   Plug 'dense-analysis/ale'
   Plug 'axelf4/vim-strip-trailing-whitespace'
   Plug 'sbdchd/neoformat'
-  Plug 'ambv/black'
+  " Plug 'ambv/black'
   Plug 'csscomb/vim-csscomb'
   Plug 'peitalin/vim-jsx-typescript'
   Plug 'jparise/vim-graphql'
