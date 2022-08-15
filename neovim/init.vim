@@ -25,7 +25,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'vim-scripts/tComment'
   Plug 'danro/rename.vim'
   Plug 'pangloss/vim-javascript'
-  Plug 'mxw/vim-jsx'
+  Plug 'maxmellon/vim-jsx-pretty'
   Plug 'gabrielelana/vim-markdown'
   Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
   Plug 'mustache/vim-mustache-handlebars'

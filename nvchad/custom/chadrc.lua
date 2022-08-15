@@ -14,7 +14,7 @@ M.options = {
    hidden = true,
    ignorecase = true,
    insert_nav = true, -- navigation in insertmode
-   mapleader = ",",
+   mapleader = ",", -- This doesn't work
 }
 
 M.ui = {
