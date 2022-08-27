@@ -4,17 +4,19 @@ local M = {}
 
 -- make sure you maintain the structure of `core/default_config.lua` here,
 -- example of changing theme:
+M.plugins = {
+  user = require "custom.plugins"
+}
 
 M.options = {
    clipboard = "unnamedplus",
    cmdheight = 1,
    copy_cut = true, -- copy cut text ( x key ), visual and normal mode
    copy_del = true, -- copy deleted text ( dd key ), visual and normal mode
-   expandtab = true,
    hidden = true,
    ignorecase = true,
    insert_nav = true, -- navigation in insertmode
-   mapleader = ",", -- This doesn't work
+   mapleader = ",",
 }
 
 M.ui = {
@@ -23,8 +25,5 @@ M.ui = {
 }
 
 M.mappings = require "custom.mappings"
-M.plugins = {
-  user = require "custom.plugins"
-}
 
 return M
