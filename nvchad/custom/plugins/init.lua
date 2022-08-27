@@ -1,9 +1,4 @@
 return {
-  ["nvim-lua/popup.nvim"] = {},
-  ["vim-scripts/tComment"] = {},
-  ["sudormrfbin/cheatsheet.nvim"] = {
-    after = "popup"
-  },
   ["neovim/nvim-lspconfig"] = {
     config = function()
       require "plugins.configs.lspconfig"
