@@ -6,8 +6,21 @@ return {
       require "custom.plugins.lspconfig"
     end,
   },
-  ["jose-elias-alvarez/null-ls.nvim"] = {
+  ["williamboman/nvim-lsp-installer"] = {
     after = "nvim-lspconfig",
+    config = function()
+         local lsp_installer = require "nvim-lsp-installer"
+
+         lsp_installer.on_server_ready(function(server)
+            local opts = {}
+
+            server:setup(opts)
+            vim.cmd [[ do User LspAttachBuffers ]]
+         end)
+    end,
+  },
+  ["jose-elias-alvarez/null-ls.nvim"] = {
+    after = "nvim-lsp-installer",
     config = function()
       require "custom.plugins.configs.null-ls"
     end,

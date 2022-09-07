@@ -13,16 +13,21 @@ opt.noswapfile = true
 opt.spellang = 'en'
 opt.spellfile = '~/.vim/spell/en.utf-8.add'
 
--- Indenting
-opt.expandtab = true
-opt.shiftwidth = 3
-opt.smartindent = true
-opt.tabstop = 3
-opt.softtabstop = 3
-
 autocmd("BufWritePre", {
   pattern = "*.js",
   callback = function()
-    vim.cmd "Neoformat"
+    vim.cmd "Neoformat prettier"
+  end,
+})
+
+-- Indenting
+autocmd("FileType", {
+  pattern = "javascript,javascriptreact",
+  callback = function()
+    vim.opt.expandtab = false
+    vim.opt.shiftwidth = 3
+    vim.opt.smartindent = true
+    vim.opt.tabstop = 3
+    vim.opt.softtabstop = 3
   end,
 })
