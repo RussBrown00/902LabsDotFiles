@@ -20,14 +20,6 @@ autocmd("BufWritePre", {
   end,
 })
 
--- Indenting
-autocmd("FileType", {
-  pattern = "javascript,javascriptreact",
-  callback = function()
-    vim.opt.expandtab = false
-    vim.opt.shiftwidth = 3
-    vim.opt.smartindent = true
-    vim.opt.tabstop = 3
-    vim.opt.softtabstop = 3
-  end,
-})
+vim.cmd [[ autocmd Filetype javascript setlocal expandtab=false tabstop=3 shiftwidth=3 softtabstop=3 smartindent=true ]]
+vim.cmd [[ autocmd Filetype javascriptreact setlocal expandtab=false tabstop=3 shiftwidth=3 softtabstop=3 smartindent=true ]]
+vim.cmd [[ autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 ]]

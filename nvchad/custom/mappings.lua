@@ -2,22 +2,27 @@ local M = {}
 
 M.general = {
    i = {
-     ["<Leader>cc"] = { "<cmd>TComment<CR>", "Comment line" },
+     ["<leader>cc"] = { "<cmd>TComment<CR>", "Comment line" },
       ["jj"] = { "<ESC>", "Escape" },
    },
    n = {
      ["<C-p>"] = { "<cmd>Telescope find_files<CR>", "find files" },
-     ["<Leader><space>"] = { "<cmd>noh<CR>", "Clear search" },
+     ["<leader><space>"] = { "<cmd>noh<CR>", "Clear search" },
+     ["<leader>fr"] = { "<cmd>let @+ = expand(\"%\")<CR>", "Copy relative path to clipboard" },
+     ["<leader>fs"] = { "<cmd>let @+ = expand(\"%:p\")<CR>", "Copy system path to clipboard" },
+     ["<leader>fn"] = { "<cmd>let @+ = expand(\"%:t\")<CR>", "Copy filename to clipboard" },
      ["<leader>n"] = { "<cmd>tabnew<CR>", "Create new tab" },
      ["<leader>s"] = { "<cmd>split<CR>", "Create h-split" },
      ["<leader>v"] = { "<cmd>vsplit<CR>", "Create v-split" },
+     ["<leader><C-f>"] = { "<cmd>Neoformat<CR>", "Neformat Page" },
      ["<C-h>"] = { "<cmd>tabprevious<CR>", "navigate to previous tab" },
      ["<C-l>"] = { "<cmd>tabnext<CR>", "navigate to next tab" },
    },
    v = {
-     ["<Leader>S"] = { "<cmd>sort u<CR>", "Unique sort selected lines" },
+     ["<leader>S"] = { "<cmd>sort u<CR>", "Unique sort selected lines" },
    },
 }
+
 
 M.nvterm = {
   plugin = true,

@@ -126,7 +126,7 @@ if [ -f "/usr/bin/docker" ] || [ -f "/usr/local/bin/docker" ]; then
 	}
 
 	function docker-shell {
-		docker exec -it $1 bash
+    docker run --rm -it --entrypoint=bash $@
 	}
 
 	function docker-rs {

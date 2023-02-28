@@ -1,5 +1,6 @@
 return {
   ["sbdchd/neoformat"] = {},
+  ["NvChad/nvterm"] = false,
   ["neovim/nvim-lspconfig"] = {
     config = function()
       require "plugins.configs.lspconfig"
@@ -33,10 +34,9 @@ return {
     end,
   },
   ["tzachar/cmp-tabnine"] = {
-    after = "nvim-cmp",
-    run = "./install.sh",
-    config = function()
-      require "custom.plugins.configs.tabnine"
-    end,
-  },
+      after = "cmp-path",
+      config = function()
+         require "custom.plugins.tabnine"
+      end,
+   },
 }
