@@ -1,0 +1,56 @@
+---
+session_name: NEA-SP
+root: "~/workspace"
+
+windows:
+  - window_name: Tasks
+    layout: tiled
+    panes:
+      - clear
+      - clear
+      - clear
+      - clear
+  - window_name: connector-lumin
+    layout: tiled
+    shell_command_before:
+      - cd ~/workspace/connector-lumin
+    panes:
+      - clear
+  - window_name: model-smart-panels
+    layout: tiled
+    shell_command_before:
+      - cd ~/workspace/model-smart-panels
+    panes:
+      - clear
+  - window_name: optos-framework
+    layout: tiled
+    shell_command_before:
+      - cd ~/workspace/optos-framework
+    panes:
+      - clear
+  - window_name: optos-infrastructure
+    layout: tiled
+    shell_command_before:
+      - cd ~/workspace/optos-infrastructure
+    panes:
+      - clear
+  - window_name: K8 Dev
+    layout: tiled
+    shell_command_before:
+      - cd ~/workspace
+      - export NAMESPACE=optos-connectors
+      - export DEPLOYMENT=lumin-connector
+      - export AWS_PROFILE=dispatcher-dev
+      - export KUBECONFIG=~/.kube/dev_config
+      - export NAMESPACE=optos-connectors
+  - window_name: K8 Prod
+    layout: tiled
+    shell_command_before:
+      - cd ~/workspace
+      - export NAMESPACE=optos-connectors
+      - export DEPLOYMENT=lumin-connector
+      - export AWS_PROFILE=dispatcher-prod
+      - export OPTOS_CLIENT=fpl
+      - export KUBECONFIG=~/.kube/optos-v2-k8s-${OPTOS_CLIENT}.yaml
+    panes:
+      - clear

@@ -25,8 +25,8 @@
 	cb = checkout -b
 
 	di = diff
-	dum = diff upstream/master
-	dom = diff origin/master
+	dum = diff upstream/main
+	dom = diff origin/main
 	dh = rev-parse HEAD
 
 	# LOG RELATED
@@ -35,8 +35,8 @@
 	lg = log --graph --oneline --decorate
 
 	ri = rebase -i
-	rom = rebase master
-	rum = rebase upstream/master
+	rom = rebase main
+	rum = rebase upstream/main
 	#ro = rebase --onto
 	rba = rebase --abort
 	rbs = rebase --skip
@@ -54,15 +54,15 @@
 	p = push
 	pt = push --tags
 	pf = push -f
-	pm = push master
+	pm = push main
 
 	po = push origin
 	pof = push -f origin
 
 	pu = push upstream
-	pum = push upstream master
-	pom = push origin master
-	pomf = push -f origin master
+	pum = push upstream main
+	pom = push origin main
+	pomf = push -f origin main
 	pon = push origin next
 	ponf = push -f origin next
 

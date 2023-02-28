@@ -20,6 +20,11 @@ alias gt='git'
 alias got='git'
 alias gut='git'
 
+# Kubernetes
+alias k='kubectl'
+alias k8='kubectl'
+
+# npm
 alias npmpub='mv .npmrc ._npmrc; npm publish; mv ._npmrc .npmrc;'
 
 #OTHER
@@ -35,16 +40,13 @@ alias flush-dns="sudo killall -HUP mDNSResponder; sudo dscacheutil -flushcache; 
 
 alias copy="tr -d '\n' | pbcopy"
 
-# alias epoch="EPTMP=$(date '+%s'); echo $EPTMP | copy; echo $EPTMP"
 alias epoch="date '+%s'"
-# alias epochc="epoch | tr -d '\n' | pbcopy"
 
 function epochc() {
   ts=$(epoch | tr -d '\n')
   echo "$ts" | tr -d '\n' | pbcopy
   echo "$ts"
 }
-
 
 if command -v nvim 1>/dev/null 2>&1; then
   alias vim="$(which nvim)"

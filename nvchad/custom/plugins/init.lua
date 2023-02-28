@@ -1,6 +1,8 @@
+local plugin_overrides = require("custom.plugins.override")
+
 return {
+  ["puremourning/vimspector"] = {},
   ["sbdchd/neoformat"] = {},
-  ["NvChad/nvterm"] = false,
   ["neovim/nvim-lspconfig"] = {
     config = function()
       require "plugins.configs.lspconfig"
@@ -34,9 +36,28 @@ return {
     end,
   },
   ["tzachar/cmp-tabnine"] = {
-      after = "cmp-path",
-      config = function()
-         require "custom.plugins.tabnine"
-      end,
-   },
+    after = "cmp-path",
+    config = function()
+       require "custom.plugins.tabnine"
+    end,
+    run='./install.sh',
+  },
+  ["nvim-treesitter/nvim-treesitter"] = {
+    override_options = plugin_overrides.treesitter
+  },
+  ["williamboman/mason.nvim"] = {
+    override_options = plugin_overrides.mason
+  },
+  ["hrsh7th/nvim-cmp"] = {
+    override_options = {
+      sources = {
+        { name = "nvim_lsp" },
+        { name = "cmp_tabnine" },
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "nvim_lua" },
+        { name = "path" },
+      },
+    }
+  },
 }

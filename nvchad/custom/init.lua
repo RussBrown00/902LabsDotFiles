@@ -13,13 +13,32 @@ opt.noswapfile = true
 opt.spellang = 'en'
 opt.spellfile = '~/.vim/spell/en.utf-8.add'
 
-autocmd("BufWritePre", {
-  pattern = "*.js",
+autocmd("FileType", {
+  pattern = "javascript,vue,javascriptreact",
   callback = function()
-    vim.cmd "Neoformat prettier"
+    print("Loading JS File tab preferences")
+    opt.expandtab = false
+    opt.shiftwidth = 4
+    opt.smartindent = true
+    opt.tabstop = 4
+    opt.softtabstop = 4
   end,
 })
 
-vim.cmd [[ autocmd Filetype javascript setlocal expandtab=false tabstop=3 shiftwidth=3 softtabstop=3 smartindent=true ]]
-vim.cmd [[ autocmd Filetype javascriptreact setlocal expandtab=false tabstop=3 shiftwidth=3 softtabstop=3 smartindent=true ]]
-vim.cmd [[ autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 ]]
+autocmd("FileType", {
+  pattern = "python",
+  callback = function()
+    opt.expandtab = true
+    opt.shiftwidth = 2
+    opt.smartindent = true
+    opt.tabstop = 2
+    opt.softtabstop = 2
+  end,
+})
+
+-- autocmd("BufWritePre", {
+--   pattern = "*.js",
+--   callback = function()
+--     vim.cmd "Neoformat"
+--   end,
+-- })

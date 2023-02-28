@@ -32,14 +32,6 @@ M.treesitter = {
   autotag = {
     enable = false,
   },
-  actions = {
-    open_file = {
-      quit_on_open = true,
-      window_picker = {
-        enable = false
-      }
-    }
-   },
 }
 
 M.mason = {
@@ -59,6 +51,7 @@ M.mason = {
     "prettier",
     "pylint",
     "python-lsp-server",
+    "jedi-language-server",
     "typescript-language-server",
     "yaml-language-server",
 

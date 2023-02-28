@@ -8,21 +8,20 @@ M.general = {
    n = {
      ["<C-p>"] = { "<cmd>Telescope find_files<CR>", "find files" },
      ["<leader><space>"] = { "<cmd>noh<CR>", "Clear search" },
-     ["<leader>fr"] = { "<cmd>let @+ = expand(\"%\")<CR>", "Copy relative path to clipboard" },
-     ["<leader>fs"] = { "<cmd>let @+ = expand(\"%:p\")<CR>", "Copy system path to clipboard" },
-     ["<leader>fn"] = { "<cmd>let @+ = expand(\"%:t\")<CR>", "Copy filename to clipboard" },
+     ["<leader><C-f>"] = { "<cmd>Neoformat<CR>", "Run Neoformat on file" },
      ["<leader>n"] = { "<cmd>tabnew<CR>", "Create new tab" },
      ["<leader>s"] = { "<cmd>split<CR>", "Create h-split" },
      ["<leader>v"] = { "<cmd>vsplit<CR>", "Create v-split" },
-     ["<leader><C-f>"] = { "<cmd>Neoformat<CR>", "Neformat Page" },
      ["<C-h>"] = { "<cmd>tabprevious<CR>", "navigate to previous tab" },
      ["<C-l>"] = { "<cmd>tabnext<CR>", "navigate to next tab" },
-   },
+     ["<leader>fr"] = { "<cmd>let @\" = expand(\"%\")<CR>", "Copy relative path" },
+     ["<leader>fp"] = { "<cmd>let @\" = expand(\"%:p\")<CR>", "Copy full path" },
+     ["<leader>fn"] = { "<cmd>let @\" = expand(\"%:t\")<CR>", "Copy file name" },
+  },
    v = {
      ["<leader>S"] = { "<cmd>sort u<CR>", "Unique sort selected lines" },
    },
 }
-
 
 M.nvterm = {
   plugin = true,

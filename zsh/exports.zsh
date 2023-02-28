@@ -16,11 +16,14 @@ function chpwd {
 }
 
 # Setup terminal, and turn on colors
-export EDITOR=vim
 export LANG=en_US.UTF-8
+export EDITOR=nvim
+export KUBE_EDITOR=nvim
 export TERM=xterm-256color
 export CLICOLOR=1
 export LSCOLORS=Gxfxcxdxbxegedabagacad
+export LESS='--ignore-case --raw-control-chars'
+export PAGER='most'
 
 # This resolves issues install the mysql, postgres, and other gems with native non universal binary extensions
 export ARCHFLAGS='-arch x86_64'
@@ -39,6 +42,9 @@ export LS_COLORS
 # ZFZ / RipGrep Settings
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
+#Python (expects pyenv)
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+export PYTHONPATH=$(pyenv which python)
