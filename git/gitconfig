@@ -67,10 +67,10 @@
 	ponf = push -f origin next
 
 	un = reset --hard
-	unom = reset --hard origin/master
+	unom = reset --hard origin/main
 	unod = reset --hard origin/develop
 	unud = reset --hard upstream/develop
-	unum = reset --hard upstream/master
+	unum = reset --hard upstream/main
 	unun = reset --hard upstream/next
 
 	last = !git log -1 HEAD --pretty=format:\"%h\" | awk '{print $1}'
@@ -78,10 +78,10 @@
 	unstage = reset HEAD --
 
 	fo = fetch origin
-	fom = fetch origin master
+	fom = fetch origin main
 	fod = fetch origin develop
 	fu = fetch upstream
-	fum = fetch upstream master
+	fum = fetch upstream main
 	fud = fetch upstream develop
 
 	sl = stash list

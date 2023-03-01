@@ -59,8 +59,6 @@ M.mason = {
     "lua-language-server",
     "jedi-language-server",
     "stylua",
-
-
   },
 }
 
