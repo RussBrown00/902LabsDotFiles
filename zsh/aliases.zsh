@@ -24,6 +24,8 @@ alias gut='git'
 alias k='kubectl'
 alias k8='kubectl'
 
+alias tf='terraform'
+
 # npm
 alias npmpub='mv .npmrc ._npmrc; npm publish; mv ._npmrc .npmrc;'
 

@@ -1,0 +1,70 @@
+---
+session_name: NEA-POP
+start_directory: "~/workspace"
+
+windows:
+  - window_name: Tasks
+    layout: tiled
+    shell_command_before:
+      - cd ~/workspace
+    panes:
+      - focus: true
+      - clear
+      - clear
+      - clear
+  - window_name: poptool-api
+    layout: tiled
+    start_directory: ~/workspace/poptool-api
+    panes:
+      - clear
+  - window_name: poptool-webui
+    layout: tiled
+    start_directory: ~/workspace/poptool-webui
+    panes:
+      - clear
+  - window_name: poptool-infrastructure
+    layout: tiled
+    start_directory: ~/workspace/poptool-infrastructure
+    panes:
+      - clear
+  - window_name: discover-ui
+    layout: tiled
+    start_directory: ~/workspace/discover-ui
+    panes:
+      - clear
+  - window_name: discover-data-api
+    layout: tiled
+    start_directory: ~/workspace/discover-data-api
+    panes:
+      - clear
+  - window_name: discover-gis-api
+    layout: tiled
+    start_directory: ~/workspace/discover-gis-api
+    panes:
+      - clear
+  - window_name: discover-gatekeeper-api
+    layout: tiled
+    start_directory: ~/workspace/discover-gatekeeper-api
+    panes:
+      - clear
+  - window_name: discover-infrastructure
+    layout: tiled
+    start_directory: ~/workspace/discover-infrastructure
+    panes:
+      - clear
+  - window_name: connector-sensi
+    layout: tiled
+    start_directory: ~/workspace/connector-sensi
+    panes:
+      - clear
+  - window_name: K8 Dev
+    layout: tiled
+    start_directory: ~/workspace
+    shell_command_before:
+      - cd ~/workspace
+      - export NAMESPACE=optos-connectors
+      - export DEPLOYMENT=lumin-connector
+      - export AWS_PROFILE=dispatcher-dev
+      - export KUBECONFIG=~/.kube/dev_config
+      - export NAMESPACE=optos-connectors
+      - clear
