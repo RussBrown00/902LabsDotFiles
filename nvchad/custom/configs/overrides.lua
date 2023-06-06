@@ -37,8 +37,6 @@ M.treesitter = {
 M.mason = {
   ensure_installed = {
      -- web dev
-    "autopep8",
-    "black",
     "css-lsp",
     "emmet-ls",
     "eslint-lsp",
@@ -47,17 +45,22 @@ M.mason = {
     "isort",
     "json-lsp",
     "marksman",
-    "mypy",
     "prettier",
+
+    -- python stuff
+    "autopep8",
+    "black",
     "pylint",
     "python-lsp-server",
-    "jedi-language-server",
+    "pyright",
+    -- "mypy",
+    -- "jedi-language-server",
+
     "typescript-language-server",
     "yaml-language-server",
 
     -- other stuff
     "lua-language-server",
-    "jedi-language-server",
     "stylua",
   },
 }

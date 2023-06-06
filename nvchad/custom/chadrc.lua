@@ -10,25 +10,7 @@ M.mappings = require("custom.mappings")
 -- example of changing theme:
 --
 
-M.plugins = require "custom.plugins"
-
--- M.plugins = {
---   user = require "custom.plugins",
---   override = {
---     ["nvim-treesitter/nvim-treesitter"] = plugin_overrides.treesitter,
---     ["williamboman/mason.nvim"] = plugin_overrides.mason,
---     ["hrsh7th/nvim-cmp"] = {
---       sources = {
---         { name = "nvim_lsp" },
---         { name = "luasnip" },
---         { name = "buffer" },
---         { name = "nvim_lua" },
---         { name = "path" },
---         { name = "cmp-tabnine" },
---       },
---     },
---   },
--- }
+M.plugins = "custom.plugins"
 
 M.nvimtree = {
    actions = {
