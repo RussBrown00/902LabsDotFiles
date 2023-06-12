@@ -1,12 +1,11 @@
-local present, null_ls = pcall(require, "null-ls")
-
-if not present then
-   return
-end
+local null_ls = require "null-ls"
 
 local b = null_ls.builtins
 
 local sources = {
+   b.formatting.prettier,
+   b.formatting.yamlfix,
+   b.formatting.stylua,
 
    -- webdev stuff
    b.code_actions.eslint,
@@ -15,6 +14,9 @@ local sources = {
 
    -- Lua
    b.formatting.stylua,
+
+  -- Terraform
+  b.formatting.terraform_fmt,
 
    -- Shell
    b.formatting.shfmt,
