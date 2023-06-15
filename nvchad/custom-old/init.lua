@@ -9,45 +9,21 @@ local autocmd = vim.api.nvim_create_autocmd
 g.mapleader = ","
 g.neoformat_try_node_exe = 1
 
-opt.swapfile = false
+opt.noswapfile = true
+opt.spellang = 'en'
 opt.spellfile = '~/.vim/spell/en.utf-8.add'
 
-autocmd({ "BufEnter", "BufWinEnter" }, {
-  pattern = { "<buffer>" },
+autocmd("FileType", {
+  pattern = "javascript,vue,javascriptreact",
   callback = function()
-    vim.opt_local.spell = true
-    vim.opt_local.spelllang = { "en_us" }
-  end,
-})
-
-local tabs_config = function()
     print("Loading JS File tab preferences")
     opt.expandtab = false
     opt.shiftwidth = 4
     opt.smartindent = true
     opt.tabstop = 4
     opt.softtabstop = 4
-  end
-
-local spaces_config = function()
-    print("Loading JS File tab preferences")
-    opt.expandtab = true
-    opt.shiftwidth = 2
-    opt.smartindent = true
-    opt.tabstop = 2
-    opt.softtabstop = 2
-  end
-
-autocmd("FileType", {
-  pattern = "javascript,vue,javascriptreact",
-  callback = spaces_config,
+  end,
 })
-
--- autocmd("FileType", {
---   pattern = "*.js",
---   -- pattern = "/Users/rbrown/workspace/discover-ui/*.js",
---   callback = spaces_config,
--- })
 
 autocmd("FileType", {
   pattern = "python",
