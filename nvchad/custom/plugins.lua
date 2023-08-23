@@ -5,6 +5,22 @@ local edit_events =
 
 --@type NvPluginSpec[]
 local plugins = {
+  {
+    "klen/nvim-config-local",
+    config = function()
+    require('config-local').setup {
+      config_files = { ".nvim.lua", ".nvimrc" },
+
+      -- Where the plugin keeps files data
+      hashfile = vim.fn.stdpath("data") .. "/config-local",
+
+      autocommands_create = true, -- Create autocommands (VimEnter, DirectoryChanged)
+      commands_create = true,     -- Create commands (ConfigLocalSource, ConfigLocalEdit, ConfigLocalTrust, ConfigLocalIgnore)
+      silent = false,             -- Disable plugin messages (Config loaded/ignored)
+      lookup_parents = true,     -- Lookup config files in parent directories
+    }
+    end
+  },
   { "puremourning/vimspector" },
   { "sbdchd/neoformat" },
   { "neovim/nvim-lspconfig" },
@@ -32,12 +48,12 @@ local plugins = {
     config = function()
       require("tabnine").setup {
         -- disable_auto_comment = true,
-        -- accept_keymap = "<Right>",
+        accept_keymap = "<C-q>",
         sort = true;
         run_on_every_keystroke = true;
         dismiss_keymap = "<Esc>",
         debounce_ms = 800,
-        suggestion_color = { gui = "#808080", cterm = 244 },
+        suggestion_color = { gui = "#872657", cterm = 5 },
         exclude_filetypes = { "TelescopePrompt" },
         log_file_path = nil, -- absolute path to Tabnine log file
         -- log_file_path = "/tmp/tabnine.log"
@@ -62,19 +78,20 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = plugin_overrides.mason,
   },
-  -- {
-  --   "hrsh7th/nvim-cmp",
-  --   opts = {
-  --     sources = {
-  --       { name = "nvim_lsp" },
-  --       { name = "cmp_tabnine" },
-  --       { name = "luasnip" },
-  --       { name = "buffer" },
-  --       { name = "nvim_lua" },
-  --       { name = "path" },
-  --     },
-  --   }
-  -- },
+  { "direnv/direnv.vim" },
+  {
+    "hrsh7th/nvim-cmp",
+    opts = {
+      sources = {
+        { name = "nvim_lsp" },
+        { name = "cmp_tabnine" },
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "nvim_lua" },
+        { name = "path" },
+      },
+    }
+  },
 }
 
 return plugins

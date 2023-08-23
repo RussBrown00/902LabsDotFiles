@@ -3,7 +3,7 @@ local M = {}
 M.general = {
    i = {
      ["<leader>cc"] = { "<cmd>TComment<CR>", "Comment line" },
-      ["jj"] = { "<ESC>", "Escape" },
+      ["jj"] = { "<ESC>", "Escape" }
    },
    n = {
      ["<C-p>"] = { "<cmd>Telescope find_files<CR>", "find files" },

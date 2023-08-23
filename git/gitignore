@@ -60,6 +60,7 @@ nb-configuration.xml
 .nvmrc
 .vimrc
 .vimrc_proj
+.nvimrc
 *.iml
 .agignore
 .vimrc_proj
