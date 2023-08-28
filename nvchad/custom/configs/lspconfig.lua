@@ -9,6 +9,9 @@ local servers = {
     name = "html",
   },
   {
+    name = "eslint",
+  },
+  {
     name = "cssls",
   },
   {

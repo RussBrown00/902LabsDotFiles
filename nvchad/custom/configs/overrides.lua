@@ -33,6 +33,32 @@ M.treesitter = {
   },
 }
 
+M.nvimtree = {
+  git = {
+    enable = true,
+  },
+   actions = {
+    open_file = {
+      quit_on_open = true,
+      window_picker = {
+        enable = true,
+      }
+    }
+  },
+  renderer = {
+    highlight_git = true,
+    icons = {
+      show = {
+        git = true,
+      },
+    },
+  },
+  filters = {
+    dotfiles = true,
+    git_ignored = false,
+  },
+}
+
 M.mason = {
   ensure_installed = {
      -- web dev

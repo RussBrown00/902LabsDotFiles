@@ -21,26 +21,36 @@ autocmd({ "BufEnter", "BufWinEnter" }, {
 })
 
 local tabs_config = function()
-    print("Loading JS File tab preferences")
-    opt.expandtab = false
-    opt.shiftwidth = 4
-    opt.smartindent = true
-    opt.tabstop = 4
-    opt.softtabstop = 4
-  end
+  -- print("Loading JS File tab preferences (tabs)")
+  opt.shiftwidth = 2
+  opt.tabstop = 2
+  opt.expandtab = false
+  opt.smartindent = true
+  opt.autoindent = true
+end
 
 local spaces_config = function()
-    print("Loading JS File tab preferences")
-    opt.expandtab = true
-    opt.shiftwidth = 2
-    opt.smartindent = true
-    opt.tabstop = 2
-    opt.softtabstop = 2
+  -- print("Loading JS File tab preferences (spaces)")
+  opt.shiftwidth = 2
+  opt.tabstop = 2
+  opt.expandtab = true
+  opt.smartindent = true
+  opt.autoindent = true
+end
+
+local load_tab_prefs = function()
+  local buf_name = vim.api.nvim_buf_get_name(0)
+
+  if string.find(buf_name, "/photivo/") then
+    tabs_config()
+  else
+    spaces_config()
   end
+end
 
 autocmd("FileType", {
   pattern = "javascript,vue,javascriptreact",
-  callback = spaces_config,
+  callback = load_tab_prefs,
 })
 
 -- autocmd("FileType", {

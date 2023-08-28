@@ -12,17 +12,6 @@ M.mappings = require("custom.mappings")
 
 M.plugins = "custom.plugins"
 
-M.nvimtree = {
-   actions = {
-    open_file = {
-      quit_on_open = true,
-      window_picker = {
-        enable = false
-      }
-    }
-   },
-}
-
 M.options = {
    clipboard = "unnamedplus",
    cmdheight = 1,

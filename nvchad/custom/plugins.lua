@@ -48,10 +48,10 @@ local plugins = {
     config = function()
       require("tabnine").setup {
         -- disable_auto_comment = true,
-        accept_keymap = "<C-q>",
+        accept_keymap = "<RIGHT>",
+        dismiss_keymap = "<C-]>",
         sort = true;
         run_on_every_keystroke = true;
-        dismiss_keymap = "<Esc>",
         debounce_ms = 800,
         suggestion_color = { gui = "#872657", cterm = 5 },
         exclude_filetypes = { "TelescopePrompt" },
@@ -72,10 +72,14 @@ local plugins = {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = plugin_overrides.treesitter,
+    opts = plugin_overrides.nvimtree,
   },
   {
     "williamboman/mason.nvim",
+    opts = plugin_overrides.mason,
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
     opts = plugin_overrides.mason,
   },
   { "direnv/direnv.vim" },
@@ -83,12 +87,12 @@ local plugins = {
     "hrsh7th/nvim-cmp",
     opts = {
       sources = {
-        { name = "nvim_lsp" },
-        { name = "cmp_tabnine" },
-        { name = "luasnip" },
-        { name = "buffer" },
-        { name = "nvim_lua" },
-        { name = "path" },
+        "codota/tabnine-nvim",
+        "saadparwaiz1/cmp_luasnip",
+        "hrsh7th/cmp-nvim-lua",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
       },
     }
   },
