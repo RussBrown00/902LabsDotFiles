@@ -23,7 +23,6 @@ local plugins = {
   },
   { "puremourning/vimspector" },
   { "sbdchd/neoformat" },
-  { "neovim/nvim-lspconfig" },
   {
     "neovim/nvim-lspconfig",
     event = edit_events,
@@ -72,14 +71,14 @@ local plugins = {
   },
   {
     "nvim-treesitter/nvim-treesitter",
+    opts = plugin_overrides.treesitter,
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
     opts = plugin_overrides.nvimtree,
   },
   {
     "williamboman/mason.nvim",
-    opts = plugin_overrides.mason,
-  },
-  {
-    "nvim-tree/nvim-tree.lua",
     opts = plugin_overrides.mason,
   },
   { "direnv/direnv.vim" },

@@ -34,9 +34,6 @@ M.treesitter = {
 }
 
 M.nvimtree = {
-  git = {
-    enable = true,
-  },
    actions = {
     open_file = {
       quit_on_open = true,
@@ -45,17 +42,57 @@ M.nvimtree = {
       }
     }
   },
-  renderer = {
-    highlight_git = true,
-    icons = {
-      show = {
-        git = true,
-      },
-    },
-  },
   filters = {
     dotfiles = true,
     git_ignored = false,
+  },
+  update_focused_file = {
+    enable = true,
+  },
+  git = {
+    enable = true,
+    show_on_dirs = true,
+    show_on_open_dirs = false,
+    disable_for_dirs = {},
+    timeout = 400,
+  },
+  renderer = {
+    highlight_git = false,
+    icons = {
+      show = {
+        file = false,
+        folder = true,
+        folder_arrow = true,
+        git = true,
+        modified = true,
+      },
+      git_placement = "after",
+      glyphs = {
+        default = "",
+        symlink = "",
+        bookmark = "󰆤",
+        modified = "●",
+        folder = {
+          arrow_closed = "",
+          arrow_open = "",
+          default = "",
+          open = "",
+          empty = "",
+          empty_open = "",
+          symlink = "",
+          symlink_open = "",
+        },
+        git = {
+          unstaged = "פֿ",
+          staged = "✓",
+          unmerged = "",
+          renamed = "➜",
+          untracked = "喝",
+          deleted = "",
+          ignored = "◌",
+        },
+      },
+    },
   },
 }
 
