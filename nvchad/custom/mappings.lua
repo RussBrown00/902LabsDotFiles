@@ -8,6 +8,7 @@ M.general = {
    },
    n = {
      ["<C-p>"] = { "<cmd>Telescope find_files<CR>", "find files" },
+     ["<leader>fh"] = { "<cmd>Telescope search_history<CR>", "Telescope Search History" },
      ["<leader><space>"] = { "<cmd>noh<CR>", "Clear search" },
      ["<leader><C-f>"] = { "<cmd>Neoformat<CR>", "Run Neoformat on file" },
      ["<leader>n"] = { "<cmd>tabnew<CR>", "Create new tab" },

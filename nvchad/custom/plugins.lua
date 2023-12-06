@@ -46,29 +46,25 @@ local plugins = {
     -- lazy = false,
     config = function()
       require("tabnine").setup {
-        -- disable_auto_comment = true,
+        disable_auto_comment = true,
         accept_keymap = "<RIGHT>",
         dismiss_keymap = "<C-]>",
-        sort = true;
-        run_on_every_keystroke = true;
         debounce_ms = 800,
-        suggestion_color = { gui = "#872657", cterm = 5 },
+        suggestion_color = { gui = "#808080", cterm = 244 },
         exclude_filetypes = { "TelescopePrompt" },
-        log_file_path = nil, -- absolute path to Tabnine log file
-        -- log_file_path = "/tmp/tabnine.log"
       }
     end,
     build = "./dl_binaries.sh",
     run = "./dl_binaries.sh",
   },
-  {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    after = "telescope.nvim",
-    run = "make",
-    config = function()
-      require "custom.configs.fzf"
-    end,
-  },
+  -- {
+  --   "nvim-telescope/telescope-fzf-native.nvim",
+  --   after = "telescope.nvim",
+  --   run = "make",
+  --   config = function()
+  --     require "custom.configs.fzf"
+  --   end,
+  -- },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = plugin_overrides.treesitter,
@@ -82,19 +78,6 @@ local plugins = {
     opts = plugin_overrides.mason,
   },
   { "direnv/direnv.vim" },
-  {
-    "hrsh7th/nvim-cmp",
-    opts = {
-      sources = {
-        "codota/tabnine-nvim",
-        "saadparwaiz1/cmp_luasnip",
-        "hrsh7th/cmp-nvim-lua",
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-      },
-    }
-  },
 }
 
 return plugins
