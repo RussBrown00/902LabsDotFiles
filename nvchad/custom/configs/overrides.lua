@@ -56,6 +56,9 @@ M.nvimtree = {
     disable_for_dirs = {},
     timeout = 400,
   },
+  view = {
+    adaptive_size = true,
+  },
   renderer = {
     highlight_git = false,
     icons = {
@@ -121,7 +124,6 @@ M.mason = {
     "pylint",
     "python-lsp-server",
     "pyright",
-    -- "mypy",
     -- "jedi-language-server",
 
     -- other stuff

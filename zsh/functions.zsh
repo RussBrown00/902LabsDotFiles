@@ -216,3 +216,9 @@ function sys-alert {
 
   osascript -e "$MSG"
 }
+
+function mkenv {
+  ENVDIR=$(basename $(pwd))
+  echo $ENVDIR
+	mkvirtualenv -p $(pyenv which python) $ENVDIR
+}

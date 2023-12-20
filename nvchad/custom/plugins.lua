@@ -7,6 +7,7 @@ local edit_events =
 local plugins = {
   {
     "klen/nvim-config-local",
+    "lambdalisue/vim-pyenv",
     config = function()
     require('config-local').setup {
       config_files = { ".nvim.lua", ".nvimrc" },

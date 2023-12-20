@@ -15,6 +15,9 @@ function chpwd {
   fi
 }
 
+# Slack Dev Menu
+export SLACK_DEVELOPER_MENU=true
+
 # Setup terminal, and turn on colors
 export LANG=en_US.UTF-8
 export EDITOR=nvim
@@ -47,4 +50,4 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-export PYTHONPATH=$(pyenv which python)
+# export PYTHONPATH=$(pyenv which python)
