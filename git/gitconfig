@@ -62,6 +62,8 @@
 	pu = push upstream
 	pum = push upstream master
 	pom = push origin master
+	poh = push origin head
+	pohm = push origin head -o merge_request.create -o merge_request.merge_when_pipeline_succeeds
 	pomf = push -f origin master
 	pon = push origin next
 	ponf = push -f origin next
@@ -92,6 +94,9 @@
 	rs = remote show
 	rso = remote show origin
 	permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
+
+  # BRANCHES
+  # dmb = !git branch --merged | grep -v "^\*" | awk "{\$1=\$1};1" | egrep -v "^(master|main|dev|qa|prod)$" | xargs git branch -d
 
 [color]
 	grep = auto

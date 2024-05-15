@@ -11,6 +11,7 @@ source ~/.zsh/functions.zsh
 source ~/.zsh/history.zsh
 source ~/.zsh/zsh_hooks.zsh
 source ~/.zsh/nvm.zsh
+source ~/.zsh/zoxide.zsh
 
 precmd() {
   if [[ -n "$TMUX" ]]; then
@@ -22,3 +23,6 @@ precmd() {
 . /Users/spicycode/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Run direnv hook
+eval "$(direnv hook zsh)"

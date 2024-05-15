@@ -24,9 +24,20 @@ M.options = {
 }
 
 M.ui = {
-  theme_toggle = { "chadracula", "one_light" },
+  theme_toggle = { "doomchad", "one_light" },
   theme = "one_light", -- default theme
 }
+
+-- dark themes we like
+-- one_light
+
+-- dark themes we like
+-- chadracula
+-- bearded-arc
+-- doomchad
+-- tomorrow_night
+-- 
+-- 
 
 M.mappings = require "custom.mappings"
 

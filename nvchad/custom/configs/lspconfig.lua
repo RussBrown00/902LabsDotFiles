@@ -45,6 +45,9 @@ local servers = {
   {
     name = "sqlls",
   },
+  {
+    name = "gopls",
+  },
 }
 
 for _, lsp in ipairs(servers) do

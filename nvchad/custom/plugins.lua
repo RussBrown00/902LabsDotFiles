@@ -41,6 +41,15 @@ local plugins = {
       require "custom.configs.lspconfig"
     end
   },
+  { "folke/todo-comments.nvim" },
+	-- { "JoosepAlviste/nvim-ts-context-commentstring" },
+  {
+    "heavenshell/vim-jsdoc",
+    -- for = {'javascript', 'javascript.jsx', 'typescript'},
+    ft = "javascript javascript.jsx typescript",
+    build = "make clean; make install",
+    run = "make install",
+  },
   {
     "codota/tabnine-nvim",
     event = edit_events,
@@ -48,7 +57,7 @@ local plugins = {
     config = function()
       require("tabnine").setup {
         disable_auto_comment = true,
-        accept_keymap = "<RIGHT>",
+        accept_keymap = "<S-RIGHT>",
         dismiss_keymap = "<C-]>",
         debounce_ms = 800,
         suggestion_color = { gui = "#808080", cterm = 244 },
@@ -79,6 +88,7 @@ local plugins = {
     opts = plugin_overrides.mason,
   },
   { "direnv/direnv.vim" },
+  { "ray-x/go.nvim" }, 
 }
 
 return plugins
