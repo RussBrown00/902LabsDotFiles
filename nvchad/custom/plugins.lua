@@ -29,10 +29,29 @@ local plugins = {
     event = edit_events,
     dependencies = {
       -- format & linting
+      -- {
+      --   "mfussenegger/nvim-lint",
+      --   event = "VeryLazy",
+      --   config = function()
+      --     require "custom.configs.lint"
+      --   end,
+      -- },
       {
-        "jose-elias-alvarez/null-ls.nvim",
+        "stevearc/conform.nvim",
+        event = 'BufWritePre',
+        keys = {
+          {
+            -- Customize or remove this keymap to your liking
+            "<leader>fm",
+            function()
+              require("conform").format({ async = true, lsp_fallback = true })
+            end,
+            mode = "",
+            desc = "Format buffer",
+          },
+        },
         config = function()
-          require "custom.configs.null-ls"
+          require "custom.configs.conform"
         end,
       },
     },

@@ -17,6 +17,9 @@ local servers = {
   {
     name = "tsserver",
   },
+  {
+    name = "yamlls",
+  },
   -- {
   --   name = "jedi-language-server",
   -- },
