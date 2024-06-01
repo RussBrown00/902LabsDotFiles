@@ -25,17 +25,17 @@ render_timer = false
 size = 13.0
 
 [font.bold]
-family = "Hack Nerd Font"
+family = "CommitMono Nerd Font"
 
 [font.glyph_offset]
 x = 0
 y = 0
 
 [font.italic]
-family = "Hack Nerd Font"
+family = "CommitMono Nerd Font"
 
 [font.normal]
-family = "Hack Nerd Font"
+family = "CommitMono Nerd Font"
 
 [font.offset]
 x = 0
