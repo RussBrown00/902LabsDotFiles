@@ -1,3 +1,5 @@
+local conform = require("conform")
+
 local options = {
 	log_level = vim.log.levels.DEBUG,
 	lsp_fallback = true,
@@ -25,7 +27,8 @@ vim.api.nvim_create_user_command("Format", function(args)
 			["end"] = { args.line2, end_line:len() },
 		}
 	end
-	require("conform").format({ async = true, lsp_fallback = true, range = range })
+
+	conform.format({ async = true, lsp_fallback = true, range = range })
 end, { range = true })
 
-require("conform").setup(options)
+conform.setup(options)

@@ -1,7 +1,10 @@
 return {
   {
     "stevearc/conform.nvim",
-    event = "BufWritePre", -- uncomment for format on save
+    event = {
+      "BufWritePre",
+      "InsertLeave",
+    },
     config = function()
       require "configs.conform"
     end,

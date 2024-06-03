@@ -30,12 +30,25 @@ map("n", "<leader>fp", '<cmd>let @" = expand("%:p")<CR>', { desc = "Copy full pa
 map("n", "<leader>fn", '<cmd>let @" = expand("%:t")<CR>', { desc = "Copy file name" })
 map("n", "<leader>rc", "<cmd>ReloadConfig<CR>", { noremap = true, silent = true, desc = "Reload configuration" })
 
+-- Error / Linting Navigation
+map("n", "<leader><C-d>", "<cmd>lua vim.diagnostic.goto_next()<CR>", { desc = "Goto Next Diagnostic" })
+map("n", "<leader><C-u>", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { desc = "Goto Prev Diagnostic" })
+
 -- Terminal mappings (requires defining functions if used)
-map("t", "<A-i>", function() require("nvterm.terminal").toggle("float") end, { desc = "Toggle floating term" })
-map("t", "<A-h>", function() require("nvterm.terminal").toggle("horizontal") end, { desc = "Toggle horizontal term" })
-map("t", "<A-v>", function() require("nvterm.terminal").toggle("vertical") end, { desc = "Toggle vertical term" })
+map("t", "<A-i>", function()
+  require("nvterm.terminal").toggle "float"
+end, { desc = "Toggle floating term" })
+map("t", "<A-h>", function()
+  require("nvterm.terminal").toggle "horizontal"
+end, { desc = "Toggle horizontal term" })
+map("t", "<A-v>", function()
+  require("nvterm.terminal").toggle "vertical"
+end, { desc = "Toggle vertical term" })
 
 -- Visual and Select Mode Mappings
-map("x", "<leader>q", function() require("tabnine.chat").open() end, { desc = "Open Tabnine Chat" })
+map("x", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', { desc = "Don't copy replaced text", silent = true, noremap = true })
+map("x", "<leader>q", function()
+  require("tabnine.chat").open()
+end, { desc = "Open Tabnine Chat" })
 map("v", "<leader>S", "<cmd>sort u<CR>", { desc = "Unique sort selected lines" })
 map("v", "<leader>qq", "<cmd>TabnineFix<CR>", { desc = "Run Tabnine Fix" })

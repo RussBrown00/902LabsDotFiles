@@ -77,7 +77,7 @@ require("tabnine").setup {
   codelens_color = { gui = "#808080", cterm = 244 },
   codelens_enabled = true,
   debounce_ms = 800,
-  disable_auto_comment = true,
+  disable_auto_comment = false,
   dismiss_keymap = "<C-]>",
   exclude_filetypes = { "TelescopePrompt", "NvimTree" },
   log_file_path = nil,

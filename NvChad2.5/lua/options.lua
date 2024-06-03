@@ -28,13 +28,15 @@ local spaces_config = function()
 end
 
 local load_tab_prefs = function()
-  local buf_name = vim.api.nvim_buf_get_name(0)
+  -- Could add logic here for specific folder
+  -- local buf_name = vim.api.nvim_buf_get_name(0)
+  -- if string.find(buf_name, "/folder-name/") then
+  --   tabs_config()
+  -- else
+  --   spaces_config()
+  -- end
 
-  if string.find(buf_name, "/photivo/") then
-    tabs_config()
-  else
-    spaces_config()
-  end
+  spaces_config()
 end
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -42,6 +44,8 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = load_tab_prefs,
 })
 
+-- NOTE: I can't make this work, LAZY doesn't like it and throws an error
+--
 -- function reload_config()
 --   require("lazy").setup "~/.config/nvim/init.lua"
 --   -- dofile(vim.env.MYVIMRC) -- MYVIMRC should point to your init.lua file
