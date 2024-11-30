@@ -15,8 +15,13 @@ function chpwd {
   fi
 }
 
+export HOMEBREW_NO_AUTO_UPDATE=true
+
 # Slack Dev Menu
 export SLACK_DEVELOPER_MENU=true
+
+# Disable Homebrew auto update
+export HOMEBREW_NO_AUTO_UPDATE=true
 
 # Setup terminal, and turn on colors
 export LANG=en_US.UTF-8

@@ -75,6 +75,9 @@ return {
       -- require("configs.tabnine")
     end,
     build = "./dl_binaries.sh",
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
   },
 
   -- These are some examples, uncomment them if you want to see them work!
@@ -99,6 +102,7 @@ return {
       filters = {
         dotfiles = true,
         git_ignored = false,
+        git_clean = false,
       },
       update_focused_file = {
         enable = true,
@@ -114,7 +118,7 @@ return {
         adaptive_size = true,
       },
       renderer = {
-        highlight_git = false,
+        highlight_git = true,
         icons = {
           show = {
             file = false,

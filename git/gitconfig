@@ -28,6 +28,7 @@
 	dum = diff upstream/master
 	dom = diff origin/master
 	dh = rev-parse HEAD
+	dmain = diff origin/main
 
 	# LOG RELATED
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
@@ -67,6 +68,10 @@
 	pomf = push -f origin master
 	pon = push origin next
 	ponf = push -f origin next
+
+  fmain = fetch origin main
+  unmain = reset --hard origin/main
+  funmain = !git fetch origin main; git reset --hard origin/main
 
 	un = reset --hard
 	unom = reset --hard origin/master

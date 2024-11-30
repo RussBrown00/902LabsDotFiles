@@ -14,9 +14,7 @@ source ~/.zsh/nvm.zsh
 source ~/.zsh/zoxide.zsh
 
 precmd() {
-  if [[ -n "$TMUX" ]]; then
-    tmux setenv "$(tmux display -p 'TMUX_PWD_#D')" "$PWD"
-  fi
+  rename_tmux_window
 }
 
 # OPAM configuration

@@ -15,6 +15,28 @@ function zsh_recompile {
   source ~/.zshrc
 }
 
+function rename_tmux_window {
+  if [[ -n "$TMUX" ]]; then
+    # Don't change the name automatically if it's the first window
+    if [ "$(tmux display-message -p '#I')" != "0" ]; then
+      # Determine if the current directory is under 'workspace'
+      if [[ "$PWD" == *"/workspace/"* ]]; then
+        local new_name=$(basename "$PWD")
+      else
+        # Optional: Define how to handle other directories
+        local new_name=$(basename "$PWD")  # or some other logic
+      fi
+
+      # Set the new name to the tmux window
+      echo -ne "\033k${new_name}\033\\"
+      tmux rename-window "$new_name"
+
+      # Update tmux environment variable (optional)
+      tmux setenv "$(tmux display -p 'TMUX_PWD_#D')" "$PWD"
+    fi
+  fi
+}
+
 function extract {
   echo Extracting $1 ...
   if [ -f $1 ] ; then
@@ -221,4 +243,13 @@ function mkenv {
   ENVDIR=$(basename $(pwd))
   echo $ENVDIR
 	mkvirtualenv -p $(pyenv which python) $ENVDIR
+}
+
+function reflogmore {
+  git reflog --pretty='format:%C(auto)%h (%s, %ad)' | uniq | head -n 10 | while read commit_hash; do
+    echo "Changes for reflog entry with commit $commit_hash:"
+    git show --pretty="" --name-only $commit_hash | head
+    echo ""
+    echo ""
+  done
 }

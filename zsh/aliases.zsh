@@ -26,7 +26,6 @@ alias k8='kubectl'
 
 # npm
 alias npmpub='mv .npmrc ._npmrc; npm publish; mv ._npmrc .npmrc;'
-alias p='pnpm'
 
 #OTHER
 alias weather='curl -4 http://wttr.in'
