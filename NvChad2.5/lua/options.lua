@@ -36,6 +36,8 @@ local load_tab_prefs = function()
   --   spaces_config()
   -- end
 
+  opt.laststatus = 3
+
   spaces_config()
 end
 

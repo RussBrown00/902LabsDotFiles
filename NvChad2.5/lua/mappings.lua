@@ -25,9 +25,9 @@ map("n", "<leader>s", "<cmd>split<CR>", { desc = "Create h-split" })
 map("n", "<leader>v", "<cmd>vsplit<CR>", { desc = "Create v-split" })
 map("n", "<C-h>", "<cmd>tabprevious<CR>", { desc = "Navigate to previous tab" })
 map("n", "<C-l>", "<cmd>tabnext<CR>", { desc = "Navigate to next tab" })
-map("n", "<leader>fr", '<cmd>let @" = expand("%")<CR>', { desc = "Copy relative path" })
-map("n", "<leader>fp", '<cmd>let @" = expand("%:p")<CR>', { desc = "Copy full path" })
-map("n", "<leader>fn", '<cmd>let @" = expand("%:t")<CR>', { desc = "Copy file name" })
+map("n", "<leader>fr", '<cmd>let @+=expand("%")<CR>', { desc = "Copy relative path" })
+map("n", "<leader>fp", '<cmd>let @+=expand("%:p")<CR>', { desc = "Copy full path" })
+map("n", "<leader>fn", '<cmd>let @+=expand("%:t")<CR>', { desc = "Copy file name" })
 map("n", "<leader>rc", "<cmd>ReloadConfig<CR>", { noremap = true, silent = true, desc = "Reload configuration" })
 
 -- Error / Linting Navigation

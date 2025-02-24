@@ -57,9 +57,9 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 
 local options = {
   formatters_by_ft = {
-    css = { "prettier" },
-    html = { "prettier" },
-    javascript = { "prettier" },
+    css = { "prettierd" },
+    html = { "prettierd" },
+    javascript = { "prettierd" },
     lua = { "stylua" },
   },
 
