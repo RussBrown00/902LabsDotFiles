@@ -1,6 +1,7 @@
 # Currently this path is appendend to dynamically when picking a ruby version
 export PATH=bin:script:~/.rbenv/bin:~/.bin:node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:~/.cabal/bin:$HOME/Library/Haskell/bin:$PATH
 export PATH=$PATH:/opt/boxen/homebrew/opt/go/libexec/bin
+export PATH="/usr/local/opt/libpq/bin:$PATH"
 
 CURRENT_DIRECTORY=$(pwd)
 
@@ -56,3 +57,7 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 # export PYTHONPATH=$(pyenv which python)
+#
+
+# RIPGREP 
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
