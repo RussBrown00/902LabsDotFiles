@@ -13,9 +13,9 @@ source ~/.zsh/zsh_hooks.zsh
 source ~/.zsh/nvm.zsh
 source ~/.zsh/zoxide.zsh
 
-precmd() {
-  rename_tmux_window
-}
+# precmd() {
+#   rename_tmux_window
+# }
 
 # OPAM configuration
 . /Users/spicycode/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

@@ -24,6 +24,10 @@
 	co = checkout
 	cb = checkout -b
 
+  # Cherry Picks
+  cp = cherry-pick --no-commit
+
+  # Diffs
 	di = diff
 	dum = diff upstream/master
 	dom = diff origin/master
@@ -123,6 +127,10 @@
 	tool = bc3
 [difftool]
 	bc3 = trustExitCode
+
 [user]
 	name = Russell Brown
 	email = russ@902labs.com
+
+[includeIf "gitdir:~/workspace/marriott/"]
+  path = ~/workspace/marriott/.gitconfig

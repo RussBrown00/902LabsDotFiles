@@ -1,8 +1,8 @@
 #custom_cursor_colors = false
 #enable_experimental_conpty_backend = false
 # hide_cursor_when_typing = false
-# general.import = ["/Users/rbrown/.config/alacritty/dark_mode.toml"]
-general.import = ["/Users/rbrown/.config/alacritty/light_mode.toml"]
+general.import = ["/Users/rbrown/.config/alacritty/dark_mode.toml"]
+# general.import = ["/Users/rbrown/.config/alacritty/light_mode.toml"]
 general.live_config_reload = true
 
 [bell]
@@ -26,17 +26,17 @@ render_timer = false
 size = 13.0
 
 [font.bold]
-family = "CommitMono Nerd Font"
+family = "0xProto Nerd Font"
 
 [font.glyph_offset]
 x = 0
 y = 0
 
 [font.italic]
-family = "CommitMono Nerd Font"
+family = "0xProto Nerd Font"
 
 [font.normal]
-family = "CommitMono Nerd Font"
+family = "0xProto Nerd Font"
 
 [font.offset]
 x = 0

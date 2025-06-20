@@ -72,14 +72,27 @@ local options = {
 
 require("conform").setup(options)
 
-require("tabnine").setup {
-  accept_keymap = "<S-RIGHT>",
-  codelens_color = { gui = "#808080", cterm = 244 },
-  codelens_enabled = true,
-  debounce_ms = 800,
-  disable_auto_comment = false,
-  dismiss_keymap = "<C-]>",
-  exclude_filetypes = { "TelescopePrompt", "NvimTree" },
-  log_file_path = nil,
-  suggestion_color = { gui = "#808080", cterm = 244 },
+-- require("tabnine").setup {
+--   accept_keymap = "<S-RIGHT>",
+--   codelens_color = { gui = "#808080", cterm = 244 },
+--   codelens_enabled = true,
+--   debounce_ms = 800,
+--   disable_auto_comment = false,
+--   dismiss_keymap = "<C-]>",
+--   exclude_filetypes = { "TelescopePrompt", "NvimTree" },
+--   log_file_path = nil,
+--   suggestion_color = { gui = "#808080", cterm = 244 },
+-- }
+
+require("CopilotChat").setup {
+  prompts = {
+    JSDocs = {
+      prompt = "> /COPILOT_GENERATE\n\nWrite JSDocs for the selected code. Objects should be broken out.",
+    },
+  },
+  mappings = {
+    reset = "<C-Bslash>",
+  },
 }
+
+vim.opt.completeopt = { "menu", "popup", "noselect" }
