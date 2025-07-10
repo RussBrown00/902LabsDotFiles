@@ -6,6 +6,7 @@ local map = vim.keymap.set
 map("i", "<leader>cc", "<cmd>TComment<CR>", { desc = "Comment line" })
 map("i", "<ESC>", "<ESC><ESC>", { desc = "Double Escape" })
 map("i", "jj", "<ESC><ESC>", { desc = "Escape" })
+map("i", "jk", "<ESC><ESC>", { desc = "Escape" })
 
 -- Escape duplicated mapping of Tabnine Chat under insert mode for mapping clarification
 -- map("i", "<leader>tq", "<cmd>TabnineChat<CR>", { desc = "Open Tabnine Chat" })
@@ -19,7 +20,7 @@ map("n", "<leader>fu", "<cmd>Telescope resume<CR>", { desc = "Resume" })
 map("n", "<leader>fh", "<cmd>Telescope search_history<CR>", { desc = "Telescope Search History" })
 map("n", "<leader>fm", "<cmd>Format<CR>", { desc = "Run Conformer" })
 map("n", "<leader><space>", "<cmd>noh<CR>", { desc = "Clear search" })
-map("n", "<leader><C-f>", "<cmd>Neoformat<CR>", { desc = "Run Neoformat on file" })
+-- map("n", "<leader><C-f>", "<cmd>Neoformat<CR>", { desc = "Run Neoformat on file" })
 map("n", "<leader>n", "<cmd>tabnew<CR>", { desc = "Create new tab" })
 map("n", "<leader>s", "<cmd>split<CR>", { desc = "Create h-split" })
 map("n", "<leader>v", "<cmd>vsplit<CR>", { desc = "Create v-split" })
@@ -35,15 +36,19 @@ map("n", "<leader><C-d>", "<cmd>lua vim.diagnostic.goto_next()<CR>", { desc = "G
 map("n", "<leader><C-u>", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { desc = "Goto Prev Diagnostic" })
 
 -- Terminal mappings (requires defining functions if used)
-map("t", "<A-i>", function()
+map("t", "<leader>tf", function()
   require("nvterm.terminal").toggle "float"
 end, { desc = "Toggle floating term" })
-map("t", "<A-h>", function()
+map("t", "<leader>th", function()
   require("nvterm.terminal").toggle "horizontal"
 end, { desc = "Toggle horizontal term" })
-map("t", "<A-v>", function()
+map("t", "<leader>tv", function()
   require("nvterm.terminal").toggle "vertical"
 end, { desc = "Toggle vertical term" })
+
+map("n", "<leader>tt", function()
+  require("nvchad.themes").open()
+end, { desc = "telescope nvchad themes" })
 
 -- Visual and Select Mode Mappings
 map("x", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', { desc = "Don't copy replaced text", silent = true, noremap = true })

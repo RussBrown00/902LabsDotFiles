@@ -6,6 +6,7 @@ local options = {
     javascript = { "prettierd" },
     javascriptreact = { "prettierd" },
     lua = { "stylua" },
+    terraform = { "terraform_fmt" },
   },
   format_on_save = {
     -- These options will be passed to conform.format()

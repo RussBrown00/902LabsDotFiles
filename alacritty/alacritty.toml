@@ -1,8 +1,8 @@
 #custom_cursor_colors = false
 #enable_experimental_conpty_backend = false
 # hide_cursor_when_typing = false
-general.import = ["/Users/rbrown/.config/alacritty/dark_mode.toml"]
-# general.import = ["/Users/rbrown/.config/alacritty/light_mode.toml"]
+# general.import = ["/Users/rbrown/.config/alacritty/dark_mode.toml"]
+general.import = ["/Users/rbrown/.config/alacritty/light_mode.toml"]
 general.live_config_reload = true
 
 [bell]

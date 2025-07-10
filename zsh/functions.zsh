@@ -155,11 +155,19 @@ if [ -f "/usr/bin/docker" ] || [ -f "/usr/local/bin/docker" ]; then
 		docker ps -qaf "name=$1" | xargs docker restart
 	}
 
+	function docker-logs {
+		docker ps -qaf "name=$1" | xargs docker logs -f
+	}
+
 	docker-clean() {
 		docker rm -f $(docker ps -a -q)
 		docker rmi $(docker images -q -f dangling=true)
 		docker volume rm $(docker volume ls -qf dangling=true)
 	}
+
+  function dps {
+    docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}$@"
+  }
 fi
 
 if [ "$OSTYPE" != "darwin" ] && [ -f "/usr/bin/docker" ]; then
@@ -171,6 +179,18 @@ if [ "$OSTYPE" != "darwin" ] && [ -f "/usr/bin/docker" ]; then
 		sudo /usr/local/bin/docker-compose $@
 	}
 fi
+
+function dcup {
+	docker-compose up $@
+}
+
+function dcdown {
+	docker-compose down $@
+}
+
+function dclogs {
+	docker-compose logs $@
+}
 
 function docker-pull {
 	docker images | grep "$1" | awk '{print $1}' | xargs -L1 sudo docker pull

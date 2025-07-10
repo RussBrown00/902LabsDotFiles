@@ -3,6 +3,43 @@
 	pager = less
 	excludesfile = ~/.gitignore
 
+[log]
+    date = local
+
+[format]
+    pretty = format:%C(yellow)commit %h / %H%C(reset)%nAuthor: %an <%ae>%nDate:   %ad%n%n    %s%n%n%b
+
+[color]
+	grep = auto
+	diff = auto
+	status = auto
+	branch = auto
+
+[branch]
+	autosetuprebase = always
+
+[http]
+	sslverify = false
+
+[push]
+	default = current
+
+[merge]
+	tool = bc3
+
+[mergetool]
+	bc3 = trustExitCode
+
+[diff]
+	tool = bc3
+
+[difftool]
+	bc3 = trustExitCode
+
+[user]
+	name = Russell Brown
+	email = russ@902labs.com
+
 [alias]
 	aa = add --all
 
@@ -25,7 +62,11 @@
 	cb = checkout -b
 
   # Cherry Picks
-  cp = cherry-pick --no-commit
+  cp = cherry-pick
+  cpx = cherry-pick -X theirs
+  cpn = cherry-pick --no-commit
+  cpa = cherry-pick --abort
+  cpc = cherry-pick --continue
 
   # Diffs
 	di = diff
@@ -37,7 +78,8 @@
 	# LOG RELATED
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
 	#lh = --no-pager log --numstat -4
-	lg = log --graph --oneline --decorate
+	lg = log --graph --oneline --decorate --format='%C(yellow)%h%C(reset) %C(cyan)%ad%C(reset)%C(auto)%d%C(reset) %s %C(dim)- %an%C(reset)' --date=format:'%m/%d %H:%M'
+  #lgg = log --format='%C(yellow)commit %h / %H%C(reset)%nAuthor: %an <%ae>%nDate:   %ad%n%n    %s%n%n%b' --date=local
 
 	ri = rebase -i
 	rom = rebase master
@@ -106,31 +148,6 @@
 
   # BRANCHES
   # dmb = !git branch --merged | grep -v "^\*" | awk "{\$1=\$1};1" | egrep -v "^(master|main|dev|qa|prod)$" | xargs git branch -d
-
-[color]
-	grep = auto
-	diff = auto
-	status = auto
-	branch = auto
-
-[branch]
-	autosetuprebase = always
-[http]
-	sslverify = false
-[push]
-	default = current
-[merge]
-	tool = bc3
-[mergetool]
-	bc3 = trustExitCode
-[diff]
-	tool = bc3
-[difftool]
-	bc3 = trustExitCode
-
-[user]
-	name = Russell Brown
-	email = russ@902labs.com
 
 [includeIf "gitdir:~/workspace/marriott/"]
   path = ~/workspace/marriott/.gitconfig
