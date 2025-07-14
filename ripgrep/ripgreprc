@@ -1,0 +1,17 @@
+# Follow symbolic links
+--follow
+
+--max-columns=150
+--max-columns-preview
+
+# Limit the depth of directory traversal
+# --max-depth 3
+
+# Search hidden files and directories
+--hidden
+
+--glob=!.git/*
+--glob=!*/.git/*
+
+--glob=!node_modules/*
+--glob=!*/node_modules/*
