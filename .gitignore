@@ -1,3 +1,7 @@
+# Specific ignores
+neovim/NvChad2.5/lazy-lock.json
+
+# Basic files
 .DS_Store
 .vim/tmp
 alacritty/colors.yml
