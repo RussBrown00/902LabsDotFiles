@@ -1,13 +1,11 @@
 # History configuration
 bindkey '^R' zaw-history
 
-if [ -z "$HISTFILE" ]; then
-  HISTFILE=$HOME/.zsh_history
-fi
+source "$HOME/.zaw/zaw.zsh"
 
 # Size of history
-HISTSIZE=10000
-SAVEHIST=10000
+export HISTSIZE=10000
+export SAVEHIST=10000
 
 # # Show history
 # case $HIST_STAMPS in

@@ -59,5 +59,8 @@ eval "$(pyenv init -)"
 # export PYTHONPATH=$(pyenv which python)
 #
 
+# NODE RELATED
+export NODE_TLS_REJECT_UNAUTHORIZED=0
+
 # RIPGREP 
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
