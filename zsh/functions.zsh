@@ -273,3 +273,9 @@ function reflogmore {
     echo ""
   done
 }
+
+# Github Copilot CLI Integration
+cp() {
+  local QUERY="$1"
+  gh copilot suggest -t shell "$QUERY"
+}

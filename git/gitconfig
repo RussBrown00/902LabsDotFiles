@@ -82,7 +82,7 @@
   #lgg = log --format='%C(yellow)commit %h / %H%C(reset)%nAuthor: %an <%ae>%nDate:   %ad%n%n    %s%n%n%b' --date=local
 
 	ri = rebase -i
-	rom = rebase master
+	rom = rebase origin/master
 	rum = rebase upstream/master
 	#ro = rebase --onto
 	rba = rebase --abort
