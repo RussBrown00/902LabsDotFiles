@@ -64,6 +64,11 @@ return {
       }
     end,
   },
+
+  -- MARKDOWN STUFF
+  { "vim-pandoc/vim-pandoc" },
+  { "vim-pandoc/vim-pandoc-syntax" },
+
   { "nvim-lua/plenary.nvim" },
   event = "InsertEnter",
   -- { "puremourning/vimspector" },
@@ -117,6 +122,11 @@ return {
     },
     build = "make tiktoken", -- Only on MacOS or Linux
     opts = {
+      window = {
+        layout = "float", -- 'vertical', 'horizontal', 'float'
+        width = 0.3, -- 50% of screen width
+      },
+      auto_insert_mode = false,
       prompts = {
         JSDocs = {
           prompt = "> /COPILOT_GENERATE\n\nWrite JSDocs for the selected code. Objects should be broken out.",
