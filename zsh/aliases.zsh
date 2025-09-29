@@ -21,14 +21,30 @@ alias got='git'
 alias gut='git'
 
 # Kubernetes
-alias k='kubectl'
-alias k8='kubectl'
+if which kubectl &> /dev/null; then
+  alias k='kubectl'
+  alias k8='kubectl'
+  alias kl='clear; kubectl logs'
+  alias kd='clear; kubectl describe pod'
+fi
+
+# Docker
+if which docker &> /dev/null; then
+  alias d='docker'
+  alias dd='docker run --rm -it --entrypoint=bash'
+
+  # Docker Compose
+  alias dc='docker-compose'
+  alias dcu='docker-compose up'
+  alias dcd='docker-compose down'
+  alias dcl='docker-compose logs'
+fi
 
 # npm
 alias npmpub='mv .npmrc ._npmrc; npm publish; mv ._npmrc .npmrc;'
 
 #OTHER
-alias weather='curl -4 http://wttr.in'
+alias weather='curl -4 https://wttr.in'
 alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
 alias cleardns="sudo killall -HUP mDNSResponder"
 
@@ -50,4 +66,9 @@ function epochc() {
 
 if command -v nvim 1>/dev/null 2>&1; then
   alias vim="$(which nvim)"
+fi
+
+# Github Copilot
+if which gh &> /dev/null; then
+  alias ghcp="gh copilot suggest -t shell"
 fi

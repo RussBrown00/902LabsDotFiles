@@ -12,10 +12,14 @@ logs
 error.log
 access.log
 
+# WARP Related
+.warpindexingignore
+
 # NodeJS
 node_modules
 bower_modules
 npm-debug.log
+.npm-cache
 
 # Python
 __pycache__

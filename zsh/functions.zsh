@@ -129,8 +129,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 # DOCKER
-
-if [ -f "/usr/bin/docker" ] || [ -f "/usr/local/bin/docker" ]; then
+if which docker &> /dev/null; then
 	alias docker-ps='docker ps'
 	alias docker-psa='docker ps -a'
 
@@ -274,8 +273,19 @@ function reflogmore {
   done
 }
 
+function salt {
+  echo $(openssl rand -base64 32)
+}
+
 # Github Copilot CLI Integration
-cp() {
-  local QUERY="$1"
-  gh copilot suggest -t shell "$QUERY"
+# Deprecated, opting to test out alias instead
+# ghcp() {
+#   local QUERY="$1"
+#   gh copilot suggest -t shell "$QUERY"
+# }
+
+
+# Kubectl Functions
+function kc {
+  kubectl exec -it $@ -- /bin/bash
 }
