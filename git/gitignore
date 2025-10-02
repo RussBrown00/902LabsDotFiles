@@ -59,15 +59,16 @@ nb-configuration.xml
 
 
 # Other
-.zsh_config
-.env
-.nvmrc
-.vimrc
-.vimrc_proj
-.nvimrc
 *.iml
 .agignore
-.vimrc_proj
 .coverage
+.env
+.grok
+.nvimrc
+.nvmrc
 .pyenv
 .python-version
+.vimrc
+.vimrc_proj
+.vimrc_proj
+.zsh_config
