@@ -1,5 +1,16 @@
 return {
   {
+    "pipoprods/nvm.nvim",
+    config = function()
+      require("nvm").setup {
+        -- Auto-detect nvm and use the active Node version
+        auto_use = true,
+        -- Optional: Specify a default Node version if needed
+        default_version = "18", -- Or whatever you use
+      }
+    end,
+  },
+  {
     "stevearc/conform.nvim",
     event = {
       "BufWritePre",
@@ -58,9 +69,9 @@ return {
         hashfile = vim.fn.stdpath "data" .. "/config-local",
 
         autocommands_create = true, -- Create autocommands (VimEnter, DirectoryChanged)
-        commands_create = true,     -- Create commands (ConfigLocalSource, ConfigLocalEdit, ConfigLocalTrust, ConfigLocalIgnore)
-        silent = false,             -- Disable plugin messages (Config loaded/ignored)
-        lookup_parents = true,      -- Lookup config files in parent directories
+        commands_create = true, -- Create commands (ConfigLocalSource, ConfigLocalEdit, ConfigLocalTrust, ConfigLocalIgnore)
+        silent = false, -- Disable plugin messages (Config loaded/ignored)
+        lookup_parents = true, -- Lookup config files in parent directories
       }
     end,
   },
@@ -98,6 +109,7 @@ return {
           "~/workspace/marriott/",
           "~/workspace/sixoneeight/",
         },
+        copilot_node_command = vim.fn.expand "$HOME" .. "/.nvm/versions/node/v23.1.0/bin/node",
         suggestion = {
           enabled = true,
           auto_trigger = true,
@@ -113,21 +125,66 @@ return {
       }
     end,
   },
+
+  {
+    "mason-org/mason-lspconfig.nvim",
+    opts = {},
+    dependencies = {
+      { "mason-org/mason.nvim", opts = {} },
+      "neovim/nvim-lspconfig",
+    },
+  },
+
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    ---@type snacks.Config
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+      bigfile = { enabled = true },
+      dashboard = { enabled = true },
+      explorer = { enabled = true },
+      indent = { enabled = true },
+      input = { enabled = true },
+      picker = { enabled = true },
+      notifier = { enabled = true },
+      quickfile = { enabled = true },
+      scope = { enabled = true },
+      scroll = { enabled = true },
+      statuscolumn = { enabled = true },
+      words = { enabled = true },
+    },
+  },
+
   -- SIDEKICK
   {
     "folke/sidekick.nvim",
     opts = {
+      nodejs_path = vim.fn.exepath "node",
+      use_neovim_api = true,
       -- add any options here
       cli = {
         mux = {
           backend = "tmux",
           enabled = true,
         },
+        win = {
+          layout = "float", ---@type "float"|"left"|"bottom"|"top"|"right"
+          --- Options used when layout is "float"
+          ---@type vim.api.keyset.win_config
+          float = {
+            width = 0.75,
+            height = 0.8,
+          },
+        },
       },
     },
     keys = {
       {
-        "<tab>",
+        "<leader><Tab>",
         function()
           -- if there is a next edit, jump to it, otherwise apply it if any
           if not require("sidekick").nes_jump_or_apply() then
@@ -166,7 +223,7 @@ return {
       {
         "<leader>ac",
         function()
-          require("sidekick.cli").toggle({ name = "claude", focus = true })
+          require("sidekick").clear()
         end,
         desc = "Sidekick Claude Toggle",
         mode = { "n", "v" },
@@ -174,7 +231,7 @@ return {
       {
         "<leader>ag",
         function()
-          require("sidekick.cli").toggle({ name = "grok", focus = true })
+          require("sidekick.cli").toggle { name = "grok", focus = true }
         end,
         desc = "Sidekick Grok Toggle",
         mode = { "n", "v" },
@@ -189,92 +246,6 @@ return {
       },
     },
   },
-
-  -- COPILOT CHAT
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    dependencies = {
-      { "zbirenbaum/copilot.lua" },                   -- or zbirenbaum/copilot.lua
-      { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and asynic functions
-    },
-    build = "make tiktoken",                          -- Only on MacOS or Linux
-    opts = {
-      window = {
-        layout = "float", -- 'vertical', 'horizontal', 'float'
-        width = 0.3,      -- 50% of screen width
-      },
-      auto_insert_mode = false,
-      prompts = {
-        JSDocs = {
-          prompt = "> /COPILOT_GENERATE\n\nWrite JSDocs for the selected code. Objects should be broken out.",
-        },
-      },
-    },
-  },
-
-  -- {
-  --   "codota/tabnine-nvim",
-  --   -- event = edit_events,
-  --   -- lazy = false,
-  --   config = function()
-  --     -- require("configs.tabnine")
-  --   end,
-  --   build = "./dl_binaries.sh",
-  --   "pmizio/typescript-tools.nvim",
-  --   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-  --   opts = {},
-  -- },
-  -- {
-  --   "yetone/avante.nvim",
-  --   event = "VeryLazy",
-  --   lazy = false,
-  --   version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
-  --   opts = {
-  --     -- add any opts here
-  --   },
-  --   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-  --   build = "make",
-  --   -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
-  --   dependencies = {
-  --     "stevearc/dressing.nvim",
-  --     "nvim-lua/plenary.nvim",
-  --     "MunifTanjim/nui.nvim",
-  --     --- The below dependencies are optional,
-  --     "echasnovski/mini.pick", -- for file_selector provider mini.pick
-  --     "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-  --     "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-  --     "ibhagwan/fzf-lua", -- for file_selector provider fzf
-  --     "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-  --     "zbirenbaum/copilot.lua", -- for providers='copilot'
-  --     {
-  --       -- support for image pasting
-  --       "HakonHarnes/img-clip.nvim",
-  --       event = "VeryLazy",
-  --       opts = {
-  --         -- recommended settings
-  --         default = {
-  --           embed_image_as_base64 = false,
-  --           prompt_for_file_name = false,
-  --           drag_and_drop = {
-  --             insert_mode = true,
-  --           },
-  --           -- required for Windows users
-  --           use_absolute_path = true,
-  --         },
-  --       },
-  --     },
-  --     {
-  --       -- Make sure to set this up properly if you have lazy=true
-  --       "MeanderingProgrammer/render-markdown.nvim",
-  --       opts = {
-  --         file_types = { "markdown", "Avante" },
-  --       },
-  --       ft = { "markdown", "Avante" },
-  --     },
-  --   },
-  -- },
-
-  -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
     config = function()

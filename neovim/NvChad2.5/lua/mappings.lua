@@ -8,19 +8,14 @@ map("i", "<ESC>", "<ESC><ESC>", { desc = "Double Escape" })
 map("i", "jj", "<ESC><ESC>", { desc = "Escape" })
 map("i", "jk", "<ESC><ESC>", { desc = "Escape" })
 
--- Escape duplicated mapping of Tabnine Chat under insert mode for mapping clarification
--- map("i", "<leader>tq", "<cmd>TabnineChat<CR>", { desc = "Open Tabnine Chat" })
-
 -- General mappings: Normal mode
 map("n", "<leader>cc", "<cmd>TComment<CR>", { desc = "Comment line" })
--- map("n", "<leader>q", "<cmd>TabnineChat<CR>", { desc = "Open Tabnine Chat" })
 map("n", "<C-p>", "<cmd>Telescope find_files<CR>", { desc = "Find files" })
 map("n", "<leader>fa", "<cmd>Telescope find_files follow=true no_ignore=true hidden=true <CR>", { desc = "Find all" })
 map("n", "<leader>fu", "<cmd>Telescope resume<CR>", { desc = "Resume" })
 map("n", "<leader>fh", "<cmd>Telescope search_history<CR>", { desc = "Telescope Search History" })
 map("n", "<leader>fm", "<cmd>Format<CR>", { desc = "Run Conformer" })
 map("n", "<leader><space>", "<cmd>noh<CR>", { desc = "Clear search" })
--- map("n", "<leader><C-f>", "<cmd>Neoformat<CR>", { desc = "Run Neoformat on file" })
 map("n", "<leader>n", "<cmd>tabnew<CR>", { desc = "Create new tab" })
 map("n", "<leader>s", "<cmd>split<CR>", { desc = "Create h-split" })
 map("n", "<leader>v", "<cmd>vsplit<CR>", { desc = "Create v-split" })
@@ -52,41 +47,7 @@ end, { desc = "telescope nvchad themes" })
 
 -- Visual and Select Mode Mappings
 map("x", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', { desc = "Don't copy replaced text", silent = true, noremap = true })
--- map("x", "<leader>q", function()
---   require("tabnine.chat").open()
--- end, { desc = "Open Tabnine Chat" })
 map("v", "<leader>S", "<cmd>sort u<CR>", { desc = "Unique sort selected lines" })
--- map("v", "<leader>qq", "<cmd>TabnineFix<CR>", { desc = "Run Tabnine Fix" })
-
--- map("i", "<C-L>", function()
---   require("copilot.suggestion").accept()
--- end, { desc = "Copilot accept" })
---
--- map("i", "<C-l>", "copilot#Accept('<CR>')", { desc = "Accept Copilot" })
-
---
--- map('i', '<C-l>', '', {
---   expr = true,
---   replace_keycodes = false
--- })
-
--- COPILOT MAPPINGS
--- vim.keymap.set("v", "<leader>cr", function()
---   require("CopilotChat").open "Review"
--- end, { desc = "CopilotChat: Review code" })
---
--- vim.keymap.set("v", "<leader>ce", function()
---   require("CopilotChat").open "Explain"
--- end, { desc = "CopilotChat: Explain code" })
---
--- vim.keymap.set("v", "<leader>cj", function()
---   require("CopilotChat").open "JSDocs"
--- end, { desc = "CopilotChat: Create JSDocs" })
-
-map("n", "<leader>cp", "<cmd>CopilotChat<CR>", { desc = "Copilot" })
-map("v", "<leader>cp", "<cmd>CopilotChat<CR>", { desc = "Copilot" })
-map("v", "<leader>cj", "<cmd>CopilotChatJSDocs<CR>", { desc = "Copilot" })
-map("v", "<leader>cr", "<cmd>CopilotChatReview<CR>", { desc = "Copilot" })
 
 -- Save session
 vim.keymap.set("n", "<leader>ss", function()

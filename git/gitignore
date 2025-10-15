@@ -59,6 +59,8 @@ nb-configuration.xml
 
 
 # Other
+.grok
+**/.grok
 *.iml
 .agignore
 .coverage
