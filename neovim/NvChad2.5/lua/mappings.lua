@@ -1,5 +1,6 @@
 require "nvchad.mappings"
 
+local map = vim.keymap.set
 map("i", "<ESC>", "<ESC><ESC>", { desc = "Double Escape" })
 map("i", "jj", "<ESC><ESC>", { desc = "Escape" })
 map("i", "jk", "<ESC><ESC>", { desc = "Escape" })
@@ -65,3 +66,4 @@ vim.keymap.set("n", "<leader>ls", function()
     print "No session found for current directory."
   end
 end, { desc = "Load session for current pwd" })
+map("n", "<leader>al", function() vim.g.sidekick_layout = vim.g.sidekick_layout == "float" and "right" or "float" print("Sidekick layout: " .. vim.g.sidekick_layout) end, { desc = "Toggle Sidekick Layout" })

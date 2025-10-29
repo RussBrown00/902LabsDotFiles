@@ -172,7 +172,7 @@ return {
           enabled = true,
         },
         win = {
-          layout = "float", ---@type "float"|"left"|"bottom"|"top"|"right"
+          layout = vim.g.sidekick_layout or "float", ---@type "float"|"left"|"bottom"|"top"|"right"
           --- Options used when layout is "float"
           ---@type vim.api.keyset.win_config
           float = {
