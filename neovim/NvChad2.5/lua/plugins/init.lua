@@ -69,9 +69,9 @@ return {
         hashfile = vim.fn.stdpath "data" .. "/config-local",
 
         autocommands_create = true, -- Create autocommands (VimEnter, DirectoryChanged)
-        commands_create = true, -- Create commands (ConfigLocalSource, ConfigLocalEdit, ConfigLocalTrust, ConfigLocalIgnore)
-        silent = false, -- Disable plugin messages (Config loaded/ignored)
-        lookup_parents = true, -- Lookup config files in parent directories
+        commands_create = true,     -- Create commands (ConfigLocalSource, ConfigLocalEdit, ConfigLocalTrust, ConfigLocalIgnore)
+        silent = false,             -- Disable plugin messages (Config loaded/ignored)
+        lookup_parents = true,      -- Lookup config files in parent directories
       }
     end,
   },
@@ -358,7 +358,6 @@ return {
           "isort",
           "json-lsp",
           "marksman",
-          "prettier",
           "tailwindcss-language-server",
           "typescript-language-server",
           "vue-language-server",
@@ -370,11 +369,33 @@ return {
           "pylint",
           "python-lsp-server",
           "pyright",
-          -- "jedi-language-server",
 
-          -- other stuff
-          "lua-language-server",
+          -- style stuff
           "stylua",
+          "prettier",
+          "prettierd",
+
+          -- additional installables
+          "antlers-language-server",
+          "bash-debug-adapter",
+          "bash-language-server",
+          "copilot-language-server",
+          "cspell",
+          "cspell-lsp",
+          "css-variables-language-server",
+          "docker-compose-language-service",
+          "dockerfile-language-server",
+          "dot-language-server",
+          "gitui",
+          "helm-ls",
+          "hlint",
+          "lua-language-server",
+          "markdownlint",
+          "nginx-config-formatter",
+          "nginx-language-server",
+          "terraform",
+          "terraform-ls",
+          "tree-sitter-cli",
         },
       }
     end,
