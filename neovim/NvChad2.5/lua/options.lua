@@ -1,6 +1,7 @@
 require "nvchad.options"
 
 local opt = vim.opt
+
 local o = vim.o
 -- local g = vim.g
 
@@ -46,11 +47,3 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = load_tab_prefs,
 })
 
--- NOTE: I can't make this work, LAZY doesn't like it and throws an error
---
--- function reload_config()
---   require("lazy").setup "~/.config/nvim/init.lua"
---   -- dofile(vim.env.MYVIMRC) -- MYVIMRC should point to your init.lua file
--- end
---
--- vim.api.nvim_create_user_command("ReloadConfig", reload_config, { desc = "Reload Neovim configuration" })

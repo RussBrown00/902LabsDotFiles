@@ -1,9 +1,5 @@
 require "nvchad.mappings"
 
-local map = vim.keymap.set
-
--- General mappings: Insert mode
-map("i", "<leader>cc", "<cmd>TComment<CR>", { desc = "Comment line" })
 map("i", "<ESC>", "<ESC><ESC>", { desc = "Double Escape" })
 map("i", "jj", "<ESC><ESC>", { desc = "Escape" })
 map("i", "jk", "<ESC><ESC>", { desc = "Escape" })
@@ -24,7 +20,6 @@ map("n", "<C-l>", "<cmd>tabnext<CR>", { desc = "Navigate to next tab" })
 map("n", "<leader>fr", '<cmd>let @+=expand("%")<CR>', { desc = "Copy relative path" })
 map("n", "<leader>fp", '<cmd>let @+=expand("%:p")<CR>', { desc = "Copy full path" })
 map("n", "<leader>fn", '<cmd>let @+=expand("%:t")<CR>', { desc = "Copy file name" })
-map("n", "<leader>rc", "<cmd>ReloadConfig<CR>", { noremap = true, silent = true, desc = "Reload configuration" })
 
 -- Error / Linting Navigation
 map("n", "<leader><C-d>", "<cmd>lua vim.diagnostic.goto_next()<CR>", { desc = "Goto Next Diagnostic" })
