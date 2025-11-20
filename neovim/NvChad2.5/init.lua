@@ -87,3 +87,20 @@ local options = {
 require("conform").setup(options)
 
 vim.opt.completeopt = { "menu", "popup", "noselect" }
+
+-- Auto-reload theme based on macOS appearance
+local timer = vim.loop.new_timer()
+timer:start(0, 5000, vim.schedule_wrap(function()
+  local handle = io.popen("defaults read -g AppleInterfaceStyle 2>/dev/null")
+  local result = handle:read("*a")
+  handle:close()
+  local new_theme = result:match("Dark") and "tomorrow_night" or "one_light"
+  local chadrc = require("chadrc")
+  local current_theme = chadrc.base46.theme
+  if new_theme ~= current_theme then
+    require("nvchad.themes.utils").reload_theme(new_theme)
+    -- Update in-memory chadrc
+    chadrc.base46.theme = new_theme
+    chadrc.ui.theme = new_theme
+  end
+end))
