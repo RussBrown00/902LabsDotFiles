@@ -1,6 +1,20 @@
 -- This file  needs to have same structure as nvconfig.lua
 -- https://github.com/NvChad/NvChad/blob/v2.5/lua/nvconfig.lua
 
+-- Function to detect macOS appearance
+local function get_system_theme()
+  local handle = io.popen("defaults read -g AppleInterfaceStyle 2>/dev/null")
+  local result = handle:read("*a")
+  handle:close()
+  if result:match("Dark") then
+    return "tomorrow_night"  -- Dark theme
+  else
+    return "one_light"       -- Light theme
+  end
+end
+
+local system_theme = get_system_theme()
+
 ---@type ChadrcConfig
 local M = {
   options = {
@@ -15,7 +29,10 @@ local M = {
   },
   ui = {
     theme_toggle = { "tomorrow_night", "one_light" },
-    theme = "one_light", -- default theme
+    theme = system_theme,
+  },
+  base46 = {
+    theme = system_theme,
   },
 }
 

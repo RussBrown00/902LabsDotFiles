@@ -55,6 +55,20 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
   end,
 })
 
+require("neogit").setup {
+  integrations = {
+    diffview = true,
+  },
+  process_spinner = true,
+  floating = {
+    relative = "editor",
+    width = 0.8,
+    height = 0.7,
+    style = "minimal",
+    border = "rounded",
+  },
+}
+
 local options = {
   formatters_by_ft = {
     css = { "prettierd" },

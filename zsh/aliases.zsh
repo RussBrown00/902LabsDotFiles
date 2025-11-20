@@ -1,3 +1,11 @@
+function clear-all() {
+    clear
+
+    if [ -n "$TMUX" ]; then
+        tmux clear-history
+    fi
+}
+
 # Colorize output, add file type indicator, and put sizes in human readable format
 alias ls='ls -GFh'
 
@@ -24,8 +32,13 @@ alias gut='git'
 if which kubectl &> /dev/null; then
   alias k='kubectl'
   alias k8='kubectl'
-  alias kl='clear; kubectl logs'
-  alias kd='clear; kubectl describe pod'
+  alias kl='clear-all; kubectl logs'
+  alias kd='clear-all; kubectl describe pod'
+  alias kp='clear-all; kubectl get pods'
+
+  function kbash() {
+    kubectl exec -it "$1" -- /bin/bash
+  }
 fi
 
 # Docker

@@ -6,7 +6,7 @@ return {
         -- Auto-detect nvm and use the active Node version
         auto_use = true,
         -- Optional: Specify a default Node version if needed
-        default_version = "18", -- Or whatever you use
+        default_version = "25", -- Or whatever you use
       }
     end,
   },
@@ -69,9 +69,29 @@ return {
         hashfile = vim.fn.stdpath "data" .. "/config-local",
 
         autocommands_create = true, -- Create autocommands (VimEnter, DirectoryChanged)
-        commands_create = true,     -- Create commands (ConfigLocalSource, ConfigLocalEdit, ConfigLocalTrust, ConfigLocalIgnore)
-        silent = false,             -- Disable plugin messages (Config loaded/ignored)
-        lookup_parents = true,      -- Lookup config files in parent directories
+        commands_create = true, -- Create commands (ConfigLocalSource, ConfigLocalEdit, ConfigLocalTrust, ConfigLocalIgnore)
+        silent = false, -- Disable plugin messages (Config loaded/ignored)
+        lookup_parents = true, -- Lookup config files in parent directories
+      }
+    end,
+  },
+
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- required
+      "sindrets/diffview.nvim", -- optional - Diff integration
+
+      -- Only one of these is needed.
+      "nvim-telescope/telescope.nvim", -- optional
+      "ibhagwan/fzf-lua", -- optional
+      "folke/snacks.nvim", -- optional
+    },
+    config = function()
+      require("neogit").setup {
+        integrations = {
+          diffview = true,
+        },
       }
     end,
   },
@@ -109,7 +129,10 @@ return {
           "~/workspace/marriott/",
           "~/workspace/sixoneeight/",
         },
-        copilot_node_command = vim.fn.expand "$HOME" .. "/.nvm/versions/node/v23.1.0/bin/node",
+        copilot_node_command = vim.fn.expand "$HOME" .. "/.nvm/versions/node/v25.1.0/bin/node",
+        env = {
+          NODE_OPTIONS = "--experimental-sqlite --no-warnings",
+        },
         suggestion = {
           enabled = true,
           auto_trigger = true,
@@ -145,7 +168,7 @@ return {
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
       bigfile = { enabled = true },
-      dashboard = { enabled = true },
+      dashboard = { enabled = false },
       explorer = { enabled = true },
       indent = { enabled = true },
       input = { enabled = true },
