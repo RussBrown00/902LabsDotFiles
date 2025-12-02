@@ -33,6 +33,7 @@ if which kubectl &> /dev/null; then
   alias k='kubectl'
   alias k8='kubectl'
   alias kl='clear-all; kubectl logs'
+  alias klf='clear-all; kubectl logs -f'
   alias kd='clear-all; kubectl describe pod'
   alias kp='clear-all; kubectl get pods'
 
