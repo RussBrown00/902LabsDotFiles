@@ -129,7 +129,7 @@ return {
           "~/workspace/marriott/",
           "~/workspace/sixoneeight/",
         },
-        copilot_node_command = vim.fn.expand "$HOME" .. "/.nvm/versions/node/v25.1.0/bin/node",
+        copilot_node_command = vim.fn.expand "$DEFAULT_NODE_PATH",
         env = {
           NODE_OPTIONS = "--experimental-sqlite --no-warnings",
         },
@@ -186,7 +186,7 @@ return {
   {
     "folke/sidekick.nvim",
     opts = {
-      nodejs_path = vim.fn.exepath "node",
+      nodejs_path = vim.fn.expand "$DEFAULT_NODE_PATH",
       use_neovim_api = true,
       -- add any options here
       cli = {
