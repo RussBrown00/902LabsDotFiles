@@ -2,10 +2,10 @@
 FNM_PATH="/usr/local/opt/fnm/bin"
 
 if [ -d "$FNM_PATH" ]; then
-  eval "`fnm env`"
+  eval "`fnm env`" &> /dev/null;
 else
   curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
-  eval "`fnm env`"
+  eval "`fnm env`" &> /dev/null;
 fi
 
 # Choose correct node on init
