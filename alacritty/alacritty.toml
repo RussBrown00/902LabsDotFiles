@@ -3,7 +3,7 @@
 # hide_cursor_when_typing = false
 general.import = ["/Users/rbrown/.config/alacritty/dark_mode.toml"]
 # general.import = ["/Users/rbrown/.config/alacritty/light_mode.toml"]
-general.live_config_reload = true
+general.live_config_reload = false  # Disabled to reduce potential flashing during config changes
 
 [bell]
 animation = "EaseOutExpo"

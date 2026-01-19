@@ -1,16 +1,5 @@
 return {
   {
-    "pipoprods/nvm.nvim",
-    config = function()
-      require("nvm").setup {
-        -- Auto-detect nvm and use the active Node version
-        auto_use = true,
-        -- Optional: Specify a default Node version if needed
-        default_version = "25", -- Or whatever you use
-      }
-    end,
-  },
-  {
     "stevearc/conform.nvim",
     event = {
       "BufWritePre",
@@ -129,7 +118,7 @@ return {
           "~/workspace/marriott/",
           "~/workspace/sixoneeight/",
         },
-        copilot_node_command = vim.fn.expand "$DEFAULT_NODE_PATH",
+        copilot_node_command = vim.env.DEFAULT_NODE_PATH,
         env = {
           NODE_OPTIONS = "--experimental-sqlite --no-warnings",
         },

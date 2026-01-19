@@ -15,5 +15,7 @@ main() {
     # the status line accordingly by adding a script to the status line.
     set_tmux_option "@adm-current-mode" ""
     set_status_right_value
+    # Run the script once on startup to set initial theme
+    "$CURRENT_DIR/scripts/auto-dark-mode.sh"
 }
 main

@@ -4,8 +4,8 @@ bindkey '^R' zaw-history
 source "$HOME/.zaw/zaw.zsh"
 
 # Size of history
-export HISTSIZE=10000
-export SAVEHIST=10000
+export HISTSIZE=7000
+export SAVEHIST=7000
 
 # # Show history
 # case $HIST_STAMPS in

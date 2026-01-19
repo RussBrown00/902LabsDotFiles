@@ -5,17 +5,6 @@ export PATH="/usr/local/opt/libpq/bin:$PATH"
 
 CURRENT_DIRECTORY=$(pwd)
 
-# chpwd -- Run every folder change
-function chpwd {
-  if [ -d "$CURRENT_DIRECTORY/.bin" ]; then
-	  export PATH="$PATH:$CURRENT_DIRECTORY/.bin"
-  fi
-
-  if [ -r $PWD/.zsh_config ]; then
-    source $PWD/.zsh_config
-  fi
-}
-
 export HOMEBREW_NO_AUTO_UPDATE=true
 
 # Slack Dev Menu
