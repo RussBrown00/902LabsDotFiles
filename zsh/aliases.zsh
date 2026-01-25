@@ -32,10 +32,11 @@ alias gut='git'
 if which kubectl &> /dev/null; then
   alias k='kubectl'
   alias k8='kubectl'
-  alias kl='clear-all; kubectl logs'
-  alias klf='clear-all; kubectl logs -f'
-  alias kd='clear-all; kubectl describe pod'
-  alias kp='clear-all; kubectl get pods'
+  alias kl='clear; kubectl logs'
+  alias klf='clear; kubectl logs -f'
+  alias kd='clear; kubectl describe pod'
+  alias kpods='clear; kubectl get pods'
+  alias kp='clear; kubectl get pods'
 
   function kbash() {
     kubectl exec -it "$1" -- /bin/bash
