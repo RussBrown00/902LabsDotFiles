@@ -1,10 +1,18 @@
 # Fast Node Manager
-FNM_PATH="/usr/local/opt/fnm/bin"
+FNM_PATH="~/.fnm/bin"
 
-if [ -d "$FNM_PATH" ]; then
+if [ -n "$(which fnm)" ]; then
   eval "`fnm env`" &> /dev/null;
 else
+  mkdir -p ~/.fnm/bin
   curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
+  fnm --fnm-dir ~/.fnm
+
+  # setup default node version
+  fnm install 25.2.1
+  fnm alias 25.2.1 default
+
+  # Setup hook
   eval "`fnm env`" &> /dev/null;
 fi
 
