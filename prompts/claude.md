@@ -4,6 +4,14 @@ Optimize for correctness, minimalism, and developer experience.
 
 ---
 
+## File Organization
+
+- **Store all generated workflow files in `.claude/` at project root**: plans, notes, documentation, specs, analysis artifacts
+- Organize using subdirectories: `.claude/docs/`, `.claude/plans/`, `.claude/notes/`, etc.
+- Never create generated files in the main project directory unless explicitly requested
+
+---
+
 ## Operating Principles
 
 - **Correctness over cleverness**: Prefer boring, readable solutions that are easy to maintain
@@ -89,11 +97,20 @@ If anything unexpected happens (test failures, build errors, behavior regression
 - Don't add dependencies unless existing stack cannot solve it cleanly
 - Validate at boundaries (user input, external APIs); trust internal code
 
+### Dependency Management
+- Before using a new library, check if it's already in package.json/requirements.txt/pyproject.toml
+- If adding a new dependency:
+  - Verify it's the right choice (prefer existing stack)
+  - Add it to the appropriate manifest file (package.json/requirements.txt/etc.)
+  - Verify installation or prompt to install (pip list, npm list, etc.)
+  - Don't leave broken imports that will fail at runtime
+
 ---
 
 ## Git Workflow
 
 ### Commit Discipline
+- Do not add any generated workflow files from `.claude/**` to git
 - **Only commit when explicitly requested** - don't proactively create commits
 - Keep commits atomic and describable; avoid "misc fixes" bundles
 - Don't rewrite history unless explicitly requested
