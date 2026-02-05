@@ -17,10 +17,10 @@ else
 fi
 
 # Choose correct node on init
-fnm use 2>/dev/null || fnm use default &> /dev/null
+fnm use --install-if-missing 2>/dev/null || fnm use --install-if-missing default &> /dev/null
 
 # Choose correct node on CD
-eval "$(fnm env --use-on-cd &> /dev/null)"
+eval "$(fnm env --install-if-missing --use-on-cd &> /dev/null)"
 
 # Used by apps like VIM/NVIM
 DEFAULT_NODE_PATH=$(fnm use default &> /dev/null; which node)

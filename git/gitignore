@@ -2,6 +2,11 @@
 vendor
 composer.phar
 
+# AI/LLM Related
+.ai
+.grok
+.claude
+
 # IntelliJ - PhpStorm and PyCharm
 .idea
 *.ipr
