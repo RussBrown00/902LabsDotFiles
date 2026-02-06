@@ -6,7 +6,20 @@ local options = {
     javascript = { "prettierd" },
     javascriptreact = { "prettierd" },
     lua = { "stylua" },
+    python = { "isort", "black" },
     terraform = { "terraform_fmt" },
+  },
+  formatters = {
+    black = {
+      command = "poetry",
+      args = { "run", "black", "--stdin-filename", "$FILENAME", "-" },
+      stdin = true,
+    },
+    isort = {
+      command = "poetry",
+      args = { "run", "isort", "--filename", "$FILENAME", "-" },
+      stdin = true,
+    },
   },
   format_on_save = {
     -- These options will be passed to conform.format()
