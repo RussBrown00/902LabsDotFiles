@@ -165,7 +165,8 @@ if which docker &> /dev/null; then
 	}
 
   function dps {
-    docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}$@"
+    docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}" | grep -v 'Exited ('
+    docker ps -a --filter status=exited --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}" | tail -n +2
   }
 fi
 

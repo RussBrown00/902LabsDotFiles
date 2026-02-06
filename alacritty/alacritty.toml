@@ -26,17 +26,17 @@ render_timer = false
 size = 13.0
 
 [font.bold]
-family = "0xProto Nerd Font"
+family = "Hack Nerd Font"
 
 [font.glyph_offset]
 x = 0
 y = 0
 
 [font.italic]
-family = "0xProto Nerd Font"
+family = "Hack Nerd Font"
 
 [font.normal]
-family = "0xProto Nerd Font"
+family = "Hack Nerd Font"
 
 [font.offset]
 x = 0
