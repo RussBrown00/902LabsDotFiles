@@ -6,6 +6,8 @@ composer.phar
 .ai
 .grok
 .claude
+CLAUDE.md
+GROK.md
 
 # IntelliJ - PhpStorm and PyCharm
 .idea
@@ -51,7 +53,7 @@ nb-configuration.xml
 .Trashes
 
 # SublimeText project files
-/*.sublime-project
+*.sublime-project
 *.sublime-workspace
 
 # Dart
