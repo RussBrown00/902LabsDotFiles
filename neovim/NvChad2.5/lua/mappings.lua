@@ -66,4 +66,7 @@ vim.keymap.set("n", "<leader>ls", function()
     print "No session found for current directory."
   end
 end, { desc = "Load session for current pwd" })
-map("n", "<leader>al", function() vim.g.sidekick_layout = vim.g.sidekick_layout == "float" and "right" or "float" print("Sidekick layout: " .. vim.g.sidekick_layout) end, { desc = "Toggle Sidekick Layout" })
+map("n", "<leader>al", function()
+  vim.g.sidekick_layout = vim.g.sidekick_layout == "float" and "right" or "float"
+  print("Sidekick layout: " .. vim.g.sidekick_layout)
+end, { desc = "Toggle Sidekick Layout" })

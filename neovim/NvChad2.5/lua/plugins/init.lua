@@ -113,6 +113,10 @@ return {
     event = "InsertEnter",
     config = function()
       require("copilot").setup {
+        nes = {
+          enabled = true,
+          auto_trigger = false,
+        },
         workspace_folders = {
           "~/workspace/photivo/",
           "~/workspace/marriott/",
@@ -131,10 +135,45 @@ return {
             accept_line = false,
             next = "<M-]>",
             prev = "<M-[>",
-            dismiss = "<Right>",
+            dismiss = "<C-[>",
           },
         },
       }
+
+      -- Custom keymaps for Copilot suggestions
+      vim.keymap.set("i", "<Tab>", function()
+        if require("copilot.suggestion").is_visible() then
+          require("copilot.suggestion").accept()
+        else
+          -- Fallback to default behavior (cmp, luasnip, or regular tab)
+          local cmp = require "cmp"
+          if cmp.visible() then
+            cmp.select_next_item()
+          elseif require("luasnip").expand_or_jumpable() then
+            require("luasnip").expand_or_jump()
+          else
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, true, true), "n", false)
+          end
+        end
+      end, { desc = "Accept Copilot or next completion item" })
+
+      vim.keymap.set("i", "<S-CR>", function()
+        if require("copilot.suggestion").is_visible() then
+          require("copilot.suggestion").dismiss()
+        end
+        return vim.api.nvim_replace_termcodes("<CR>", true, true, true)
+      end, { expr = true, desc = "Dismiss Copilot and insert newline" })
+
+      vim.keymap.set("i", "<C-]>", function()
+        require("copilot.suggestion").dismiss()
+      end, { desc = "Dismiss Copilot suggestion" })
+    end,
+  },
+
+  {
+    "hrsh7th/nvim-cmp",
+    config = function()
+      require "configs.cmp"
     end,
   },
 

@@ -1,9 +1,8 @@
-#custom_cursor_colors = false
-#enable_experimental_conpty_backend = false
-# hide_cursor_when_typing = false
-general.import = ["/Users/rbrown/.config/alacritty/dark_mode.toml"]
-# general.import = ["/Users/rbrown/.config/alacritty/light_mode.toml"]
 general.live_config_reload = false  # Disabled to reduce potential flashing during config changes
+
+# Import either dark_mode.toml or light_mode.toml based on preference
+general.import = ["~/.config/alacritty/dark_mode.toml"]
+# general.import = ["~/.config/alacritty/light_mode.toml"]
 
 [bell]
 animation = "EaseOutExpo"
@@ -553,9 +552,7 @@ key = "F12"
 mods = "Super"
 
 [[keyboard.bindings]]
-chars = """
-
-"""
+chars = "\n"
 key = "NumpadEnter"
 
 [mouse]
