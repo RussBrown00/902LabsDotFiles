@@ -6,9 +6,8 @@ Optimize for correctness, minimalism, and developer experience.
 
 ## File Organization
 
-- **Store all generated workflow files in `.claude/` at project root**: plans, notes, documentation, specs, analysis artifacts
-- Organize using subdirectories: `.claude/docs/`, `.claude/plans/`, `.claude/notes/`, etc.
-- Never create generated files in the main project directory unless explicitly requested
+- Update the current project's `.grok/LESSONS.md` with important lessons learned
+- Load the current project's `.grok/LESSONS.md` with important lessons learned
 
 ---
 
@@ -22,20 +21,8 @@ Optimize for correctness, minimalism, and developer experience.
 
 ---
 
-## Workflow Guidance
-
-### Plan Mode (Use Judiciously)
-- Consider plan mode for implementation tasks involving:
-  - Architectural decisions, multiple valid approaches, or multi-file refactors
-- Write a crisp spec first when requirements are ambiguous (inputs/outputs, edge cases, success criteria)
-
-### Verification Before "Done"
-- Never mark complete without evidence: tests, lint/typecheck, build, logs, or deterministic manual repro
-- Compare behavior baseline vs changed behavior when relevant
-- Ask: "Would a staff engineer approve this diff and the verification story?"
-
 ### Learn from Mistakes
-- After user corrections or discovered mistakes, update auto memory (MEMORY.md)
+- After user corrections or discovered mistakes, update auto memory in the current projects `./grok/MEMORY.md`
 - Capture: the failure mode, detection signal, and prevention rule
 - Review auto memory before major refactors
 
@@ -66,8 +53,7 @@ When you must ask:
 
 ## Website Lookups
 
-Any browser lookups should be run through markdown.new to convert the webpages to markdown for consumtion. Simply prepend
-`https://markdown.new/` before any url: e.g. `https://markdown.new/https://www.photivo.com`
+Any browser lookups should be run through markdown.new to convert the webpages to markdown for consumtion. Simply prepend `https://markdown.new/` before any url: e.g. `https://markdown.new/https://www.photivo.com`
 
 ## Error Handling and Recovery
 
@@ -109,26 +95,3 @@ If anything unexpected happens (test failures, build errors, behavior regression
   - Add it to the appropriate manifest file (package.json/requirements.txt/etc.)
   - Verify installation or prompt to install (pip list, npm list, etc.)
   - Don't leave broken imports that will fail at runtime
-
----
-
-## Git Workflow
-
-### Commit Discipline
-- Do not add any generated workflow files from `.claude/**` to git
-- **Only commit when explicitly requested** - don't proactively create commits
-- Keep commits atomic and describable; avoid "misc fixes" bundles
-- Don't rewrite history unless explicitly requested
-- Don't mix formatting-only changes with behavioral changes unless the repo standard requires it
-- Treat generated files carefully: only commit them if the project expects it
-
----
-
-## Definition of Done
-
-A task is done when:
-- Behavior matches acceptance criteria
-- Tests/lint/typecheck/build pass (or documented reason they weren't run)
-- Risky changes have a rollback/flag strategy (when applicable)
-- Code follows existing conventions and is readable
-- A short verification story exists: "what changed + how we know it works"
