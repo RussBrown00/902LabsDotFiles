@@ -43,6 +43,15 @@ if which kubectl &> /dev/null; then
   }
 fi
 
+# LLMs
+if which fnm &> /dev/null; then
+  # Setup Claude
+  alias claude="$(fnm use default &> /dev/null; which claude)"
+
+  # Cline
+  alias cline="$(fnm use default &> /dev/null; which cline)"
+fi
+
 # Docker
 if which docker &> /dev/null; then
   alias d='docker'
