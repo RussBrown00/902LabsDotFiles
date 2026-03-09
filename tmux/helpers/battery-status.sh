@@ -22,10 +22,10 @@ POWER=$(echo $STATE | grep [0-9]* | awk 'match($0, /true$/) {
     print substr($0, RSTART, RLENGTH)
 }')
 
-if [ "$LEFT" == "0:00" ] || [ -n "$NOESTIMATE" ]; then
-	echo "⚡︎ $PCT "
+if [ "$LEFT" == "0:00" ] || [ -n "$LEFT" ] || [ -n "$NOESTIMATE" ]; then
+	echo "⚡︎$PCT "
 elif [ -z "$CHARGING" ]; then
-	echo "⚡︎ $PCT, $LEFT Remaining "
+	echo "⚡︎$PCT, $LEFT Remaining "
 else
-	echo "⚡︎ $PCT, $LEFT To Charged "
+	echo "⚡︎$PCT, $LEFT To Charged "
 fi

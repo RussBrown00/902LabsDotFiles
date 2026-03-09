@@ -5,6 +5,7 @@ composer.phar
 # AI/LLM Related
 .ai
 .grok
+.grok/*
 .claude
 CLAUDE.md
 GROK.md
@@ -70,12 +71,10 @@ nb-configuration.xml
 .agignore
 .coverage
 .env
-.grok
 .nvimrc
 .nvmrc
 .pyenv
 .python-version
 .vimrc
-.vimrc_proj
 .vimrc_proj
 .zsh_config

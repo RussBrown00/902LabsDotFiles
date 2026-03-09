@@ -24,3 +24,9 @@ eval "$(fnm env --install-if-missing --use-on-cd &> /dev/null)"
 
 # Used by apps like VIM/NVIM
 DEFAULT_NODE_PATH=$(fnm use default &> /dev/null; which node)
+
+# Setup Cline
+alias cline=$(fnm use default &> /dev/null; echo $(eval $(fnm env); echo "$FNM_MULTISHELL_PATH/bin/cline"))
+
+# Setup grok using the fixed branch of superagent-ai/grok-cli 19af6ac (PR#132)
+alias grok="$DEFAULT_NODE_PATH ~/workspace/grok-cli/dist"

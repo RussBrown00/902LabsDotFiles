@@ -95,3 +95,14 @@ If anything unexpected happens (test failures, build errors, behavior regression
   - Add it to the appropriate manifest file (package.json/requirements.txt/etc.)
   - Verify installation or prompt to install (pip list, npm list, etc.)
   - Don't leave broken imports that will fail at runtime
+
+## Git
+
+### Commit Messages Formatting
+
+* First line is a summary line <= 50 characters
+* Line two is empty
+* A list of changes made in summary ordered by apeared significants. Each line should be <= 72 characters
+* One empty line at the end of the list
+
+Bullet lists should be indented with 2 spaces and marked with an asteric 
