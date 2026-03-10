@@ -23,10 +23,19 @@ fnm use --install-if-missing 2>/dev/null || fnm use --install-if-missing default
 eval "$(fnm env --install-if-missing --use-on-cd &> /dev/null)"
 
 # Used by apps like VIM/NVIM
-DEFAULT_NODE_PATH=$(fnm use default &> /dev/null; which node)
+DEFAULT_FNM_MULTISHELL_PATH=$(fnm use default &> /dev/null; fnm env | grep FNM_MULTISHELL_PATH | cut -d'"' -f2)
 
 # Setup Cline
-alias cline=$(fnm use default &> /dev/null; echo $(eval $(fnm env); echo "$FNM_MULTISHELL_PATH/bin/cline"))
+function cline {
+  "$DEFAULT_FNM_MULTISHELL_PATH/bin/cline" "$@"
+}
 
-# Setup grok using the fixed branch of superagent-ai/grok-cli 19af6ac (PR#132)
-alias grok="$DEFAULT_NODE_PATH ~/workspace/grok-cli/dist"
+# Setup Agent Skills
+function grok {
+  "$DEFAULT_FNM_MULTISHELL_PATH/bin/node ~/workspace/grok-cli/dist" "$@"
+}
+
+# Setup Agent Skills
+function skills {
+  "$DEFAULT_FNM_MULTISHELL_PATH/bin/skills" "$@"
+}
