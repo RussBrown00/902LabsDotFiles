@@ -89,6 +89,8 @@ return {
   { "vim-pandoc/vim-pandoc" },
   { "vim-pandoc/vim-pandoc-syntax" },
 
+  { "ekalinin/Dockerfile.vim" },
+
   { "nvim-lua/plenary.nvim" },
   event = "InsertEnter",
   -- { "puremourning/vimspector" },
