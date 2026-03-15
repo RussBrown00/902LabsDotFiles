@@ -591,7 +591,12 @@ lines = 0
 x = 1
 y = 1
 
+# [[keyboard.bindings]]
+# key = "Return"
+# mods = "Shift"
+# chars = "\u001b[13;2u"
+
 [[keyboard.bindings]]
 key = "Return"
 mods = "Shift"
-chars = "<string>"
+chars = "\n"

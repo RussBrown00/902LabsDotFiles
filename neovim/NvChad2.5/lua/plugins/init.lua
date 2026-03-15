@@ -245,13 +245,20 @@ return {
           enabled = true,
         },
         win = {
-          layout = vim.g.sidekick_layout or "float", ---@type "float"|"left"|"bottom"|"top"|"right"
+          layout = vim.g.sidekick_layout or "right", ---@type "float"|"left"|"bottom"|"top"|"right"
           --- Options used when layout is "float"
           ---@type vim.api.keyset.win_config
           float = {
             width = 0.75,
             height = 0.8,
           },
+          split = {
+            width = 80, -- set to 0 for default split width
+            height = 20, -- set to 0 for default split height
+          },
+        },
+        tools = {
+          cline = { cmd = { "cline", "-p" } },
         },
       },
     },
