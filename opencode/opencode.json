@@ -1,0 +1,43 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "agent": {
+    "build": {
+      "model": "xai/grok-code-fast-1"
+    },
+    "plan": {
+      "model": "xai/grok-4.20-0309-reasoning",
+      "tools": {
+        "write": false,
+        "edit": false,
+        "patch": false
+      },
+      "permission": {
+        "bash": {
+          "git reflog": "allow",
+          "git status": "allow",
+          "git diff*": "allow",
+          "git log*": "allow",
+          "git show*": "allow",
+          "bd *": "allow",
+          "rg *": "allow",
+          "fzf *": "allow",
+          "tree *": "allow",
+          "wc *": "allow",
+          "cat *": "allow",
+          "head *": "allow",
+          "tail *": "allow",
+          "npm run lint*": "allow",
+          "npm run test*": "allow",
+          "*": "deny"
+        }
+      }
+    }
+  },
+  "mcp": {
+    "shortcut-mcp": {
+      "enabled": false,
+      "type": "remote",
+      "url": "https://mcp.shortcut.com/mcp"
+    }
+  }
+}
