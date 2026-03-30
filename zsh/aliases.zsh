@@ -56,6 +56,7 @@ fi
 if which docker &> /dev/null; then
   alias d='docker'
   alias dd='docker run --rm -it --entrypoint=bash'
+  alias ddm='docker run --rm -it --entrypoint=bash -v $(pwd):/src'
 
   # Docker Compose
   alias dc='docker-compose'
