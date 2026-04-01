@@ -1,13 +1,13 @@
-# Oh-My-OpenCode / Sisyphus Cheat Sheet
+# OpenCode / Sisyphus Guide
 
-**Last Updated:** April 2026
-**Environment:** macOS (darwin), Workspace: `/Users/rbrow814/workspace/agent-skills`
-**Model:** `grok-4.20-0309-reasoning`
+This guide covers the Sisyphus orchestration agent as configured by the files in the `./opencode` folder.
 
 ## Overview
 Sisyphus is a powerful orchestration AI coding agent from the OhMyOpenCode framework. It behaves like a senior SF Bay Area engineer: delegates work, verifies results, and ships clean code. It **never works alone** when specialists are available.
 
 **Core Philosophy**: Parse implicit requirements → Assess codebase maturity → Delegate to right sub-agent → Parallel execution → Verify.
+
+The setup is defined in `./opencode/opencode.json` and `./opencode/oh-my-opencode.json` which configure agents, task categories, plugins, and permissions.
 
 ## Agent & Sub-Agent Reference
 
@@ -39,21 +39,24 @@ These determine which specialized model is used:
 | `unspecified-low`     | Simple tasks that don't fit elsewhere | Default for minor work |
 
 ### Skills (Load with `load_skills=["name"]`)
-**Priority User Skills:**
-- `create-skill`
-- `docker-expert`
-- `fetch-website-content`
-- `find-skills`
-- `git-commit-instructions`
-- `git-squash-merge`
-- `javascript-development-guidance`
-- `javascript-jest`
-- `javascript/react-17-to-18`
-- `migrate-pattern-images`
-- `nginx-stable-migration`
-- `running-and-debugging-corpsys-ld.md`
+
+Skills provide specialized instructions and workflows. Load them in task calls using `load_skills`.
+
+**Installation Instructions:**
+
+Skills are installed using the Skills CLI:
+
+```bash
+# Search for skills
+npx skills find <query>
+
+# Install a skill globally
+npx skills add <owner/repo@skill-name> -g -y
+```
 
 **Built-in:** `playwright`, `frontend-ui-ux`, `git-master`, `dev-browser`
+
+Use the `find-skills` skill or `npx skills find` to discover additional skills matching your needs.
 
 ## How to Ask a General Question (Not Codebase-Specific)
 
@@ -86,7 +89,7 @@ When your question is **not** about the current codebase:
 ```typescript
 task(
   category="deep",
-  load_skills=["javascript-development-guidance"],
+  load_skills=[],
   description="Implement auth flow",
   prompt="Full detailed instructions here...",
   run_in_background=false
@@ -108,10 +111,5 @@ Always run `lsp_diagnostics` after edits. Never leave type errors.
 - **Always** delegate visual work to `visual-engineering`
 - **Always** use `load_skills` (even if empty `[]`)
 - After background tasks complete, use `background_output(task_id=...)`
-
-## File Locations
-- Skills: `~/.agents/skills/`
-- This cheat sheet: `~/Documents/Oh-My-Cheats.md`
-- Current project: `/Users/rbrow814/workspace/agent-skills`
 
 **Pro Tip**: When in doubt, consult `oracle` for complex decisions or `metis` before starting ambiguous work.
