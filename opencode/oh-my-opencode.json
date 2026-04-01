@@ -2,15 +2,19 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
   "agents": {
     "sisyphus": {
-      "model": "xai/grok-code-fast-1",
+      "model": "xai/grok-4.20-0309-reasoning",
       "variant": "max"
+    },
+    "explore": {
+      "model": "xai/grok-code-fast-1",
+      "variant": "high"
     },
     "hephaestus": {
       "model": "xai/grok-4.20-0309-reasoning",
       "variant": "medium"
     },
     "oracle": {
-      "model": "xai/grok-4.20-0309-reasoning",
+      "model": "anthropic/claude-opus-4-6",
       "variant": "high"
     },
     "explore": {
@@ -45,11 +49,11 @@
       "variant": "high"
     },
     "ultrabrain": {
-      "model": "opencode/gpt-5.4",
+      "model": "xai/grok-4.20-0309-reasoning",
       "variant": "xhigh"
     },
     "deep": {
-      "model": "opencode/gpt-5.3-codex",
+      "model": "xai/grok-4.20-0309-reasoning",
       "variant": "medium"
     },
     "artistry": {
@@ -57,13 +61,13 @@
       "variant": "high"
     },
     "quick": {
-      "model": "xai/grok-4-fast-non-reasoning"
+      "model": "xai/grok-code-fast-1"
     },
     "unspecified-low": {
-      "model": "xai/grok-4-fast-non-reasoning"
+      "model": "xai/grok-code-fast-1"
     },
     "unspecified-high": {
-      "model": "xai/grok-4.20-0309-reasoning"
+      "model": "xai/grok-code-fast-1"
     },
     "writing": {
       "model": "xai/grok-4.20-0309-reasoning"
