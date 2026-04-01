@@ -1,0 +1,6 @@
+font-family = "CommitMono Nerd Font Mono"
+font-family-bold = "CommitMono Nerd Font Mono Bold"
+font-family-italic = "CommitMono Nerd Font Mono Italic"
+font-family-bold-italic = "CommitMono Nerd Font Mono Bold Italic"
+
+keybind = shift+enter=text:\n

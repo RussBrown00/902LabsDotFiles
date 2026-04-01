@@ -1,0 +1,72 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
+  "agents": {
+    "sisyphus": {
+      "model": "xai/grok-code-fast-1",
+      "variant": "max"
+    },
+    "hephaestus": {
+      "model": "xai/grok-4.20-0309-reasoning",
+      "variant": "medium"
+    },
+    "oracle": {
+      "model": "xai/grok-4.20-0309-reasoning",
+      "variant": "high"
+    },
+    "explore": {
+      "model": "xai/grok-4.20-0309-reasoning"
+    },
+    "multimodal-looker": {
+      "model": "xai/grok-4.20-multi-agent-0309",
+      "variant": "medium"
+    },
+    "prometheus": {
+      "model": "anthropic/claude-sonnet-4-6",
+      "variant": "max"
+    },
+    "metis": {
+      "model": "anthropic/claude-opus-4-6",
+      "variant": "max"
+    },
+    "momus": {
+      "model": "github-copilot/gpt-5.4",
+      "variant": "xhigh"
+    },
+    "atlas": {
+      "model": "anthropic/claude-sonnet-4-6"
+    },
+    "sisyphus-junior": {
+      "model": "anthropic/claude-sonnet-4-6"
+    }
+  },
+  "categories": {
+    "visual-engineering": {
+      "model": "opencode/gemini-3.1-pro",
+      "variant": "high"
+    },
+    "ultrabrain": {
+      "model": "opencode/gpt-5.4",
+      "variant": "xhigh"
+    },
+    "deep": {
+      "model": "opencode/gpt-5.3-codex",
+      "variant": "medium"
+    },
+    "artistry": {
+      "model": "opencode/gemini-3.1-pro",
+      "variant": "high"
+    },
+    "quick": {
+      "model": "xai/grok-4-fast-non-reasoning"
+    },
+    "unspecified-low": {
+      "model": "xai/grok-4-fast-non-reasoning"
+    },
+    "unspecified-high": {
+      "model": "xai/grok-4.20-0309-reasoning"
+    },
+    "writing": {
+      "model": "xai/grok-4.20-0309-reasoning"
+    }
+  }
+}

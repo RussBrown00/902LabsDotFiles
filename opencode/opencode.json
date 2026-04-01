@@ -13,13 +13,14 @@
       },
       "permission": {
         "bash": {
-          "git reflog": "allow",
-          "git status": "allow",
           "git diff*": "allow",
           "git log*": "allow",
+          "git reflog*": "allow",
           "git show*": "allow",
+          "git status": "allow",
           "bd *": "allow",
           "rg *": "allow",
+          "grep *": "allow",
           "fzf *": "allow",
           "tree *": "allow",
           "wc *": "allow",
@@ -34,10 +35,19 @@
     }
   },
   "mcp": {
-    "shortcut-mcp": {
+    "chrome-devtools": {
       "enabled": false,
-      "type": "remote",
-      "url": "https://mcp.shortcut.com/mcp"
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "chrome-devtools-mcp@latest",
+        "--no-performance-crux",
+        "--autoConnect"
+      ]
     }
-  }
+  },
+  "plugin": [
+    "oh-my-openagent@latest"
+  ]
 }
