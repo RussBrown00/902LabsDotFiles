@@ -1,52 +1,5 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "agent": {
-    "build": {
-      "model": "xai/grok-code-fast-1"
-    },
-    "plan": {
-      "model": "xai/grok-4.20-0309-reasoning",
-      "tools": {
-        "write": false,
-        "edit": false,
-        "patch": false
-      },
-      "permission": {
-        "bash": {
-          "git diff*": "allow",
-          "git log*": "allow",
-          "git reflog*": "allow",
-          "git show*": "allow",
-          "git status": "allow",
-          "bd *": "allow",
-          "rg *": "allow",
-          "grep *": "allow",
-          "fzf *": "allow",
-          "tree *": "allow",
-          "wc *": "allow",
-          "cat *": "allow",
-          "head *": "allow",
-          "tail *": "allow",
-          "npm run lint*": "allow",
-          "npm run test*": "allow",
-          "*": "deny"
-        }
-      }
-    }
-  },
-  "mcp": {
-    "chrome-devtools": {
-      "enabled": false,
-      "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "chrome-devtools-mcp@latest",
-        "--no-performance-crux",
-        "--autoConnect"
-      ]
-    }
-  },
   "plugin": [
     "oh-my-openagent@latest"
   ]

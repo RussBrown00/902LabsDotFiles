@@ -53,3 +53,7 @@ export NODE_TLS_REJECT_UNAUTHORIZED=0
 
 # RIPGREP 
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
+# LLMs - Opencode, Claude, Grok...
+export OPENCODE_DISABLE_CLAUDE_CODE_PROMPT=1 # Disable only ~/.claude/CLAUDE.md
+export OPENCODE_DISABLE_CLAUDE_CODE_SKILLS=1 # Disable only .claude/skills

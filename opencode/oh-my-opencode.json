@@ -10,7 +10,7 @@
       "variant": "high"
     },
     "hephaestus": {
-      "model": "xai/grok-4.20-0309-reasoning",
+      "model": "opencode/gpt-5.4",
       "variant": "medium"
     },
     "oracle": {
@@ -41,6 +41,11 @@
     },
     "sisyphus-junior": {
       "model": "anthropic/claude-sonnet-4-6"
+    },
+    "git-operator": {
+      "model": "xai/grok-code-fast-1",
+      "temperature": 0.0,
+      "skills": ["git-master", "git-commit-instructions", "git-squash-merge"]
     }
   },
   "categories": {

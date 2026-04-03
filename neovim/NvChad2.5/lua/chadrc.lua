@@ -7,9 +7,9 @@ local function get_system_theme()
   local result = handle:read("*a")
   handle:close()
   if result:match("Dark") then
-    return "one_light"  -- Dark theme
+    return "everblush"  -- Dark theme
   else
-    return "one_light"       -- Light theme
+    return "everblush"       -- Light theme
   end
 end
 
@@ -28,7 +28,7 @@ local M = {
     mapleader = ",",
   },
   ui = {
-    theme_toggle = { "one_light", "one_light" },
+    theme_toggle = { "everblush", "everblush" },
     theme = system_theme,
   },
   base46 = {
