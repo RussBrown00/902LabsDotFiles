@@ -7,7 +7,7 @@ Sisyphus is a powerful orchestration AI coding agent from the OhMyOpenCode frame
 
 **Core Philosophy**: Parse implicit requirements → Assess codebase maturity → Delegate to right sub-agent → Parallel execution → Verify.
 
-The setup is defined in `./opencode/opencode.json` and `./opencode/oh-my-opencode.json` which configure agents, task categories, plugins, and permissions.
+The active setup is defined by `./opencode/oh-my-opencode.json` for agent/category configuration, `./opencode/AGENTS.md` for local operating rules, and `./opencode/package.json` for OpenCode plugin dependencies.
 
 ## Agent & Sub-Agent Reference
 
@@ -18,11 +18,13 @@ The setup is defined in `./opencode/opencode.json` and `./opencode/oh-my-opencod
 - **explore**: Contextual code search within the current codebase. Fast internal pattern finding. (Background, cheap)
 - **librarian**: External knowledge agent. Searches docs, GitHub repos, OSS code, web content, API references. Use for unfamiliar libraries. (Background, cheap)
 
-### Planning & Quality Agents
-- **plan**: Creates structured multi-step work plans.
+### Execution, Planning & Quality Agents
+- **git-operator**: Git-only specialist for status, commits, rebases, and other repository operations. Uses git commands only and follows stricter Git safety checks.
+- **hephaestus**: Autonomous deep-work engineer for end-to-end implementation, verification, and bug fixing.
 - **metis** (EXPENSIVE): Pre-planning consultant. Finds hidden intentions, ambiguities, and AI failure modes.
 - **momus** (EXPENSIVE): Rigorous plan reviewer. Checks for clarity, verifiability, completeness.
 - **oracle** (EXPENSIVE): High-IQ read-only consultant. Best for architecture, complex debugging, tradeoffs. **Never cancel.**
+- **prometheus**: Planning-focused agent used for structured work plans and task decomposition.
 
 ### Task Categories (used with `task(category=...)`)
 These determine which specialized model is used:
@@ -42,6 +44,8 @@ These determine which specialized model is used:
 
 Skills provide specialized instructions and workflows. Load them in task calls using `load_skills`.
 
+This repo also ships project skills in `./opencode/skills` via git submodule. The older top-level `agent-skills/` folder was removed, so local skill references should point at `./opencode/skills/...` instead.
+
 **Installation Instructions:**
 
 Skills are installed using the Skills CLI:
@@ -56,7 +60,9 @@ npx skills add <owner/repo@skill-name> -g -y
 
 **Built-in:** `playwright`, `frontend-ui-ux`, `git-master`, `dev-browser`
 
-Use the `find-skills` skill or `npx skills find` to discover additional skills matching your needs.
+**Repo-provided skills:** `create-skill`, `fetch-website-content`, `git-commit-instructions`, `git-squash-merge`, `javascript-development-guidance`, `javascript-jest`, `javascript/react-17-to-18`, `react-router-v7`, `webpack-expert`
+
+Use `npx skills find` to discover additional skills matching your needs.
 
 ## How to Ask a General Question (Not Codebase-Specific)
 
