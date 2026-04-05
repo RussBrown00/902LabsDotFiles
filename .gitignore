@@ -1,5 +1,6 @@
 # Specific ignores
 neovim/NvChad2.5/lazy-lock.json
+opencode/tasks
 
 # Basic files
 .grok
