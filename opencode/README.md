@@ -1,22 +1,29 @@
-# OpenCode / Sisyphus Guide
+# Oh My OpenAgent / Sisyphus Guide
 
 This guide covers the Sisyphus orchestration agent as configured by the files in the `./opencode` folder.
 
 ## Overview
-Sisyphus is a powerful orchestration AI coding agent from the OhMyOpenCode framework. It behaves like a senior SF Bay Area engineer: delegates work, verifies results, and ships clean code. It **never works alone** when specialists are available.
+
+Sisyphus is a powerful orchestration AI coding agent from the Oh My OpenAgent framework. It behaves like a senior SF Bay Area engineer: delegates work, verifies results, and ships clean code. It **never works alone** when specialists are available.
 
 **Core Philosophy**: Parse implicit requirements → Assess codebase maturity → Delegate to right sub-agent → Parallel execution → Verify.
 
-The active setup is defined by `./opencode/oh-my-opencode.json` for agent/category configuration, `./opencode/AGENTS.md` for local operating rules, and `./opencode/package.json` for OpenCode plugin dependencies.
+See full details in [DeepWiki Overview](https://deepwiki.com/code-yeongyu/oh-my-openagent/1-overview).
+
+The active setup is defined by `./opencode/oh-my-openagent.json` for agent/category configuration, `./opencode/AGENTS.md` for local operating rules, and `./opencode/package.json` for OpenCode plugin dependencies.
 
 ## Agent & Sub-Agent Reference
 
 ### Orchestrator
 - **Sisyphus** (You): Main agent. Routes requests, creates plans, delegates tasks. Follows strict Phase 0-3 workflow.
 
+See [Sisyphus (Main Orchestrator)](https://deepwiki.com/code-yeongyu/oh-my-openagent/3.1-sisyphus-(main-orchestrator)).
+
 ### Research Agents
 - **explore**: Contextual code search within the current codebase. Fast internal pattern finding. (Background, cheap)
 - **librarian**: External knowledge agent. Searches docs, GitHub repos, OSS code, web content, API references. Use for unfamiliar libraries. (Background, cheap)
+
+See full agent reference in [DeepWiki Agents](https://deepwiki.com/code-yeongyu/oh-my-openagent/3-agents).
 
 ### Execution, Planning & Quality Agents
 - **git-operator**: Git-only specialist for status, commits, rebases, and other repository operations. Uses git commands only and follows stricter Git safety checks.
@@ -40,23 +47,15 @@ These determine which specialized model is used:
 | `unspecified-high`    | Complex tasks that don't fit elsewhere| Default for most coding |
 | `unspecified-low`     | Simple tasks that don't fit elsewhere | Default for minor work |
 
+See [Categories System](https://deepwiki.com/code-yeongyu/oh-my-openagent/4.2-categories-system).
+
 ### Skills (Load with `load_skills=["name"]`)
 
 Skills provide specialized instructions and workflows. Load them in task calls using `load_skills`.
 
 This repo also ships project skills in `./opencode/skills` via git submodule. The older top-level `agent-skills/` folder was removed, so local skill references should point at `./opencode/skills/...` instead.
 
-**Installation Instructions:**
-
-Skills are installed using the Skills CLI:
-
-```bash
-# Search for skills
-npx skills find <query>
-
-# Install a skill globally
-npx skills add <owner/repo@skill-name> -g -y
-```
+See [Skills System](https://deepwiki.com/code-yeongyu/oh-my-openagent/4.3-skills-system).
 
 **Built-in:** `playwright`, `frontend-ui-ux`, `git-master`, `dev-browser`
 
@@ -66,30 +65,13 @@ Use `npx skills find` to discover additional skills matching your needs.
 
 ## How to Ask a General Question (Not Codebase-Specific)
 
-When your question is **not** about the current codebase:
+When your question is **not** about the current codebase, use the librarian agent or direct tools.
 
-1. **Best**: Use the librarian agent:
-   ```typescript
-   task(
-     subagent_type="librarian",
-     run_in_background=true,
-     load_skills=[],
-     description="Research X",
-     prompt="..."
-   )
-   ```
-
-2. **Direct tools**:
-   - `websearch_web_search_exa` for general web search
-   - `webfetch` with `https://markdown.new/https://...`
-   - `skill` tool with `fetch-website-content`
-
-3. **Simple approach**: Just ask the question normally. The system will route it to `librarian` or `explore` automatically if it detects external knowledge is needed.
-
-**Example prompt for librarian:**
-> "I'm learning about React Server Components. Find current best practices for data fetching in app router, common pitfalls, and production examples from popular repos."
+See recommended patterns in [Usage Workflows](https://deepwiki.com/code-yeongyu/oh-my-openagent/9-usage-workflows).
 
 ## Basic Usage Patterns
+
+See full usage patterns and examples in [Usage Workflows](https://deepwiki.com/code-yeongyu/oh-my-openagent/9-usage-workflows).
 
 ### Delegation (Most Common)
 ```typescript
@@ -106,7 +88,7 @@ task(
 Fire multiple `explore` + `librarian` in background, then continue with independent work.
 
 ### Todo Tracking
-For any multi-step task, use `todowrite` tool immediately.
+For any multi-step task, use the task system immediately.
 
 ### Verification
 Always run `lsp_diagnostics` after edits. Never leave type errors.
@@ -119,3 +101,5 @@ Always run `lsp_diagnostics` after edits. Never leave type errors.
 - After background tasks complete, use `background_output(task_id=...)`
 
 **Pro Tip**: When in doubt, consult `oracle` for complex decisions or `metis` before starting ambiguous work.
+
+For complete documentation, visit the [Oh My OpenAgent DeepWiki](https://deepwiki.com/code-yeongyu/oh-my-openagent/).
