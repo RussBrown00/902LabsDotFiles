@@ -8,6 +8,7 @@ composer.phar
 .grok
 .grok/*
 .claude
+.sisyphus
 CLAUDE.md
 GROK.md
 
