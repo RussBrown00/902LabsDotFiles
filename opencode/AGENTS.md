@@ -43,11 +43,12 @@ Any browser lookups should be run through markdown.new to convert the webpages t
   - Don't leave broken imports that will fail at runtime
 
 ### Commit Discipline
-- Do not add any generated workflow files from .claude, .grok or .agents for example to git unless specifically directed
-- **Only commit when explicitly requested** - don't proactively create commits
+- Ask before creating workflow WIP (work in progress) commits
 - Keep commits atomic and describable; avoid "misc fixes" bundles
 - Don't rewrite history unless explicitly requested
 - Don't mix formatting-only changes with behavioral changes unless the repo standard requires it
+- Assume any commit request expects you to add all uncommited files to the commit unless direct otherwise
+- Do not disobey the gitignore config, under any circumstances, even if asked!
 
 ### Autonomous Bug Fixing
 - When given a bug report: reproduce → isolate root cause → fix → add regression coverage → verify

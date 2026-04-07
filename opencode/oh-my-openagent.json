@@ -54,7 +54,6 @@
       "model": "xai/grok-code-fast-1",
       "temperature": 0,
       "skills": [
-        "git-master",
         "git-commit-instructions",
         "git-squash-merge"
       ]
