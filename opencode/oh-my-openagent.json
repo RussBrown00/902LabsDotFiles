@@ -14,7 +14,7 @@
 
     // Heavy lifter: maximum autonomy for coding tasks
     "hephaestus": {
-      "model": "opencode/gpt-5.4",
+      "model": "xai/grok-4.20-0309-reasoning",
       "prompt_append": "You are the primary implementation agent. Own the codebase. Explore, decide, execute. Use LSP and AST-grep aggressively.",
       "permission": { "edit": "allow", "bash": { "git": "allow", "test": "allow" } },
     },
@@ -26,7 +26,7 @@
     },
 
     // Debugging and architecture
-    "oracle": { "model": "opencode/gpt-5.4", "variant": "high" },
+    "oracle": { "model": "xai/grok-4.20-multi-agent-0309", "variant": "high" },
 
     // Fast docs lookup
     "librarian": { "model": "xai/grok-code-fast-1" },
@@ -38,19 +38,23 @@
     "multimodal-looker": { "model": "opencode/gemini-3.1-pro" },
 
     // Plan review: minimal overhead
-    "metis": { "model": "xai/grok-4.20-0309-non-reasoning" },
+    "metis": {
+     "model": "xai/grok-4.20-0309-non-reasoning",
+    "prompt_append": "Critically evaluate plans. Identify gaps, risks, and improvements. Be thorough.",
+    },
 
     // Code review focus
-    "momus": { "prompt_append": "Focus on code quality, edge cases, and test coverage." },
+    "momus": { "model": "xai/grok-code-fast-1", "prompt_append": "Focus on code quality, edge cases, and test coverage." },
 
     // Long-running coding sessions
-    "atlas": { "model": "opencode/gemini-3.1-pro" },
+    "atlas": { "model": "xai/grok-code-fast-1" },
 
     // Quick fixes and small tasks
-    "sisyphus-junior": { "model": "xai/grok-4.20-0309-non-reasoning" },
+    "sisyphus-junior": { "model": "xai/grok-code-fast-1" },
 
     // Git operations: deterministic and fast
     "git-operator": {
+      "mode": "all",
       "model": "xai/grok-code-fast-1",
       "temperature": 0,
       "skills": [
@@ -62,13 +66,13 @@
 
   "categories": {
     // Trivial changes: fastest possible
-    "quick": { "model": "opencode/gpt-5-nano" },
+    "quick": { "model": "xai/grok-4-1-fast" },
 
     // Standard coding tasks: good quality, fast
     "unspecified-low": { "model": "xai/grok-code-fast-1" },
 
     // Complex refactors: best quality
-    "unspecified-high": { "model": "opencode/gpt-5.3-codex" },
+    "unspecified-high": { "model": "xai/grok-4.20-0309-reasoning" },
 
     // Visual work
     "visual-engineering": { "model": "opencode/gemini-3.1-pro", "variant": "high" },
