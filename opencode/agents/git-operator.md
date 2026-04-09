@@ -1,7 +1,10 @@
 ---
 description: Git-only operator. Executes repository work strictly through git commands.
-mode: subagent
+mode: all
 temperature: 0.0
+skills:
+  - git-commit-instructions
+  - git-squash-merge
 tools:
     read: true
     grep: true

@@ -53,15 +53,7 @@
     "sisyphus-junior": { "model": "xai/grok-code-fast-1" },
 
     // Git operations: deterministic and fast
-    "git-operator": {
-      "mode": "all",
-      "model": "xai/grok-code-fast-1",
-      "temperature": 0,
-      "skills": [
-        "git-commit-instructions",
-        "git-squash-merge"
-      ]
-    }
+    "git-operator": { "model": "xai/grok-code-fast-1" }
   },
 
   "categories": {
