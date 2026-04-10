@@ -35,7 +35,7 @@
     "explore": { "model": "xai/grok-code-fast-1" },
 
     // Frontend and visual work
-    "multimodal-looker": { "model": "opencode/gemini-3.1-pro" },
+    "multimodal-looker": { "model": "xai/grok-4.20-0309-reasoning" },
 
     // Plan review: minimal overhead
     "metis": {
@@ -67,13 +67,13 @@
     "unspecified-high": { "model": "xai/grok-4.20-0309-reasoning" },
 
     // Visual work
-    "visual-engineering": { "model": "opencode/gemini-3.1-pro", "variant": "high" },
+    "visual-engineering": { "model": "xai/grok-4.20-0309-reasoning", "variant": "high" },
 
     // Deep autonomous work
-    "deep": { "model": "opencode/gemini-3.1-pro" },
+    "deep": { "model": "xai/grok-4.20-0309-reasoning" },
 
     // Architecture decisions
-    "ultrabrain": { "model": "opencode/gpt-5.4", "variant": "xhigh" },
+    "ultrabrain": { "model": "xai/grok-4.20-0309-reasoning", "variant": "xhigh" },
   },
 
   // High concurrency for parallel agent work
