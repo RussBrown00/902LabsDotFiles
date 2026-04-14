@@ -34,16 +34,13 @@ Then create symbolic links for each configuration. Run these commands from your 
 #### Alacritty
 ```bash
 mkdir -p ~/.config/alacritty
-ln -s ~/.dotfiles/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
-ln -s ~/.dotfiles/alacritty/colors.toml ~/.config/alacritty/colors.toml
-ln -s ~/.dotfiles/alacritty/dark_mode.toml ~/.config/alacritty/dark_mode.toml
-ln -s ~/.dotfiles/alacritty/light_mode.toml ~/.config/alacritty/light_mode.toml
+ln -s ~/.dotfiles/alacritty ~/.config/alacritty
 ```
 
 #### Ghostty
 ```bash
 mkdir -p ~/.config/ghostty
-ln -s ~/.dotfiles/ghostty/config ~/.config/ghostty/config
+ln -s ~/.dotfiles/ghostty ~/.config/ghostty
 ```
 
 ### Shell Environments
@@ -52,11 +49,6 @@ ln -s ~/.dotfiles/ghostty/config ~/.config/ghostty/config
 ```bash
 ln -s ~/.dotfiles/zsh ~/.zsh
 ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
-```
-
-#### Bash
-```bash
-ln -s ~/.dotfiles/bashrc ~/.bashrc
 ```
 
 ### Text Editors
@@ -80,7 +72,6 @@ ln -s ~/.dotfiles/neovim/NvChad2.5 ~/.config/nvim
 ```bash
 ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/git/gitignore ~/.gitignore
-ln -s ~/.dotfiles/git/gvimrc ~/.gvimrc
 ```
 
 ### Terminal Multiplexer
