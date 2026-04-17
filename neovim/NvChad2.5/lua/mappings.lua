@@ -1,9 +1,9 @@
 require "nvchad.mappings"
 
 local map = vim.keymap.set
-map("i", "<ESC>", "<ESC><ESC>", { desc = "Double Escape" })
-map("i", "jj", "<ESC><ESC>", { desc = "Escape" })
-map("i", "jk", "<ESC><ESC>", { desc = "Escape" })
+map("i", "<Esc>", "<Esc><Esc>", { desc = "Escape" })
+map("i", "jj", "<Esc><Esc>", { desc = "Escape" })
+map("i", "jk", "<Esc><Esc>", { desc = "Escape" })
 
 -- General mappings: Normal mode
 map("n", "<leader>cc", "<cmd>TComment<CR>", { desc = "Comment line" })
