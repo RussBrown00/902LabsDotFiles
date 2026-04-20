@@ -26,7 +26,7 @@
     },
 
     // Debugging and architecture
-    "oracle": { "model": "xai/grok-4.20-multi-agent-0309", "variant": "high" },
+    "oracle": { "model": "xai/grok-4.20-0309-reasoning", "variant": "high" },
 
     // Fast docs lookup
     "librarian": { "model": "xai/grok-code-fast-1" },
@@ -70,7 +70,7 @@
     "visual-engineering": { "model": "xai/grok-4.20-0309-reasoning", "variant": "high" },
 
     // Deep autonomous work
-    "deep": { "model": "xai/grok-4.20-0309-reasoning" },
+    "deep": { "model": "xai/grok-code-fast-1" },
 
     // Architecture decisions
     "ultrabrain": { "model": "xai/grok-4.20-0309-reasoning", "variant": "xhigh" },

@@ -3,12 +3,5 @@
   "autoupdate": true,
   "plugin": [
     "oh-my-openagent@latest"
-  ],
-  "mcp": {
-    "shortcut-mcp": {
-      "enabled": true,
-      "type": "remote",
-      "url": "https://mcp.shortcut.com/mcp"
-    }
-  }
+  ]
 }
