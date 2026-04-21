@@ -72,9 +72,9 @@ return {
       "sindrets/diffview.nvim", -- optional - Diff integration
 
       -- Only one of these is needed.
-      "nvim-telescope/telescope.nvim", -- optional
+      -- "nvim-telescope/telescope.nvim", -- optional
       "ibhagwan/fzf-lua", -- optional
-      "folke/snacks.nvim", -- optional
+      -- "folke/snacks.nvim", -- optional
     },
     config = function()
       require("neogit").setup {
@@ -86,8 +86,8 @@ return {
   },
 
   -- MARKDOWN STUFF
-  { "vim-pandoc/vim-pandoc" },
-  { "vim-pandoc/vim-pandoc-syntax" },
+  -- { "vim-pandoc/vim-pandoc" },
+  -- { "vim-pandoc/vim-pandoc-syntax" },
 
   { "ekalinin/Dockerfile.vim" },
 
@@ -508,6 +508,8 @@ return {
         "javascript",
         "json",
         "lua",
+        "markdown",
+        "markdown_inline",
         "php",
         "regex",
         "ruby",
@@ -522,5 +524,18 @@ return {
         enable = false,
       },
     },
+    config = function()
+      vim.treesitter.language.register("markdown", "opencode_output")
+    end,
+  },
+  { "nvim-mini/mini.icons" },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    -- dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.nvim" }, -- if you use the mini.nvim suite
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.icons" }, -- if you use standalone mini plugins
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
   },
 }
