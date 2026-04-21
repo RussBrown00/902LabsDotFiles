@@ -14,37 +14,37 @@
 
     // Heavy lifter: maximum autonomy for coding tasks
     "hephaestus": {
-      "model": "xai/grok-4.20-0309-reasoning",
+      "model": "opencode/minimax-m2.5",
       "prompt_append": "You are the primary implementation agent. Own the codebase. Explore, decide, execute. Use LSP and AST-grep aggressively.",
       "permission": { "edit": "allow", "bash": { "git": "allow", "test": "allow" } },
     },
 
     // Lightweight planner: quick planning for coding tasks
     "prometheus": {
-      "model": "xai/grok-4.20-0309-reasoning",
+      "model": "opencode/minimax-m2.5",
       "prompt_append": "Keep plans concise. Focus on file structure and key decisions.",
     },
 
     // Debugging and architecture
-    "oracle": { "model": "xai/grok-4.20-0309-reasoning", "variant": "high" },
+    "oracle": { "model": "opencode/minimax-m2.7", "variant": "high" },
 
     // Fast docs lookup
-    "librarian": { "model": "xai/grok-code-fast-1" },
+    "librarian": { "model": "opencode/minimax-m2.5" },
 
     // Rapid codebase navigation
-    "explore": { "model": "xai/grok-code-fast-1" },
+    "explore": { "model": "opencode/minimax-m2.5" },
 
     // Frontend and visual work
     "multimodal-looker": { "model": "xai/grok-4.20-0309-reasoning" },
 
     // Plan review: minimal overhead
     "metis": {
-     "model": "xai/grok-4.20-0309-non-reasoning",
+     "model": "opencode/minimax-m2.7",
     "prompt_append": "Critically evaluate plans. Identify gaps, risks, and improvements. Be thorough.",
     },
 
     // Code review focus
-    "momus": { "model": "xai/grok-code-fast-1", "prompt_append": "Focus on code quality, edge cases, and test coverage." },
+    "momus": { "model": "opencode/minimax-m2.7", "prompt_append": "Focus on code quality, edge cases, and test coverage." },
 
     // Long-running coding sessions
     "atlas": { "model": "xai/grok-code-fast-1" },
@@ -53,18 +53,18 @@
     "sisyphus-junior": { "model": "xai/grok-code-fast-1" },
 
     // Git operations: deterministic and fast
-    "git-operator": { "model": "xai/grok-code-fast-1" }
+    "git-operator": { "model": "xai/grok-4-1-fast" }
   },
 
   "categories": {
     // Trivial changes: fastest possible
-    "quick": { "model": "xai/grok-4-1-fast" },
+    "quick": { "model": "opencode/minimax-m2.5" },
 
     // Standard coding tasks: good quality, fast
-    "unspecified-low": { "model": "xai/grok-code-fast-1" },
+    "unspecified-low": { "model": "opencode/minimax-m2.7" },
 
     // Complex refactors: best quality
-    "unspecified-high": { "model": "xai/grok-4.20-0309-reasoning" },
+    "unspecified-high": { "model": "xai/grok-code-fast-1" },
 
     // Visual work
     "visual-engineering": { "model": "xai/grok-4.20-0309-reasoning", "variant": "high" },
@@ -84,6 +84,13 @@
       "opencode": 15,
       "xai": 15,
     },
+  },
+
+  "lsp": {
+    "marksman-lsp": {
+      "command": ["marksman"],
+      "extensions": [".md"]
+    }
   },
 
   // Enable all coding aids
