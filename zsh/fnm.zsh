@@ -39,3 +39,15 @@ function grok {
 function skills {
   "$DEFAULT_FNM_MULTISHELL_PATH/bin/skills" "$@"
 }
+
+# Setup Agent Skills
+function ocusage {
+  OCUSAGE="$DEFAULT_FNM_MULTISHELL_PATH/bin/ccusage-opencode"
+
+  if [ ! -f "$OCUSAGE" ]; then
+    echo "Error: $OCUSAGE not found. Installing..."
+    $DEFAULT_FNM_MULTISHELL_PATH/bin/npm install -g @ccusage/opencode@latest
+  fi
+
+  "$OCUSAGE" "$@"
+}
