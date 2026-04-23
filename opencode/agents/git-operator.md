@@ -1,7 +1,7 @@
 ---
 description: Git-only operator. Executes repository work strictly through git commands.
 mode: all
-model: xai/grok-code-fast-1
+model: openai/gpt-5.4-mini-fast
 temperature: 0.0
 skills:
   - git-commit-instructions

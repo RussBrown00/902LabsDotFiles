@@ -1,99 +1,101 @@
 {
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/dev/assets/oh-my-opencode.schema.json",
-
-  // Optimized for intensive coding sessions.
-  // Prioritizes deep implementation agents and fast feedback loops.
-
   "agents": {
-    // Primary orchestrator: aggressive parallel delegation
     "sisyphus": {
-      "model": "xai/grok-4.20-0309-reasoning",
-      "ultrawork": { "model": "anthropic/claude-opus-4-6", "variant": "max" },
-      "prompt_append": "Delegate heavily to hephaestus for implementation. Parallelize exploration.",
+      "model": "openai/gpt-5.4",
+      "ultrawork": {
+        "model": "anthropic/claude-opus-4-6",
+        "variant": "max"
+      },
+      "prompt_append": "Delegate heavily to hephaestus for implementation. Parallelize exploration."
     },
-
-    // Heavy lifter: maximum autonomy for coding tasks
     "hephaestus": {
-      "model": "opencode/minimax-m2.5",
+      "model": "openai/gpt-5.4",
       "prompt_append": "You are the primary implementation agent. Own the codebase. Explore, decide, execute. Use LSP and AST-grep aggressively.",
-      "permission": { "edit": "allow", "bash": { "git": "allow", "test": "allow" } },
+      "permission": {
+        "edit": "allow",
+        "bash": {
+          "git": "allow",
+          "test": "allow"
+        }
+      }
     },
-
-    // Lightweight planner: quick planning for coding tasks
     "prometheus": {
-      "model": "opencode/minimax-m2.5",
-      "prompt_append": "Keep plans concise. Focus on file structure and key decisions.",
+      "model": "openai/gpt-5.4-mini-fast",
+      "prompt_append": "Keep plans concise. Focus on file structure and key decisions."
     },
-
-    // Debugging and architecture
-    "oracle": { "model": "opencode/minimax-m2.7", "variant": "high" },
-
-    // Fast docs lookup
-    "librarian": { "model": "opencode/minimax-m2.5" },
-
-    // Rapid codebase navigation
-    "explore": { "model": "opencode/minimax-m2.5" },
-
-    // Frontend and visual work
-    "multimodal-looker": { "model": "xai/grok-4.20-0309-reasoning" },
-
-    // Plan review: minimal overhead
+    "oracle": {
+      "model": "opencode/minimax-m2.7",
+      "variant": "high"
+    },
+    "librarian": {
+      "model": "openai/gpt-5.1-codex-mini"
+    },
+    "explore": {
+      "model": "openai/gpt-5.1-codex-mini"
+    },
+    "multimodal-looker": {
+      "model": "openai/gpt-5.4"
+    },
     "metis": {
-     "model": "opencode/minimax-m2.7",
-    "prompt_append": "Critically evaluate plans. Identify gaps, risks, and improvements. Be thorough.",
+      "model": "openai/gpt-5.4-fast",
+      "prompt_append": "Critically evaluate plans. Identify gaps, risks, and improvements. Be thorough."
     },
-
-    // Code review focus
-    "momus": { "model": "opencode/minimax-m2.7", "prompt_append": "Focus on code quality, edge cases, and test coverage." },
-
-    // Long-running coding sessions
-    "atlas": { "model": "xai/grok-code-fast-1" },
-
-    // Quick fixes and small tasks
-    "sisyphus-junior": { "model": "xai/grok-code-fast-1" },
-
-    // Git operations: deterministic and fast
+    "momus": {
+      "model": "opencode/minimax-m2.7",
+      "prompt_append": "Focus on code quality, edge cases, and test coverage."
+    },
+    "atlas": {
+      "model": "openai/gpt-5.3-codex-spark"
+    },
+    "sisyphus-junior": {
+      "model": "openai/gpt-5.4-mini"
+    },
     "git-operator": {}
   },
-
   "categories": {
-    // Trivial changes: fastest possible
-    "quick": { "model": "opencode/minimax-m2.5" },
-
-    // Standard coding tasks: good quality, fast
-    "unspecified-low": { "model": "opencode/minimax-m2.7" },
-
-    // Complex refactors: best quality
-    "unspecified-high": { "model": "xai/grok-code-fast-1" },
-
-    // Visual work
-    "visual-engineering": { "model": "xai/grok-4.20-0309-reasoning", "variant": "high" },
-
-    // Deep autonomous work
-    "deep": { "model": "xai/grok-code-fast-1" },
-
-    // Architecture decisions
-    "ultrabrain": { "model": "xai/grok-4.20-0309-reasoning", "variant": "xhigh" },
+    "quick": {
+      "model": "openai/gpt-5.4-mini"
+    },
+    "unspecified-low": {
+      "model": "opencode/minimax-m2.7"
+    },
+    "unspecified-high": {
+      "model": "xai/grok-code-fast-1"
+    },
+    "visual-engineering": {
+      "model": "xai/grok-4.20-0309-reasoning",
+      "variant": "high"
+    },
+    "deep": {
+      "model": "openai/gpt-5.4"
+    },
+    "ultrabrain": {
+      "model": "openai/gpt-5.4",
+      "variant": "xhigh"
+    }
   },
-
-  // High concurrency for parallel agent work
   "background_task": {
     "defaultConcurrency": 8,
     "providerConcurrency": {
       "anthropic": 5,
       "opencode": 15,
-      "xai": 15,
-    },
-  },
-
-  "lsp": {
-    "marksman-lsp": {
-      "command": ["marksman"],
-      "extensions": [".md"]
+      "xai": 15
     }
   },
-
-  // Enable all coding aids
+  "lsp": {
+    "marksman-lsp": {
+      "command": [
+        "marksman"
+      ],
+      "extensions": [
+        ".md"
+      ]
+    }
+  },
   "hashline_edit": true,
-  "experimental": { "aggressive_truncation": true, "task_system": true },
+  "experimental": {
+    "aggressive_truncation": true,
+    "task_system": true
+  }
 }

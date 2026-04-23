@@ -6,6 +6,9 @@ opencode/tasks
 opencode/package-lock.json
 opencode/bun.lock
 
+# OMC runtime state
+.omc/
+
 #TMUX
 tmux/plugins
 
