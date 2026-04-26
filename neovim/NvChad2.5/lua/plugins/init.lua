@@ -303,17 +303,9 @@ return {
       {
         "<leader>ac",
         function()
-          require("sidekick").clear()
+          require("sidekick.cli").toggle { name = "claude", focus = true }
         end,
         desc = "Sidekick Claude Toggle",
-        mode = { "n", "v" },
-      },
-      {
-        "<leader>ao",
-        function()
-          require("sidekick.cli").toggle { name = "opencode", focus = true }
-        end,
-        desc = "Sidekick OpenCode Toggle",
         mode = { "n", "v" },
       },
       {
@@ -325,13 +317,13 @@ return {
         mode = { "n", "v" },
       },
       {
-        "<leader>ap",
+        "<leader>acc",
         function()
-          require("sidekick.cli").prompt()
+          require("sidekick").clear()
         end,
-        desc = "Sidekick Ask Prompt",
+        desc = "Sidekick Claude Toggle",
         mode = { "n", "v" },
-      },
+      }
     },
   },
   {

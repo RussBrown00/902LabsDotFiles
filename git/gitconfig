@@ -79,6 +79,7 @@
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
 	#lh = --no-pager log --numstat -4
 	lg = log --graph --oneline --decorate --format='%C(yellow)%h%C(reset) %C(cyan)%ad%C(reset)%C(auto)%d%C(reset) %s %C(dim)- %an%C(reset)' --date=format:'%m/%d %H:%M'
+  lgl = log --name-status HEAD^..HEAD
   #lgg = log --format='%C(yellow)commit %h / %H%C(reset)%nAuthor: %an <%ae>%nDate:   %ad%n%n    %s%n%n%b' --date=local
 
 	ri = rebase -i

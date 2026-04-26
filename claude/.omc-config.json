@@ -1,0 +1,15 @@
+{
+  "defaultExecutionMode": "ultrawork",
+  "configuredAt": "2026-04-23T23:02:41Z",
+  "team": {
+    "ops": {
+      "maxAgents": 3,
+      "defaultAgentType": "claude",
+      "monitorIntervalMs": 30000,
+      "shutdownTimeoutMs": 15000
+    }
+  },
+  "setupCompleted": "2026-04-23T19:27:56-04:00",
+  "setupVersion": "v4.13.4",
+  "nodeBinary": "/Users/rbrown/.local/state/fnm_multishells/24933_1776900699467/bin/node"
+}

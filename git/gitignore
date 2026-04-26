@@ -3,11 +3,12 @@ vendor
 composer.phar
 
 # AI/LLM Related
-.ai
 .agents
+.ai
+.claude
 .grok
 .grok/*
-.claude
+.omc
 .sisyphus
 CLAUDE.md
 GROK.md
