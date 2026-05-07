@@ -76,6 +76,7 @@ nb-configuration.xml
 .env
 .nvimrc
 .nvmrc
+.obsidian
 .pyenv
 .python-version
 .vimrc
