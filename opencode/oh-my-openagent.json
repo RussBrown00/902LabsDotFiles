@@ -46,7 +46,7 @@
       "prompt_append": "Focus on code quality, edge cases, and test coverage."
     },
     "atlas": {
-      "model": "openai/gpt-5.3-codex-spark"
+      "model": "openai/gpt-5.4"
     },
     "sisyphus-junior": {
       "model": "openai/gpt-5.4-mini"
