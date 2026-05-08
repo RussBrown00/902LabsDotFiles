@@ -3,6 +3,7 @@ neovim/NvChad2.5/lazy-lock.json
 
 # Opencode
 opencode/tasks
+opencode/skills
 opencode/package-lock.json
 opencode/bun.lock
 

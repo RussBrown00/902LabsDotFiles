@@ -482,17 +482,11 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      auto_install = true,
-      sync_install = true,
-      highlight = {
-        enable = true,
-        disable = {},
-      },
-      indent = {
-        enable = true,
-      },
-      ensure_installed = {
+    branch = "main",
+    lazy = false,
+    build = ":TSUpdate",
+    config = function()
+      local parsers = {
         "css",
         "fish",
         "graphql",
@@ -511,13 +505,23 @@ return {
         "tsx",
         "vim",
         "yaml",
-      },
-      autotag = {
-        enable = false,
-      },
-    },
-    config = function()
+      }
+      local treesitter = require "nvim-treesitter"
+
+      treesitter.install(parsers)
       vim.treesitter.language.register("markdown", "opencode_output")
+
+      vim.api.nvim_create_autocmd("FileType", {
+        callback = function(args)
+          if vim.bo[args.buf].buftype ~= "" then
+            return
+          end
+
+          if pcall(vim.treesitter.start, args.buf) then
+            vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          end
+        end,
+      })
     end,
   },
   { "nvim-mini/mini.icons" },
