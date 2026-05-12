@@ -258,6 +258,7 @@ return {
           },
         },
         tools = {
+          claude = { cmd = { "omc", "agents" } },
           cline = { cmd = { "cline", "-p" } },
         },
       },
@@ -321,7 +322,7 @@ return {
         function()
           require("sidekick").clear()
         end,
-        desc = "Sidekick Claude Toggle",
+        desc = "Sidekick Clear CLI",
         mode = { "n", "v" },
       }
     },

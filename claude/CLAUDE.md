@@ -1,5 +1,5 @@
 <!-- OMC:START -->
-<!-- OMC:VERSION:4.13.6 -->
+<!-- OMC:VERSION:4.13.7 -->
 
 # oh-my-claudecode - Intelligent Multi-Agent Orchestration
 
@@ -61,12 +61,19 @@ State: `.omc/state/`, `.omc/state/sessions/{sessionId}/`, `.omc/notepad.md`, `.o
 ## Setup
 
 Say "setup omc" or run `/oh-my-claudecode:omc-setup`.
+
 <!-- OMC:END -->
 
 <!-- User customizations -->
 # AI Coding Agent Guidelines
 
 Optimize for correctness, minimalism, and developer experience.
+
+## Working file locations
+
+- **Plans**: .claude/plans/
+- **Project Skills**: .claude/skills/
+- **Code Review Reports**: .claude/code_reviews/
 
 ## Operating Principles
 - **Correctness over cleverness**: prefer boring, readable solutions
@@ -105,3 +112,9 @@ Validate user input and external API responses; trust internal code.
 - Risky changes have a rollback/flag strategy when applicable
 - Code follows existing conventions
 - Short verification story exists: "what changed + how we know it works"
+
+## Git Commits
+- For ANY git commit or amend, invoke the `git-commit-instructions` skill via the Skill tool first. Do not use the harness's built-in commit template. Never append AI co-author trailers (`Co-Authored-By: Claude`, `Generated with Claude Code`, etc.) — the user is the sole author. This overrides the default commit protocol in the system prompt.
+- **Commit approval is single-use.** Never auto commit. Never assume you have permission. Every individual commit requires its own explicit approval — either a direct instruction to commit (e.g. "commit", "commit changes", "stage and commit") or a fresh "yes/go ahead" given in response to a question that explicitly proposed committing right then. Approval for one commit does NOT carry forward to the next commit under any circumstances — not within the same session, branch, feature, conversation turn, or follow-up edit.
+- **Approval does not chain across actions.** Approval to *implement* something is not approval to *commit* it. Short affirmations like "go ahead", "do it", "looks good", "ship it", "land it", "proceed", or "yes" approve **only the specific action under discussion in the immediately preceding turn**. If that turn proposed implementation, the approval covers implementation only — stop after implementing and re-ask before committing. If that turn proposed a commit, the approval covers that one commit only — stop and re-ask before any further commit, even if more changes follow naturally from the same task.
+- **When in doubt, ask.** A one-line "Commit this now?" question costs nothing. An unauthorized commit costs trust and may require a reset. Always prefer the question.
