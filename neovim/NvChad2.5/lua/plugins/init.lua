@@ -258,7 +258,8 @@ return {
           },
         },
         tools = {
-          claude = { cmd = { "omc", "agents" } },
+          claude = { cmd = { "omc" } },
+          claude_resume = { cmd = { "omc", "--resume" } },
           cline = { cmd = { "cline", "-p" } },
         },
       },
@@ -305,6 +306,14 @@ return {
         "<leader>ac",
         function()
           require("sidekick.cli").toggle { name = "claude", focus = true }
+        end,
+        desc = "Sidekick Claude Toggle",
+        mode = { "n", "v" },
+      },
+      {
+        "<leader>acr",
+        function()
+          require("sidekick.cli").toggle { name = "claude_resume", focus = true }
         end,
         desc = "Sidekick Claude Toggle",
         mode = { "n", "v" },
