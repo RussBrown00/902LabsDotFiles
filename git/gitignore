@@ -5,6 +5,7 @@ composer.phar
 # AI/LLM Related
 .agents
 .ai
+.opencode
 .claude
 .grok
 .grok/*

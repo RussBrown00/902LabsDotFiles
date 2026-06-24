@@ -2,6 +2,40 @@
   "$schema": "https://opencode.ai/config.json",
   "autoupdate": true,
   "plugin": [
+    "opencode-with-claude",
     "oh-my-openagent@latest"
-  ]
+  ],
+  "provider": {
+    "anthropic": {
+      "options": {
+        "baseURL": "http://127.0.0.1:3456",
+        "apiKey": "dummy"
+      }
+    }
+  },
+  "mcp": {
+    "figma": {
+      "type": "remote",
+      "url": "http://127.0.0.1:3845/mcp",
+      "_url": "https://mcp.figma.com/mcp",
+      "enabled": true,
+      "oauth": {}
+    },
+    "shortcut": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://mcp.shortcut.com/mcp"
+    },
+    "postmark-template-sync": {
+      "enabled": true,
+      "type": "local",
+      "command": [
+        "node",
+        "/Users/rbrown/workspace/photivo-support/postmark-template-sync-mcp/index.js"
+      ],
+      "environment": {
+        "POSTMARK_SERVER_TOKEN": "b37ee499-0503-4cf2-9fe7-f12a9448cc96"
+      }
+    }
+  }
 }

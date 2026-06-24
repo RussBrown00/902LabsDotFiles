@@ -1,6 +1,7 @@
 [core]
 	editor = nvim
-	pager = less
+  pager = less
+  # pager = hunk pager
 	excludesfile = ~/.gitignore
 
 [log]
