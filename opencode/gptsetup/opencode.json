@@ -3,17 +3,8 @@
   "autoupdate": true,
   "enabled_providers": ["anthropic", "openai", "xai"],
   "plugin": [
-    "opencode-with-claude",
     "oh-my-openagent@latest"
   ],
-  "provider": {
-    "anthropic": {
-      "options": {
-        "baseURL": "http://127.0.0.1:3456",
-        "apiKey": "dummy"
-      }
-    }
-  },
   "mcp": {
     "figma": {
       "type": "remote",

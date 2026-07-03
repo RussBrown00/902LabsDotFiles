@@ -1,0 +1,145 @@
+{
+	"$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/dev/assets/oh-my-opencode.schema.json",
+	"agents": {
+		"sisyphus": {
+			"model": "anthropic/claude-sonnet-4-6",
+			"variant": "high",
+			"permission": {
+				"task": {
+					"*": "allow"
+				}
+			},
+			"ultrawork": {
+				"model": "anthropic/claude-sonnet-4-6",
+				"variant": "xhigh"
+			},
+			"prompt_append": "Delegate aggressively. For any non-trivial task, first split the work into independent atomic subtasks and launch multiple parallel task() calls. Prefer category delegation over doing work yourself. Use deep for implementation/research, quick for small edits/searches, visual-engineering for UI, ultrabrain for architecture/debugging, and writing for docs. Only work directly on trivial one-line changes. For tasks touching multiple files, requiring investigation, tests, refactors, UI, docs, or architecture, use at least 2-4 subagents in parallel, then synthesize and verify the results before responding."
+		},
+		"hephaestus": {
+			"model": "anthropic/claude-opus-4-8",
+			"variant": "high",
+			"prompt_append": "You are the primary implementation agent. Own the codebase end-to-end: inspect before assuming, decide, edit, verify, and fix follow-on issues. Prefer minimal diffs that match existing patterns. Use LSP and AST-grep aggressively. Run relevant tests and typechecks after changes. Never speculate about unread code or leave the tree in a broken state.",
+			"permission": {
+				"edit": "allow",
+				"bash": {
+					"git": "allow",
+					"test": "allow"
+				}
+			}
+		},
+		"prometheus": {
+			"model": "anthropic/claude-opus-4-8",
+			"variant": "high",
+			"prompt_append": "Keep plans concise. Focus on file structure and key decisions."
+		},
+		"oracle": {
+			"model": "anthropic/claude-opus-4-8",
+			"variant": "max"
+		},
+		"librarian": {
+			"model": "anthropic/claude-haiku-4-5",
+			"variant": "low"
+		},
+		"explore": {
+			"model": "anthropic/claude-haiku-4-5",
+			"variant": "low"
+		},
+		"multimodal-looker": {
+			"model": "openai/gpt-5.5",
+			"variant": "medium"
+		},
+		"metis": {
+			"model": "anthropic/claude-opus-4-8",
+			"variant": "xhigh",
+			"prompt_append": "Critically evaluate plans. Identify gaps, risks, and improvements. Be thorough."
+		},
+		"momus": {
+			"model": "anthropic/claude-opus-4-8",
+			"variant": "high",
+			"prompt_append": "Focus on code quality, edge cases, and test coverage."
+		},
+		"atlas": {
+			"model": "anthropic/claude-sonnet-4-6",
+			"variant": "medium"
+		},
+		"sisyphus-junior": {
+			"model": "anthropic/claude-sonnet-4-6",
+			"variant": "medium"
+		},
+		"git-operator": {
+			"model": "anthropic/claude-haiku-4-5",
+			"variant": "low"
+		},
+		"argus": {
+			"model": "openai/gpt-5.5",
+			"variant": "high"
+		},
+		"clio": {
+			"model": "anthropic/claude-sonnet-4-6",
+			"variant": "high"
+		}
+	},
+	"categories": {
+		"quick": {
+			"model": "anthropic/claude-haiku-4-5",
+			"variant": "low"
+		},
+		"unspecified-low": {
+			"model": "anthropic/claude-sonnet-4-6",
+			"variant": "medium"
+		},
+		"unspecified-high": {
+			"model": "anthropic/claude-opus-4-8",
+			"variant": "max"
+		},
+		"visual-engineering": {
+			"model": "anthropic/claude-opus-4-8",
+			"variant": "high"
+		},
+		"deep": {
+			"model": "anthropic/claude-sonnet-4-6",
+			"variant": "high"
+		},
+		"ultrabrain": {
+			"model": "anthropic/claude-opus-4-8",
+			"variant": "max"
+		},
+		"writing": {
+			"model": "openai/gpt-5.5"
+		}
+	},
+	"team_mode": {
+		"enabled": true,
+		"max_parallel_members": 4,
+		"tmux_visualization": true
+	},
+	"background_task": {
+		"defaultConcurrency": 12,
+		"providerConcurrency": {
+			"anthropic": 8,
+			"openai": 8,
+			"opencode": 8,
+			"xai": 8
+		}
+	},
+	"lsp": {
+		"marksman-lsp": {
+			"command": ["marksman"],
+			"extensions": [".md"]
+		}
+	},
+	"hashline_edit": true,
+	"experimental": {
+		"aggressive_truncation": true,
+		"task_system": true
+	},
+	"claude_code": {
+		"mcp": false,
+		"commands": false,
+		"skills": false,
+		"agents": false,
+		"hooks": false,
+		"plugins": false
+	},
+	"git_master": { "commit_footer": false, "include_co_authored_by": false }
+}

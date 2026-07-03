@@ -1,4 +1,4 @@
-general.live_config_reload = false  # Disabled to reduce potential flashing during config changes
+general.live_config_reload = true  # Disabled to reduce potential flashing during config changes
 
 # Import either dark_mode.toml or light_mode.toml based on preference
 general.import = ["~/.config/alacritty/dark_mode.toml"]

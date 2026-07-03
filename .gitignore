@@ -6,6 +6,8 @@ opencode/tasks
 opencode/skills
 opencode/package-lock.json
 opencode/bun.lock
+opencode/gptsetup/tasks
+opencode/meridian/tasks
 
 # OMC runtime state
 .omc/
