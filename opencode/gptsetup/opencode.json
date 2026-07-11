@@ -1,33 +1,35 @@
 {
-  "$schema": "https://opencode.ai/config.json",
-  "autoupdate": true,
-  "enabled_providers": ["anthropic", "openai", "xai"],
-  "plugin": [
-    "oh-my-openagent@latest"
-  ],
-  "mcp": {
-    "figma": {
-      "type": "remote",
-      "url": "http://127.0.0.1:3845/mcp",
-      "_url": "https://mcp.figma.com/mcp",
-      "enabled": true,
-      "oauth": {}
-    },
-    "shortcut": {
-      "enabled": true,
-      "type": "remote",
-      "url": "https://mcp.shortcut.com/mcp"
-    },
-    "postmark-template-sync": {
-      "enabled": true,
-      "type": "local",
-      "command": [
-        "node",
-        "/Users/rbrown/workspace/photivo-support/postmark-template-sync-mcp/index.js"
-      ],
-      "environment": {
-        "POSTMARK_SERVER_TOKEN": "b37ee499-0503-4cf2-9fe7-f12a9448cc96"
-      }
-    }
-  }
+	"$schema": "https://opencode.ai/config.json",
+	"autoupdate": true,
+	"model": "openai/gpt-5.6-sol",
+	"enabled_providers": ["openai", "xai"],
+	"plugin": ["oh-my-openagent@latest"],
+	"mcp": {
+		"figma": {
+			"type": "remote",
+			"url": "http://127.0.0.1:3845/mcp",
+			"_url": "https://mcp.figma.com/mcp",
+			"enabled": true,
+			"oauth": {}
+		},
+		"shortcut": {
+			"enabled": true,
+			"type": "remote",
+			"url": "https://mcp.shortcut.com/mcp"
+		},
+		"postmark-template-sync": {
+			"enabled": true,
+			"type": "local",
+			"command": ["node", "/Users/rbrown/workspace/photivo-support/postmark-template-sync-mcp/index.js"],
+			"environment": {
+				"POSTMARK_SERVER_TOKEN": "b37ee499-0503-4cf2-9fe7-f12a9448cc96"
+			}
+		},
+		"drawio-generator": {
+			"enabled": true,
+			"type": "local",
+			"command": ["uvx", "--python", "3.12", "drawio-mcp"],
+			"environment": {}
+		}
+	}
 }

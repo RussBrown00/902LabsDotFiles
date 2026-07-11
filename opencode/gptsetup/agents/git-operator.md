@@ -1,8 +1,9 @@
 ---
-description: Git-only operator. Executes repository work strictly through git commands.
+name: Git Operator - Git Shit
+description: Git Operator - Git-only repository operations and history management
 mode: all
-model: xai/grok-4.3
-temperature: 0.0
+model: openai/gpt-5.5-fast
+temperature: 0.1
 skills:
   - git-commit-instructions
   - git-squash-merge

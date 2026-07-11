@@ -1,122 +1,134 @@
 {
-  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/dev/assets/oh-my-opencode.schema.json",
-  "agents": {
-    "sisyphus": {
-      "model": "openai/gpt-5.5",
-      "ultrawork": {
-        "model": "openai/gpt-5.5",
-        "variant": "xhigh"
-      },
-      "prompt_append": "Delegate heavily to hephaestus for implementation. Parallelize exploration."
-    },
-    "hephaestus": {
-      "model": "openai/gpt-5.5",
-      "variant": "medium",
-      "prompt_append": "You are the primary implementation agent. Own the codebase. Explore, decide, execute. Use LSP and AST-grep aggressively.",
-      "permission": {
-        "edit": "allow",
-        "bash": {
-          "git": "allow",
-          "test": "allow"
-        }
-      }
-    },
-    "prometheus": {
-      "model": "openai/gpt-5.5",
-      "variant": "high",
-      "prompt_append": "Keep plans concise. Focus on file structure and key decisions."
-    },
-    "oracle": {
-      "model": "openai/gpt-5.5",
-      "variant": "high"
-    },
-    "librarian": {
-      "model": "openai/gpt-5.4-mini",
-      "variant": "low"
-    },
-    "explore": {
-      "model": "openai/gpt-5.4-mini",
-      "variant": "low"
-    },
-    "multimodal-looker": {
-      "model": "openai/gpt-5.5",
-      "variant": "medium"
-    },
-    "metis": {
-      "model": "openai/gpt-5.5",
-      "variant": "xhigh",
-      "prompt_append": "Critically evaluate plans. Identify gaps, risks, and improvements. Be thorough."
-    },
-    "momus": {
-      "model": "openai/gpt-5.5-fast",
-      "variant": "high",
-      "prompt_append": "Focus on code quality, edge cases, and test coverage."
-    },
-    "atlas": {
-      "model": "openai/gpt-5.5",
-      "variant": "medium"
-    },
-    "sisyphus-junior": {
-      "model": "openai/gpt-5.5-fast",
-      "variant": "medium"
-    },
-    "git-operator": {}
-  },
-  "categories": {
-    "quick": {
-      "model": "openai/gpt-5.5-fast",
-      "variant": "low"
-    },
-    "unspecified-low": {
-      "model": "openai/gpt-5.4-fast",
-      "variant": "medium"
-    },
-    "unspecified-high": {
-      "model": "openai/gpt-5.5",
-      "variant": "high"
-    },
-    "visual-engineering": {
-      "model": "openai/gpt-5.5",
-      "variant": "high"
-    },
-    "deep": {
-      "model": "openai/gpt-5.5",
-      "variant": "medium"
-    },
-    "ultrabrain": {
-      "model": "openai/gpt-5.5",
-      "variant": "xhigh"
-    }
-  },
-  "background_task": {
-    "defaultConcurrency": 8,
-    "providerConcurrency": {
-      "anthropic": 5,
-      "opencode": 15,
-      "xai": 15
-    }
-  },
-  "lsp": {
-    "marksman-lsp": {
-      "command": [
-        "marksman"
-      ],
-      "extensions": [
-        ".md"
-      ]
-    }
-  },
-  "hashline_edit": true,
-  "experimental": {
-    "aggressive_truncation": true,
-    "task_system": true
-  },
-  "claude_code": {
-    "mcp": false,
-    "commands": false,
-    "skills": false,
-    "agents": false,
-    "hooks": false,
-    "plugins": false
-  }
+	"$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/dev/assets/oh-my-opencode.schema.json",
+	"agents": {
+		"sisyphus": {
+			"model": "openai/gpt-5.6-sol",
+			"ultrawork": {
+				"model": "openai/gpt-5.6-sol",
+				"variant": "xhigh"
+			},
+      "prompt_append": "Delegate aggressively. For any non-trivial task, first split the work into independent atomic subtasks and launch multiple parallel task() calls. Prefer category delegation over doing work yourself. Use deep for implementation/research, quick for small edits/searches, visual-engineering for UI, ultrabrain for architecture/debugging, and writing for docs. Only work directly on trivial one-line changes. For tasks touching multiple files, requiring investigation, tests, refactors, UI, docs, or architecture, use at least 2-4 subagents in parallel, then synthesize and verify the results before responding."
+		},
+		"hephaestus": {
+			"model": "openai/gpt-5.6-sol",
+			"variant": "medium",
+			"prompt_append": "You are the primary implementation agent. Own the codebase end-to-end: inspect before assuming, decide, edit, verify, and fix follow-on issues. Prefer minimal diffs that match existing patterns. Use LSP and AST-grep aggressively. Run relevant tests and typechecks after changes. Never speculate about unread code or leave the tree in a broken state.",,
+			"permission": {
+				"edit": "allow",
+				"bash": {
+					"git": "allow",
+					"test": "allow"
+				}
+			}
+		},
+		"prometheus": {
+			"model": "openai/gpt-5.6-sol",
+			"variant": "high",
+			"prompt_append": "Keep plans concise. Focus on file structure and key decisions."
+		},
+		"oracle": {
+			"model": "xai/grok-4-5",
+			"variant": "high"
+		},
+		"librarian": {
+			"model": "openai/gpt-5.4-mini",
+			"variant": "low"
+		},
+		"explore": {
+			"model": "openai/gpt-5.4-mini",
+			"variant": "low"
+		},
+		"multimodal-looker": {
+			"model": "openai/gpt-5.5",
+			"variant": "medium"
+		},
+		"metis": {
+			"model": "xai/grok-4-5",
+			"variant": "xhigh",
+			"prompt_append": "Critically evaluate plans. Identify gaps, risks, and improvements. Be thorough."
+		},
+		"momus": {
+			"model": "xai/grok-4-5",
+			"variant": "high",
+			"prompt_append": "Focus on code quality, edge cases, and test coverage."
+		},
+		"atlas": {
+			"model": "openai/gpt-5.5",
+			"variant": "medium"
+		},
+		"sisyphus-junior": {
+			"model": "openai/gpt-5.5-fast",
+			"variant": "medium"
+		},
+		"git-operator": {
+			"model": "openai/gpt-5.5-fast",
+			"variant": "low"
+		},
+		"argus": {
+			"model": "openai/gpt-5.6-sol",
+			"variant": "high"
+		},
+		"clio": {
+			"model": "openai/gpt-5.5-fast",
+			"variant": "high"
+		}
+	},
+	"categories": {
+		"quick": {
+			"model": "openai/gpt-5.5-fast",
+			"variant": "low"
+		},
+		"unspecified-low": {
+			"model": "openai/gpt-5.4-fast",
+			"variant": "medium"
+		},
+		"unspecified-high": {
+			"model": "xai/grok-4-5",
+			"variant": "high"
+		},
+		"visual-engineering": {
+			"model": "xai/grok-4-5",
+			"variant": "high"
+		},
+		"deep": {
+			"model": "openai/gpt-5.5",
+			"variant": "medium"
+		},
+		"ultrabrain": {
+			"model": "xai/grok-4-5",
+			"variant": "xhigh"
+		},
+		"writing": {
+			"model": "openai/gpt-5.5"
+		}
+	},
+	"background_task": {
+		"defaultConcurrency": 12,
+		"providerConcurrency": {
+			"anthropic": 8,
+			"openai": 8,
+			"opencode": 8,
+			"xai": 8
+		}
+	},
+	"lsp": {
+		"marksman-lsp": {
+			"command": ["marksman"],
+			"extensions": [".md"]
+		}
+	},
+	"git_master": { "commit_footer": false, "include_co_authored_by": false },
+	"hashline_edit": true,
+	"experimental": {
+		"aggressive_truncation": true,
+		"task_system": true
+	},
+	"claude_code": {
+		"mcp": false,
+		"commands": false,
+		"skills": false,
+		"agents": false,
+		"hooks": false,
+		"plugins": false
+	}
 }

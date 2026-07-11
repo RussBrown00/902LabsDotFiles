@@ -1,7 +1,8 @@
 {
 	"$schema": "https://opencode.ai/config.json",
 	"autoupdate": true,
-	"enabled_providers": ["anthropic", "openai", "xai"],
+	"model": "anthropic/claude-sonnet-4-6",
+	"enabled_providers": ["anthropic", "openai", "xai", "claude-max"],
 	"plugin": ["opencode-with-claude", "oh-my-openagent@latest"],
 	"provider": {
 		"anthropic": {
@@ -11,9 +12,8 @@
 			},
 			"models": {
 				"claude-opus-4-8": {},
-				"claude-opus-4-7": {},
 				"claude-sonnet-4-6": {},
-				"claude-opus-4-6": {}
+				"claude-haiku-4-5": {}
 			}
 		}
 	},
