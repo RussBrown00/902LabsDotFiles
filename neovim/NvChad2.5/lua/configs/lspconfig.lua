@@ -21,12 +21,25 @@ local servers = {
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
-  vim.lsp.config[lsp] = {
+  vim.lsp.config(lsp, {
     on_attach = on_attach,
     on_init = on_init,
     capabilities = capabilities,
-  }
+  })
 end
+
+vim.lsp.config("jsonls", {
+  cmd = { vim.fn.stdpath "data" .. "/mason/bin/vscode-json-language-server", "--stdio" },
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  settings = {
+    json = {
+      schemas = require("schemastore").json.schemas(),
+      validate = { enable = true },
+    },
+  },
+})
 
 -- for name, opts in pairs(servers) do
 --   opts.on_init = configs.on_init
@@ -37,7 +50,7 @@ end
 -- end
 
 -- typescript
-vim.lsp.config.ts_ls = {
+vim.lsp.config("ts_ls", {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
@@ -46,4 +59,6 @@ vim.lsp.config.ts_ls = {
       disableSuggestions = true,
     },
   },
-}
+})
+
+vim.lsp.enable(servers)

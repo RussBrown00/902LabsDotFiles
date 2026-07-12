@@ -69,23 +69,6 @@ require("neogit").setup {
   },
 }
 
-local options = {
-  formatters_by_ft = {
-    css = { "prettierd" },
-    html = { "prettierd" },
-    javascript = { "prettierd" },
-    lua = { "stylua" },
-  },
-
-  format_on_save = {
-    -- These options will be passed to conform.format()
-    timeout_ms = 500,
-    lsp_fallback = true,
-  },
-}
-
-require("conform").setup(options)
-
 vim.opt.completeopt = { "menu", "popup", "noselect" }
 
 -- Auto-reload theme based on macOS appearance

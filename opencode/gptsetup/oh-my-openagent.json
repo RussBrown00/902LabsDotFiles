@@ -7,12 +7,12 @@
 				"model": "openai/gpt-5.6-sol",
 				"variant": "xhigh"
 			},
-      "prompt_append": "Delegate aggressively. For any non-trivial task, first split the work into independent atomic subtasks and launch multiple parallel task() calls. Prefer category delegation over doing work yourself. Use deep for implementation/research, quick for small edits/searches, visual-engineering for UI, ultrabrain for architecture/debugging, and writing for docs. Only work directly on trivial one-line changes. For tasks touching multiple files, requiring investigation, tests, refactors, UI, docs, or architecture, use at least 2-4 subagents in parallel, then synthesize and verify the results before responding."
+			"prompt_append": "Delegate aggressively. For any non-trivial task, first split the work into independent atomic subtasks and launch multiple parallel task() calls. Prefer category delegation over doing work yourself. Use deep for implementation/research, quick for small edits/searches, visual-engineering for UI, ultrabrain for architecture/debugging, and writing for docs. Only work directly on trivial one-line changes. For tasks touching multiple files, requiring investigation, tests, refactors, UI, docs, or architecture, use at least 2-4 subagents in parallel, then synthesize and verify the results before responding."
 		},
 		"hephaestus": {
 			"model": "openai/gpt-5.6-sol",
 			"variant": "medium",
-			"prompt_append": "You are the primary implementation agent. Own the codebase end-to-end: inspect before assuming, decide, edit, verify, and fix follow-on issues. Prefer minimal diffs that match existing patterns. Use LSP and AST-grep aggressively. Run relevant tests and typechecks after changes. Never speculate about unread code or leave the tree in a broken state.",,
+			"prompt_append": "You are the primary implementation agent. Own the codebase end-to-end: inspect before assuming, decide, edit, verify, and fix follow-on issues. Prefer minimal diffs that match existing patterns. Use LSP and AST-grep aggressively. Run relevant tests and typechecks after changes. Never speculate about unread code or leave the tree in a broken state.",
 			"permission": {
 				"edit": "allow",
 				"bash": {
@@ -27,15 +27,15 @@
 			"prompt_append": "Keep plans concise. Focus on file structure and key decisions."
 		},
 		"oracle": {
-			"model": "xai/grok-4-5",
+			"model": "xai/grok-4.5",
 			"variant": "high"
 		},
 		"librarian": {
-			"model": "openai/gpt-5.4-mini",
+			"model": "openai/gpt-5.4-fast",
 			"variant": "low"
 		},
 		"explore": {
-			"model": "openai/gpt-5.4-mini",
+			"model": "openai/gpt-5.4-fast",
 			"variant": "low"
 		},
 		"multimodal-looker": {
@@ -43,12 +43,12 @@
 			"variant": "medium"
 		},
 		"metis": {
-			"model": "xai/grok-4-5",
+			"model": "xai/grok-4.5",
 			"variant": "xhigh",
 			"prompt_append": "Critically evaluate plans. Identify gaps, risks, and improvements. Be thorough."
 		},
 		"momus": {
-			"model": "xai/grok-4-5",
+			"model": "xai/grok-4.5",
 			"variant": "high",
 			"prompt_append": "Focus on code quality, edge cases, and test coverage."
 		},
@@ -57,37 +57,36 @@
 			"variant": "medium"
 		},
 		"sisyphus-junior": {
-			"model": "openai/gpt-5.5-fast",
+			"model": "openai/gpt-5.5",
 			"variant": "medium"
 		},
 		"git-operator": {
-			"model": "openai/gpt-5.5-fast",
-			"variant": "low"
+			"model": "openai/gpt-5.5-fast"
 		},
 		"argus": {
 			"model": "openai/gpt-5.6-sol",
 			"variant": "high"
 		},
 		"clio": {
-			"model": "openai/gpt-5.5-fast",
+			"model": "openai/gpt-5.5",
 			"variant": "high"
 		}
 	},
 	"categories": {
 		"quick": {
-			"model": "openai/gpt-5.5-fast",
+			"model": "openai/gpt-5.5",
 			"variant": "low"
 		},
 		"unspecified-low": {
-			"model": "openai/gpt-5.4-fast",
+			"model": "openai/gpt-5.5",
 			"variant": "medium"
 		},
 		"unspecified-high": {
-			"model": "xai/grok-4-5",
+			"model": "xai/grok-4.5",
 			"variant": "high"
 		},
 		"visual-engineering": {
-			"model": "xai/grok-4-5",
+			"model": "xai/grok-4.5",
 			"variant": "high"
 		},
 		"deep": {
@@ -95,7 +94,7 @@
 			"variant": "medium"
 		},
 		"ultrabrain": {
-			"model": "xai/grok-4-5",
+			"model": "xai/grok-4.5",
 			"variant": "xhigh"
 		},
 		"writing": {

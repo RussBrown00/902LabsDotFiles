@@ -201,7 +201,9 @@ return {
 
   {
     "mason-org/mason-lspconfig.nvim",
-    opts = {},
+    opts = {
+      ensure_installed = { "jsonls" },
+    },
     dependencies = {
       { "mason-org/mason.nvim", opts = {} },
       "neovim/nvim-lspconfig",
@@ -338,6 +340,9 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      "b0o/SchemaStore.nvim",
+    },
     config = function()
       require("nvchad.configs.lspconfig").defaults()
       require "configs.lspconfig"
