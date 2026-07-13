@@ -5,10 +5,12 @@ export PATH="/usr/local/opt/libpq/bin:$PATH"
 
 CURRENT_DIRECTORY=$(pwd)
 
+# Default opencode preferences, override by machine in ~/.zshrc
 export OPENCODE_DISABLE_CLAUDE_CODE=1        # Disable all .claude support
 export OPENCODE_DISABLE_CLAUDE_CODE_PROMPT=0 # Disable only ~/.claude/CLAUDE.md
 export OPENCODE_DISABLE_CLAUDE_CODE_SKILLS=1 # Disable only .claude/skills
 
+export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_NO_AUTO_UPDATE=true
 
 # Slack Dev Menu

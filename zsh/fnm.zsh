@@ -24,6 +24,7 @@ eval "$(fnm env --install-if-missing --use-on-cd &> /dev/null)"
 
 # Used by apps like VIM/NVIM
 DEFAULT_FNM_MULTISHELL_PATH=$(fnm use default &> /dev/null; fnm env | grep FNM_MULTISHELL_PATH | cut -d'"' -f2)
+DEFAULT_NPX="$DEFAULT_FNM_MULTISHELL_PATH/bin/npx"
 
 # Setup Cline
 function cline {

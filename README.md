@@ -12,8 +12,9 @@ These dotfiles include configurations for:
 - Terminal multiplexer (Tmux)
 - Search tools (Ripgrep)
 - Package management (Homebrew)
-- Fonts (CommitMono Nerd Font)
+- Fonts (Hack Nerd Font) - https://www.nerdfonts.com/font-downloads
 - AI agent system (OpenCode)
+- FNM - Fast Node Manager
 
 All configurations are stored in `~/.dotfiles` and linked manually to their expected locations. This approach allows for easy updates, backups, and selective installation.
 
@@ -88,6 +89,15 @@ ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 ```bash
 ln -s ~/.dotfiles/ripgrep/ripgreprc ~/.ripgreprc
 ln -s ~/.dotfiles/ripgrep/ripgrepignore ~/.ripgrepignore
+```
+
+### Fonts
+
+Install Fast Node Manager
+
+```bash
+curl -fsSL https://fnm.vercel.app/install | bash
+ln -s /opt/homebrew/opt/fnm ~/.fnm
 ```
 
 ### Fonts
