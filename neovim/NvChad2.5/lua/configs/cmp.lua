@@ -26,16 +26,6 @@ local options = {
       select = false, -- Only accept when explicitly selected, not on first item
     },
 
-    ["<Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif require("luasnip").expand_or_jumpable() then
-        require("luasnip").expand_or_jump()
-      else
-        fallback()
-      end
-    end, { "i", "s" }),
-
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
@@ -50,8 +40,8 @@ local options = {
   sources = {
     { name = "nvim_lsp" },
     { name = "luasnip" },
-    { name = "buffer" },
     { name = "nvim_lua" },
+    { name = "buffer" },
     { name = "async_path" },
   },
 }

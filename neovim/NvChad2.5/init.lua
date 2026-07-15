@@ -13,7 +13,7 @@ opt.spellfile = "~/.vim/spell/en.utf-8.add"
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   local repo = "https://github.com/folke/lazy.nvim.git"
   vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
 end
@@ -55,35 +55,27 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
   end,
 })
 
-require("neogit").setup {
-  integrations = {
-    diffview = true,
-  },
-  process_spinner = true,
-  floating = {
-    relative = "editor",
-    width = 0.8,
-    height = 0.7,
-    style = "minimal",
-    border = "rounded",
-  },
-}
-
 vim.opt.completeopt = { "menu", "popup", "noselect" }
 
 -- Auto-reload theme based on macOS appearance
-local timer = vim.loop.new_timer()
+local timer = vim.uv.new_timer()
 timer:start(0, 5000, vim.schedule_wrap(function()
   local handle = io.popen("defaults read -g AppleInterfaceStyle 2>/dev/null")
+  if not handle then
+    return
+  end
   local result = handle:read("*a")
   handle:close()
   local new_theme = result:match("Dark") and "tomorrow_night" or "one_light"
-  local chadrc = require("chadrc")
-  local current_theme = chadrc.base46.theme
+  local chadrc = require "chadrc"
+  local current_theme = chadrc.base46 and chadrc.base46.theme
   if new_theme ~= current_theme then
-    require("nvchad.themes.utils").reload_theme(new_theme)
-    -- Update in-memory chadrc
-    chadrc.base46.theme = new_theme
-    chadrc.ui.theme = new_theme
+    local ok, utils = pcall(require, "nvchad.themes.utils")
+    if ok and utils.reload_theme then
+      utils.reload_theme(new_theme)
+      -- Update in-memory chadrc
+      chadrc.base46.theme = new_theme
+      chadrc.ui.theme = new_theme
+    end
   end
 end))

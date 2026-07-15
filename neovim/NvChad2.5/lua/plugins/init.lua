@@ -2,8 +2,8 @@ return {
   {
     "stevearc/conform.nvim",
     event = {
-      "BufWritePre",
-      "InsertLeave",
+      "BufReadPre",
+      "BufNewFile",
     },
     config = function()
       require "configs.conform"
@@ -80,6 +80,14 @@ return {
       require("neogit").setup {
         integrations = {
           diffview = true,
+        },
+        process_spinner = true,
+        floating = {
+          relative = "editor",
+          width = 0.8,
+          height = 0.7,
+          style = "minimal",
+          border = "rounded",
         },
       }
     end,
@@ -432,7 +440,8 @@ return {
     },
   },
   {
-    "williamboman/mason.nvim",
+    "numToStr/Comment.nvim",
+    event = "BufReadPre",
     config = function()
       require "configs.comment"
     end,
@@ -469,6 +478,7 @@ return {
           "stylua",
           "prettier",
           "prettierd",
+          "shfmt",
 
           -- additional installables
           "antlers-language-server",

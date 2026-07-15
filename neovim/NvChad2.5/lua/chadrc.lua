@@ -4,12 +4,15 @@
 -- Function to detect macOS appearance
 local function get_system_theme()
   local handle = io.popen("defaults read -g AppleInterfaceStyle 2>/dev/null")
+  if not handle then
+    return "everblush"
+  end
   local result = handle:read("*a")
   handle:close()
   if result:match("Dark") then
     return "everblush"  -- Dark theme
   else
-    return "everblush"       -- Light theme
+    return "everblush"  -- Light theme
   end
 end
 

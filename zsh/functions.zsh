@@ -24,7 +24,7 @@ function rename_tmux_window {
         local new_name=$(basename "$PWD")
       else
         # Optional: Define how to handle other directories
-        local new_name=$(basename "$PWD")  # or some other logic
+        local new_name=$(basename "$PWD") # or some other logic
       fi
 
       # Set the new name to the tmux window
@@ -39,23 +39,23 @@ function rename_tmux_window {
 
 function extract {
   echo Extracting $1 ...
-  if [ -f $1 ] ; then
-      case $1 in
-          *.tar.bz2)   tar xjf $1  ;;
-          *.tar.gz)    tar xzf $1  ;;
-          *.bz2)       bunzip2 $1  ;;
-          *.rar)       unrar x $1    ;;
-          *.gz)        gunzip $1   ;;
-          *.tar)       tar xf $1   ;;
-          *.tbz2)      tar xjf $1  ;;
-          *.tgz)       tar xzf $1  ;;
-          *.zip)       unzip $1   ;;
-          *.Z)         uncompress $1  ;;
-          *.7z)        7z x $1  ;;
-          *)        echo "'$1' cannot be extracted via extract()" ;;
-      esac
+  if [ -f $1 ]; then
+    case $1 in
+    *.tar.bz2) tar xjf $1 ;;
+    *.tar.gz) tar xzf $1 ;;
+    *.bz2) bunzip2 $1 ;;
+    *.rar) unrar x $1 ;;
+    *.gz) gunzip $1 ;;
+    *.tar) tar xf $1 ;;
+    *.tbz2) tar xjf $1 ;;
+    *.tgz) tar xzf $1 ;;
+    *.zip) unzip $1 ;;
+    *.Z) uncompress $1 ;;
+    *.7z) 7z x $1 ;;
+    *) echo "'$1' cannot be extracted via extract()" ;;
+    esac
   else
-      echo "'$1' is not a valid file"
+    echo "'$1' is not a valid file"
   fi
 }
 
@@ -75,11 +75,12 @@ function sc {
   fi
 }
 
-function trash () {
+function trash() {
   local path
   for path in "$@"; do
     # ignore any arguments
-    if [[ "$path" = -* ]]; then :
+    if [[ "$path" = -* ]]; then
+      :
     else
       local dst=${path##*/}
       # append the time if necessary
@@ -92,77 +93,77 @@ function trash () {
 }
 
 function rereplace() {
-	echo "Running: ag --hidden -l $1 | xargs sed -i \"\" \"s/$1/$2/g\""
-	ag --hidden -l $1 | xargs sed -i "" "s/$1/$2/g"
-	ag --hidden $1
+  echo "Running: ag --hidden -l $1 | xargs sed -i \"\" \"s/$1/$2/g\""
+  ag --hidden -l $1 | xargs sed -i "" "s/$1/$2/g"
+  ag --hidden $1
 }
 
 # AWK Commands
 function aprint() {
-	awk "{print \$${1:-1}}";
+  awk "{print \$${1:-1}}"
 }
 
 # Cleanup all VIM artifacts
 function vimclean() {
-	find ~/.vim/tmp/ctrp_cache -name "*" | tail -n +2 | xargs rm -Rf;
-	find ~/.vim/tmp/backup -type f -name "*" | tail -n +2 | xargs rm;
-	find ~/.vim/tmp/swap -type f -name "*" | tail -n +2 | xargs rm;
-	find ~/.vim/tmp/undo -type f -name "*" | tail -n +2 | xargs rm;
-	find ~/.vim/view -type f -name "*" | tail -n +2 | xargs rm;
+  find ~/.vim/tmp/ctrp_cache -name "*" | tail -n +2 | xargs rm -Rf
+  find ~/.vim/tmp/backup -type f -name "*" | tail -n +2 | xargs rm
+  find ~/.vim/tmp/swap -type f -name "*" | tail -n +2 | xargs rm
+  find ~/.vim/tmp/undo -type f -name "*" | tail -n +2 | xargs rm
+  find ~/.vim/view -type f -name "*" | tail -n +2 | xargs rm
 }
 
 function nvimclean() {
-	find ~/.tmp/neovim/undo -name "*" | tail -n +2 | xargs rm -Rf;
-	find ~/.tmp/neovim/backup -name "*" | tail -n +2 | xargs rm -Rf;
-	find ~/.tmp/neovim/swap -name "*" | tail -n +2 | xargs rm -Rf;
+  find ~/.tmp/neovim/undo -name "*" | tail -n +2 | xargs rm -Rf
+  find ~/.tmp/neovim/backup -name "*" | tail -n +2 | xargs rm -Rf
+  find ~/.tmp/neovim/swap -name "*" | tail -n +2 | xargs rm -Rf
 }
 
 # OSX Specific Functions
 if [[ "$OSTYPE" == "darwin"* ]]; then
-	function alert {
-		osascript -e 'tell app "System Events" to display dialog "'$1'"'
-	}
+  function alert {
+    osascript -e 'tell app "System Events" to display dialog "'$1'"'
+  }
 
-	function md5sum {
-		md5 $@ | awk '{print $NF}'
-	}
+  function md5sum {
+    md5 $@ | awk '{print $NF}'
+  }
 fi
 
 # DOCKER
-if which docker &> /dev/null; then
-	alias docker-ps='docker ps'
-	alias docker-psa='docker ps -a'
+if which docker &>/dev/null; then
+  alias docker-ps='docker ps'
+  alias docker-psa='docker ps -a'
 
-	containerip() {
-		docker inspect $1 | grep "\"IPAddress\"" | head -n 1 | cut -d':' -f2 | cut -d'"' -f2
-	}
+  containerip() {
+    docker inspect $1 | grep "\"IPAddress\"" | head -n 1 | cut -d':' -f2 | cut -d'"' -f2
+  }
 
-	if [ ! -z "$UA_UTILS" ]; then
-		alias dockerbuild="$UA_UTILS/docker/build.sh"
-		alias dockerbuild-ab="$UA_UTILS/docker/build.sh armourbox-master-latest"
-	fi
+  if [ ! -z "$UA_UTILS" ]; then
+    alias dockerbuild="$UA_UTILS/docker/build.sh"
+    alias dockerbuild-ab="$UA_UTILS/docker/build.sh armourbox-master-latest"
+  fi
 
-	function docker-rm {
-		docker rm $@ $(docker ps -a -q)
-	}
+  function docker-rm {
+    docker rm $@ $(docker ps -a -q)
+  }
 
-	function docker-shell {
+  function docker-shell {
     docker run --rm -it --entrypoint=bash $@
-	}
+  }
 
-	function docker-rs {
-		docker ps -qaf "name=$1" | xargs docker restart
-	}
+  function docker-rs {
+    docker ps -qaf "name=$1" | xargs docker restart
+  }
 
-	function docker-logs {
-		docker ps -qaf "name=$1" | xargs docker logs -f
-	}
+  function docker-logs {
+    docker ps -qaf "name=$1" | xargs docker logs -f
+  }
 
-	docker-clean() {
-		docker rm -f $(docker ps -a -q)
-		docker rmi $(docker images -q -f dangling=true)
-		docker volume rm $(docker volume ls -qf dangling=true)
-	}
+  docker-clean() {
+    docker rm -f $(docker ps -a -q)
+    docker rmi $(docker images -q -f dangling=true)
+    docker volume rm $(docker volume ls -qf dangling=true)
+  }
 
   function dps {
     docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}" | grep -v 'Exited ('
@@ -171,78 +172,118 @@ if which docker &> /dev/null; then
 fi
 
 if [ "$OSTYPE" != "darwin" ] && [ -f "/usr/bin/docker" ]; then
-	function docker {
-		sudo /usr/bin/docker $@
-	}
+  function docker {
+    sudo /usr/bin/docker $@
+  }
 
-	function docker-compose {
-		sudo /usr/local/bin/docker-compose $@
-	}
+  function docker-compose {
+    sudo /usr/local/bin/docker-compose $@
+  }
 fi
 
 function dcup {
-	docker-compose up $@
+  docker-compose up $@
 }
 
 function dcdown {
-	docker-compose down $@
+  docker-compose down $@
 }
 
 function dclogs {
-	docker-compose logs $@
+  docker-compose logs $@
 }
 
 function docker-pull {
-	docker images | grep "$1" | awk '{print $1}' | xargs -L1 sudo docker pull
+  docker images | grep "$1" | awk '{print $1}' | xargs -L1 sudo docker pull
 }
 
 function containerid() {
-	docker ps | grep $1 | aprint 1
+  docker ps | grep $1 | aprint 1
 }
 
 function chmod-files {
-	if [ -z $1 ]; then
-		PERM=644
-	else
-		PERM=$1
-	fi
+  if [ -z $1 ]; then
+    PERM=644
+  else
+    PERM=$1
+  fi
 
-	find . -type f -exec chmod $PERM {} \;
+  find . -type f -exec chmod $PERM {} \;
 }
 
 function chmod-folders {
-	if [ -z $1 ]; then
-		PERM=755
-	else
-		PERM=$1
-	fi
+  if [ -z $1 ]; then
+    PERM=755
+  else
+    PERM=$1
+  fi
 
-	find . -type d -exec chmod $PERM {} \;
+  find . -type d -exec chmod $PERM {} \;
+}
+
+wt() {
+  local selection dir
+
+  command -v fzf >/dev/null 2>&1 || {
+    echo "wt: fzf is not installed" >&2
+    return 1
+  }
+
+  selection="$(
+    git worktree list --porcelain 2>/dev/null |
+      awk '
+                /^worktree / {
+                    if (path != "") print path "\t" branch
+                    path = substr($0, 10)
+                    branch = "(detached)"
+                }
+                /^branch / {
+                    branch = $2
+                    sub(/^refs\/heads\//, "", branch)
+                }
+                END {
+                    if (path != "") print path "\t" branch
+                }
+            ' |
+      fzf \
+        --delimiter=$'\t' \
+        --with-nth=2,1 \
+        --prompt="Worktree> " \
+        --height=40% \
+        --reverse
+  )" || return
+
+  [[ -n "$selection" ]] || return
+
+  dir="${selection%%$'\t'*}"
+  builtin cd -- "$dir"
 }
 
 function git-clone-remote {
-	ORIGIN=$(git remote -v | grep origin | head -n 1 | awk '{print $2}')
-	NEW=${ORIGIN/:$1/:$2}
-	git remote add $2 $NEW
-	git fetch $2
+  ORIGIN=$(git remote -v | grep origin | head -n 1 | awk '{print $2}')
+  NEW=${ORIGIN/:$1/:$2}
+  git remote add $2 $NEW
+  git fetch $2
 }
 
 function json {
-	echo $1 | python -m json.tool
+  echo $1 | python -m json.tool
 }
 
 function greum {
-	HASH=$(git ll | head -n 1 | awk '{print $1}')
-	git fu; git unm; git ms $HASH;
+  HASH=$(git ll | head -n 1 | awk '{print $1}')
+  git fu
+  git unm
+  git ms $HASH
 }
 
 function killbyport {
-	if [ -z $1 ]; then
-		echo "Please add an argument for port"
-	else
-		PORT=$1
-		lsof -t -i:$PORT | xargs kill &> /dev/null && echo "Closed Process runnin on $PORT" || echo "Nothing Running on $PORT"
-	fi
+  if [ -z $1 ]; then
+    echo "Please add an argument for port"
+  else
+    PORT=$1
+    lsof -t -i:$PORT | xargs kill &>/dev/null && echo "Closed Process runnin on $PORT" || echo "Nothing Running on $PORT"
+  fi
 }
 
 function js-code-stats {
@@ -252,8 +293,8 @@ function js-code-stats {
 function sys-alert {
   MSG="display notification \"$1\""
 
-	if [ ! -z $2 ]; then
-	  MSG="$MSG with title \"$2\""
+  if [ ! -z $2 ]; then
+    MSG="$MSG with title \"$2\""
   fi
 
   osascript -e "$MSG"
@@ -262,7 +303,7 @@ function sys-alert {
 function mkenv {
   ENVDIR=$(basename $(pwd))
   echo $ENVDIR
-	mkvirtualenv -p $(pyenv which python) $ENVDIR
+  mkvirtualenv -p $(pyenv which python) $ENVDIR
 }
 
 function reflogmore {
@@ -284,7 +325,6 @@ function salt {
 #   local QUERY="$1"
 #   gh copilot suggest -t shell "$QUERY"
 # }
-
 
 # Kubectl Functions
 function kc {
