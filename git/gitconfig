@@ -153,3 +153,9 @@
   
   # Submodules
   su = submodule update --recursive --remote --init
+
+  # WorkTrees
+  wt = worktree
+  wtl = worktree list
+  wtr = worktree remove
+  wtd = worktree remove
