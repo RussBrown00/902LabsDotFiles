@@ -1,0 +1,14 @@
+{
+  "biome": {
+    "decision": "declined",
+    "decidedAt": "2026-07-23T22:54:03.247Z"
+  },
+  "typescript": {
+    "decision": "declined",
+    "decidedAt": "2026-07-26T01:15:46.780Z"
+  },
+  "terraform": {
+    "decision": "declined",
+    "decidedAt": "2026-07-29T19:26:49.090Z"
+  }
+}

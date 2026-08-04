@@ -4,6 +4,12 @@
 	"model": "anthropic/claude-sonnet-4-6",
 	"enabled_providers": ["anthropic", "openai", "xai", "claude-max"],
 	"plugin": ["opencode-with-claude", "oh-my-openagent@latest"],
+	"lsp": {
+		"marksman": {
+			"command": ["marksman", "server"],
+			"extensions": [".md"]
+		}
+	},
 	"provider": {
 		"anthropic": {
 			"options": {
