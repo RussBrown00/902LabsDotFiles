@@ -10,6 +10,7 @@ composer.phar
 .grok
 .grok/*
 .omc
+.omo
 .playwright-mcp
 .sisyphus
 CLAUDE.md

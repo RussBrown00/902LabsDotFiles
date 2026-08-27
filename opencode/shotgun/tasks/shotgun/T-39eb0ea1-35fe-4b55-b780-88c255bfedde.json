@@ -1,0 +1,10 @@
+{
+  "id": "T-39eb0ea1-35fe-4b55-b780-88c255bfedde",
+  "subject": "Apply Shotgun routing migration",
+  "description": "Merge Shotgun settings into ~/.omo/omo.jsonc while preserving target-only unified fields and migration metadata.",
+  "status": "completed",
+  "activeForm": "Applying Shotgun routing migration",
+  "blocks": [],
+  "blockedBy": [],
+  "threadID": "ses_033617a21ffeyAL46MZReCx0yA"
+}

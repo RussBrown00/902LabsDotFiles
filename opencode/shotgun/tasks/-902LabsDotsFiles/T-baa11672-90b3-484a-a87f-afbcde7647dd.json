@@ -1,0 +1,10 @@
+{
+  "id": "T-baa11672-90b3-484a-a87f-afbcde7647dd",
+  "subject": "Fix Meridian OpenCode plugin registration",
+  "description": "Run meridian setup / wire plugin into opencode.json so session tracking and subagent model selection work; verify Claude auth path.",
+  "status": "completed",
+  "activeForm": "Fixing Meridian OpenCode setup",
+  "blocks": [],
+  "blockedBy": [],
+  "threadID": "ses_034f1e7fbffePAB4PRdFAfLhJ5"
+}

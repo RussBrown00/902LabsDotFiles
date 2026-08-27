@@ -1,0 +1,10 @@
+{
+  "id": "T-218c88b4-59af-49aa-a258-5a369b30a7ea",
+  "subject": "Validate effective OMO routing",
+  "description": "Validate syntax/schema and confirm opencode debug config resolves Sisyphus and ultrawork to Claude Opus 4.8.",
+  "status": "completed",
+  "activeForm": "Validating effective OMO routing",
+  "blocks": [],
+  "blockedBy": [],
+  "threadID": "ses_033617a21ffeyAL46MZReCx0yA"
+}

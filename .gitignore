@@ -8,9 +8,11 @@ opencode/package-lock.json
 opencode/bun.lock
 opencode/gptsetup/tasks
 opencode/meridian/tasks
+opencode/**/tasks
 
 # OMC runtime state
 .omc/
+.omo
 
 #TMUX
 tmux/plugins

@@ -1,0 +1,10 @@
+{
+  "id": "T-70dae052-03aa-45e1-86c0-48e96f9f2541",
+  "subject": "Fix Meridian Claude path and profile auth",
+  "description": "Set MERIDIAN_CLAUDE_PATH to native arm64 claude; retarget profile to authenticated config dir; restart meridian and verify /health.",
+  "status": "completed",
+  "activeForm": "Fixing Meridian auth and Claude path",
+  "blocks": [],
+  "blockedBy": [],
+  "threadID": "ses_034f1e7fbffePAB4PRdFAfLhJ5"
+}

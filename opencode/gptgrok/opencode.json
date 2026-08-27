@@ -27,7 +27,11 @@
 			"type": "local",
 			"command": ["node", "/Users/rbrown/workspace/photivo-support/postmark-template-sync-mcp/index.js"],
 			"environment": {
+<<<<<<< HEAD
 				"POSTMARK_SERVER_TOKEN": "b37ee499-0503-4cf2-9fe7-f12a9448cc96"
+=======
+				"POSTMARK_SERVER_TOKEN": "{env:POSTMARK_SERVER_TOKEN}"
+>>>>>>> 82bb5e2 (chore: Overhaul OpenCode profiles)
 			}
 		},
 		"drawio-generator": {

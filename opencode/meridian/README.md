@@ -11,7 +11,7 @@ installation, and switching instructions.
 
 - **Default model:** `anthropic/claude-sonnet-4-6`
 - **Enabled providers:** Anthropic, OpenAI, xAI, and `claude-max`
-- **Plugins:** `opencode-with-claude` and `oh-my-openagent@latest`
+- **Plugins:** `./plugin/meridian.ts` (session headers), `opencode-with-claude`, and `oh-my-openagent@latest`
 - **Anthropic bridge:** `http://127.0.0.1:3456`
 - **Shared skills:** `skills -> ../skills`
 - **Local agents:** `argus`, `clio`, and `git-operator`
@@ -23,9 +23,12 @@ selected cross-model roles such as Argus and writing.
 
 ## Requirements
 
-Start the local service used by `opencode-with-claude` before OpenCode. The
+Start Meridian before OpenCode (or let `opencode-with-claude` start it). The
 Anthropic provider in `opencode.json` expects that service at
 `http://127.0.0.1:3456`.
+
+Set `MERIDIAN_CLAUDE_PATH` to the native Claude Code binary (see `~/.zshrc`).
+On Apple Silicon, avoid Meridian's bundled x64 Claude binary under Rosetta.
 
 ## Install This Profile
 

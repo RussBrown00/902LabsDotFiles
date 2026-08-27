@@ -1,0 +1,10 @@
+{
+  "id": "T-46c14e57-6f55-4bc4-b540-8539994da85f",
+  "subject": "Plan OMO config migration",
+  "description": "Determine exact source-wins merge and normalization rules for the legacy Shotgun config into the unified OMO config.",
+  "status": "completed",
+  "activeForm": "Planning OMO config migration",
+  "blocks": [],
+  "blockedBy": [],
+  "threadID": "ses_033617a21ffeyAL46MZReCx0yA"
+}

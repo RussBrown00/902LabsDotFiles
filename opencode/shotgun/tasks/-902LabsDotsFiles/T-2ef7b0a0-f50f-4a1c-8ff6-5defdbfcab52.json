@@ -1,0 +1,10 @@
+{
+  "id": "T-2ef7b0a0-f50f-4a1c-8ff6-5defdbfcab52",
+  "subject": "Add Meridian OpenCode plugin to shotgun+meridian profiles",
+  "description": "Vendor meridian.ts and register in plugin arrays; keep setup durable across fnm path changes.",
+  "status": "completed",
+  "activeForm": "Adding Meridian plugin to profiles",
+  "blocks": [],
+  "blockedBy": [],
+  "threadID": "ses_034f1e7fbffePAB4PRdFAfLhJ5"
+}
