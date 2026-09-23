@@ -1,0 +1,10 @@
+#!/bin/bash
+# Keep Alacritty and tmux aligned with macOS appearance.
+
+set -euo pipefail
+
+dir="$(cd "$(dirname "$0")" && pwd)"
+while true; do
+  "$dir/sync-terminal-theme" || true
+  sleep 2
+done

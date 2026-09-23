@@ -1,0 +1,52 @@
+#!/bin/bash
+# Point Alacritty and tmux at the macOS light or dark palette.
+# Override with TERMINAL_THEME_MODE=light|dark.
+
+set -euo pipefail
+
+export PATH="/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:${PATH:-}"
+
+repo="$(cd "$(dirname "$0")/.." && pwd)"
+mode="light"
+if [[ "${TERMINAL_THEME_MODE:-}" == "dark" || "${TERMINAL_THEME_MODE:-}" == "light" ]]; then
+  mode="$TERMINAL_THEME_MODE"
+elif [[ "$(defaults read -g AppleInterfaceStyle 2>/dev/null || true)" == "Dark" ]]; then
+  mode="dark"
+fi
+
+src="$repo/alacritty/${mode}_mode.toml"
+dest="$repo/alacritty/auto-theme.toml"
+config="$repo/alacritty/alacritty.toml"
+
+if [[ ! -f "$src" ]]; then
+  echo "missing theme: $src" >&2
+  exit 1
+fi
+
+if ! cmp -s "$src" "$dest"; then
+  cp "$src" "$dest"
+  # Alacritty reloads when the main config changes. Imported files are not enough.
+  touch "$config"
+  echo "$(date '+%Y-%m-%d %H:%M:%S') alacritty -> $mode"
+fi
+
+if [[ "$mode" == "dark" ]]; then
+  theme="$repo/tmux/theme01.conf"
+else
+  theme="$repo/tmux/theme-bright.conf"
+fi
+
+uid="$(id -u)"
+socket="/tmp/tmux-${uid}/default"
+if [[ ! -S "$socket" && -n "${TMPDIR:-}" && -S "${TMPDIR%/}/tmux-${uid}/default" ]]; then
+  socket="${TMPDIR%/}/tmux-${uid}/default"
+fi
+
+if [[ -S "$socket" ]]; then
+  current="$(tmux -S "$socket" show-options -gv @terminal-theme 2>/dev/null || true)"
+  if [[ "$current" != "$mode" ]]; then
+    tmux -S "$socket" source-file "$theme"
+    tmux -S "$socket" set-option -g @terminal-theme "$mode"
+    echo "$(date '+%Y-%m-%d %H:%M:%S') tmux -> $mode"
+  fi
+fi

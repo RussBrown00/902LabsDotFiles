@@ -1,8 +1,7 @@
-general.live_config_reload = true  # Disabled to reduce potential flashing during config changes
+general.live_config_reload = true
 
-# Import either dark_mode.toml or light_mode.toml based on preference
-general.import = ["~/.config/alacritty/dark_mode.toml"]
-# general.import = ["~/.config/alacritty/light_mode.toml"]
+# Written by bin/sync-terminal-theme from dark_mode.toml or light_mode.toml.
+general.import = ["~/.config/alacritty/auto-theme.toml"]
 
 [bell]
 animation = "EaseOutExpo"

@@ -22,6 +22,7 @@ tmux/plugins
 .DS_Store
 .vim/tmp
 alacritty/colors.yml
+alacritty/auto-theme.toml
 neovim/.netrwhist
 neovim/plugged/
 vim/.netrwhist
