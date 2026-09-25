@@ -36,6 +36,16 @@ local M = {
   },
   base46 = {
     theme = system_theme,
+    hl_override = {
+      -- Reserve red for deleted only; recolor the other git states in the file tree
+      NvimTreeGitDirty = { fg = "orange" },
+      NvimTreeGitStaged = { fg = "green" },
+      NvimTreeGitNew = { fg = "yellow" },
+      NvimTreeGitRenamed = { fg = "purple" },
+      NvimTreeGitDeleted = { fg = "red" },
+      NvimTreeGitMerge = { fg = "baby_pink" },
+      NvimTreeGitIgnored = { fg = "grey_fg" },
+    },
   },
 }
 

@@ -26,7 +26,10 @@ export HOMEBREW_NO_AUTO_UPDATE=true
 export LANG=en_US.UTF-8
 export EDITOR=nvim
 export KUBE_EDITOR=nvim
-export TERM=xterm-256color
+# Don't clobber the terminal's own TERM (Alacritty sets alacritty); only fall back if that terminfo is missing
+if [ "$TERM" = "alacritty" ] && ! infocmp alacritty >/dev/null 2>&1; then
+  export TERM=xterm-256color
+fi
 export CLICOLOR=1
 export LSCOLORS=Gxfxcxdxbxegedabagacad
 export LESS='--ignore-case --raw-control-chars'
@@ -52,7 +55,7 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 #Python (expects pyenv)
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+eval "$(pyenv init - --no-rehash zsh)"
 
 # export PYTHONPATH=$(pyenv which python)
 #
