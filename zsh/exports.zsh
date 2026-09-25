@@ -3,6 +3,9 @@ export PATH=bin:script:~/.rbenv/bin:~/.bin:node_modules/.bin:/usr/local/sbin:/us
 export PATH=$PATH:/opt/boxen/homebrew/opt/go/libexec/bin
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 
+# Personal scripts shipped with these dotfiles (~/.zsh -> ~/.dotfiles/zsh)
+export PATH="$HOME/.zsh/bin:$PATH"
+
 CURRENT_DIRECTORY=$(pwd)
 
 # Default opencode preferences, override by machine in ~/.zshrc

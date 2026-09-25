@@ -221,42 +221,13 @@ function chmod-folders {
   find . -type d -exec chmod $PERM {} \;
 }
 
+# wt: git worktree switcher. The heavy lifting lives in ~/.zsh/bin/wt, which
+# prints the target path on stdout; a child process can't cd the parent shell,
+# so this wrapper does the cd. --list/--help print to stderr and yield no path.
 wt() {
-  local selection dir
-
-  command -v fzf >/dev/null 2>&1 || {
-    echo "wt: fzf is not installed" >&2
-    return 1
-  }
-
-  selection="$(
-    git worktree list --porcelain 2>/dev/null |
-      awk '
-                /^worktree / {
-                    if (path != "") print path "\t" branch
-                    path = substr($0, 10)
-                    branch = "(detached)"
-                }
-                /^branch / {
-                    branch = $2
-                    sub(/^refs\/heads\//, "", branch)
-                }
-                END {
-                    if (path != "") print path "\t" branch
-                }
-            ' |
-      fzf \
-        --delimiter=$'\t' \
-        --with-nth=2,1 \
-        --prompt="Worktree> " \
-        --height=40% \
-        --reverse
-  )" || return
-
-  [[ -n "$selection" ]] || return
-
-  dir="${selection%%$'\t'*}"
-  builtin cd -- "$dir"
+  local dir
+  dir="$(command wt "$@")" || return
+  [[ -n "$dir" ]] && builtin cd -- "$dir"
 }
 
 function killbyport {

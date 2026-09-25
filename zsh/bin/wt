@@ -1,0 +1,102 @@
+#!/usr/bin/env bash
+#
+# wt — git worktree switcher for the current repo/product.
+#
+# The parent shell can't be cd'd by a child process, so this script only PRINTS
+# the target worktree path on stdout; the `wt` shell function cd's into it.
+# All human-facing output (picker UI, progress, errors) goes to stderr.
+#
+# Modes:
+#   wt                 fzf picker over this repo's worktrees → print chosen path
+#   wt --list          print "branch<TAB>path" table, no picker, no cd
+#   wt --name <name>   print the worktree for <name>, creating it if missing
+#
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/lib/worktree.sh"
+
+usage() {
+  cat >&2 <<'EOF'
+Usage:
+  wt                 pick a worktree interactively (fzf)
+  wt --list          list worktrees (branch and path), no switch
+  wt --name <name>   switch to worktree <name>, creating it from origin/main if needed
+EOF
+}
+
+# Resolve REPO_ROOT to the main checkout so wt works from inside a worktree too.
+# --git-common-dir points at the shared .git dir; its parent is the main root.
+resolve_repo_root() {
+  local common_dir
+  common_dir="$(git rev-parse --git-common-dir 2>/dev/null)" || {
+    echo "wt: not inside a git repository" >&2
+    return 1
+  }
+  # Absolutize (git may print a relative path from cwd).
+  common_dir="$(cd "$common_dir" && pwd)"
+  printf '%s\n' "$(dirname "$common_dir")"
+}
+
+# list_worktrees — print "branch<TAB>path" for every worktree of REPO_ROOT.
+list_worktrees() {
+  local path="" branch=""
+  while IFS= read -r line; do
+    case "$line" in
+    "worktree "*)
+      path="${line#worktree }"
+      branch="(detached)"
+      ;;
+    "branch "*)
+      branch="${line#branch refs/heads/}"
+      ;;
+    "")
+      [[ -n "$path" ]] && printf '%s\t%s\n' "$branch" "$path"
+      path="" branch=""
+      ;;
+    esac
+  done < <(
+    git -C "$REPO_ROOT" worktree list --porcelain
+    printf '\n'
+  )
+}
+
+main() {
+  REPO_ROOT="$(resolve_repo_root)" || return 1
+
+  case "${1:-}" in
+  --list | -l)
+    list_worktrees | column -t -s $'\t' >&2
+    ;;
+  --name | -n)
+    local name="${2:-}"
+    [[ -n "$name" ]] || {
+      echo "wt: --name requires a worktree name" >&2
+      usage
+      return 1
+    }
+    # Return the existing worktree when name uniquely matches; else create it.
+    local dir
+    if dir="$(resolve_worktree "$name" 2>/dev/null)"; then
+      printf '%s\n' "$dir"
+    else
+      dir="$(create_worktree "$name")" || return 1
+      printf '%s\n' "$dir"
+    fi
+    ;;
+  -h | --help)
+    usage
+    ;;
+  "")
+    # Interactive picker (fzf via lib), print the chosen path for the shell to cd.
+    pick_worktree
+    ;;
+  *)
+    echo "wt: unknown argument: $1" >&2
+    usage
+    return 1
+    ;;
+  esac
+}
+
+main "$@"
