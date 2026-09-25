@@ -221,15 +221,6 @@ function chmod-folders {
   find . -type d -exec chmod $PERM {} \;
 }
 
-# wt: git worktree switcher. The heavy lifting lives in ~/.zsh/bin/wt, which
-# prints the target path on stdout; a child process can't cd the parent shell,
-# so this wrapper does the cd. --list/--help print to stderr and yield no path.
-wt() {
-  local dir
-  dir="$(command wt "$@")" || return
-  [[ -n "$dir" ]] && builtin cd -- "$dir"
-}
-
 function killbyport {
   if [ -z $1 ]; then
     echo "Please add an argument for port"
