@@ -144,14 +144,27 @@ select_worktree() {
   fi
 }
 
+# Print repo's default branch (origin/HEAD), falling back to main/master.
+default_branch() {
+  local repo="$1" db
+  db="$(git -C "$repo" symbolic-ref --quiet refs/remotes/origin/HEAD 2>/dev/null)" \
+    && { printf '%s' "${db#refs/remotes/origin/}"; return 0; }
+  for db in main master; do
+    if git -C "$repo" show-ref --verify --quiet "refs/remotes/origin/$db"; then
+      printf '%s' "$db"; return 0
+    fi
+  done
+  printf 'main'
+}
+
 # create_worktree <name>
-# Create a fresh branch <name> from origin/main and add a worktree for it at
-# $REPO_ROOT/.worktrees/<name>. Fetches origin/main first so the branch is
-# based on the latest upstream. Prints the new worktree's absolute path on
-# stdout; all progress/errors go to stderr. Exits non-zero on failure.
+# Create a fresh branch <name> from the repo's default branch and add a worktree
+# for it at $REPO_ROOT/.worktrees/<name>. Prints the new worktree's absolute
+# path on stdout; all progress/errors go to stderr. Exits non-zero on failure.
 create_worktree() {
   local name="$1"
   local wt_dir="$REPO_ROOT/.worktrees/$name"
+  local db
 
   if [[ -e "$wt_dir" ]]; then
     echo "Error: worktree path already exists: $wt_dir" >&2
@@ -163,14 +176,15 @@ create_worktree() {
     return 1
   fi
 
-  echo "› Fetching origin/main…" >&2
-  if ! git -C "$REPO_ROOT" fetch origin main >&2; then
-    echo "Error: failed to fetch origin/main." >&2
+  db="$(default_branch "$REPO_ROOT")"
+  echo "› Fetching origin/${db}…" >&2
+  if ! git -C "$REPO_ROOT" fetch origin "$db" >&2; then
+    echo "Error: failed to fetch origin/$db." >&2
     return 1
   fi
 
   echo "› Creating branch '$name' and worktree at $wt_dir …" >&2
-  if ! git -C "$REPO_ROOT" worktree add -b "$name" "$wt_dir" origin/main >&2; then
+  if ! git -C "$REPO_ROOT" worktree add -b "$name" "$wt_dir" "origin/$db" >&2; then
     echo "Error: failed to create worktree for '$name'." >&2
     return 1
   fi
@@ -240,4 +254,73 @@ copy_env_files() {
   if [[ "$count" -gt 0 ]]; then
     echo "› Copied $count .env file(s) into the new worktree." >&2
   fi
+}
+
+# Print where a worktree named <name> would live: <repo_root>/.worktrees/<name>.
+repo_worktree_path() {
+  printf '%s/.worktrees/%s' "$1" "$2"
+}
+
+# Return 0 when <repo_root> already has a registered <name> worktree.
+repo_has_worktree() {
+  local repo="$1" name="$2" want line path
+  want="$(repo_worktree_path "$repo" "$name")"
+  while IFS= read -r line; do
+    case "$line" in
+    "worktree "*)
+      path="${line#worktree }"
+      [[ "$path" == "$want" ]] && return 0
+      ;;
+    esac
+  done < <(git -C "$repo" worktree list --porcelain 2>/dev/null)
+  return 1
+}
+
+# Create (or adopt) a <name> worktree in <repo_root> off its default branch, copy .env, print its path.
+create_worktree_in() {
+  local repo="$1" name="$2"
+  local wt_dir db
+  wt_dir="$(repo_worktree_path "$repo" "$name")"
+
+  if repo_has_worktree "$repo" "$name"; then
+    echo "› Reusing existing worktree $wt_dir" >&2
+    printf '%s\n' "$wt_dir"
+    return 0
+  fi
+  if [[ -e "$wt_dir" ]]; then
+    echo "Error: worktree path already exists but is not registered: $wt_dir" >&2
+    return 1
+  fi
+  if git -C "$repo" show-ref --verify --quiet "refs/heads/$name"; then
+    echo "Error: branch '$name' already exists in $(basename "$repo") but has no worktree." >&2
+    echo "Remove it or check it out manually, then retry." >&2
+    return 1
+  fi
+
+  db="$(default_branch "$repo")"
+  echo "› [$(basename "$repo")] Fetching origin/${db}…" >&2
+  if ! git -C "$repo" fetch origin "$db" >&2; then
+    echo "Error: failed to fetch origin/$db for $(basename "$repo")." >&2
+    return 1
+  fi
+
+  echo "› [$(basename "$repo")] Creating branch '$name' and worktree at $wt_dir …" >&2
+  if ! git -C "$repo" worktree add -b "$name" "$wt_dir" "origin/$db" >&2; then
+    echo "Error: failed to create worktree for '$name' in $(basename "$repo")." >&2
+    return 1
+  fi
+
+  copy_env_files "$repo" "$wt_dir"
+
+  printf '%s\n' "$wt_dir"
+}
+
+# Remove the <name> worktree from <repo_root>; no-op if absent. Optional third arg: --force.
+remove_worktree_in() {
+  local repo="$1" name="$2" force="${3:-}"
+  local wt_dir
+  wt_dir="$(repo_worktree_path "$repo" "$name")"
+  repo_has_worktree "$repo" "$name" || return 0
+  echo "› [$(basename "$repo")] Removing worktree $wt_dir …" >&2
+  git -C "$repo" worktree remove $force "$wt_dir"
 }

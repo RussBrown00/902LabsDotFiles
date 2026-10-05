@@ -2,13 +2,13 @@
 #
 # wt — git worktree switcher for the current repo/product.
 #
-# The parent shell can't be cd'd by a child process, so this script only PRINTS
-# the target worktree path on stdout; the `wt` shell function cd's into it.
-# All human-facing output (picker UI, progress, errors) goes to stderr.
+# A process can't cd its parent shell, so this script only PRINTS paths on
+# stdout; callers cd into them, e.g. `cd "$(wt --name X)"`. UI, progress, and
+# errors go to stderr. Run `wt --help` for details.
 #
 # Modes:
 #   wt                 fzf picker over this repo's worktrees → print chosen path
-#   wt --list          print "branch<TAB>path" table, no picker, no cd
+#   wt --list          print "branch  path" table
 #   wt --name <name>   print the worktree for <name>, creating it if missing
 #
 set -euo pipefail
@@ -16,12 +16,43 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/lib/worktree.sh"
 
+# usage — one-line synopsis. Goes to the given fd (stderr on error, stdout for --help).
 usage() {
-  cat >&2 <<'EOF'
-Usage:
-  wt                 pick a worktree interactively (fzf)
-  wt --list          list worktrees (branch and path), no switch
-  wt --name <name>   switch to worktree <name>, creating it from origin/main if needed
+  cat <<'EOF'
+Usage: wt [--list | --name <name> | --help]
+EOF
+}
+
+# help_text — full --help output.
+help_text() {
+  cat <<'EOF'
+wt — git worktree switcher for the current repo/product.
+
+USAGE:
+  wt                   Pick a worktree interactively with fzf; print its path.
+  wt --list, -l        Print a "branch  path" table of this repo's worktrees.
+  wt --name, -n NAME   Print the path of the worktree matching NAME. If none
+                       exists, create branch NAME from origin/main and a worktree
+                       for it under <repo>/.worktrees/NAME, copying .env files
+                       across, then print the new path.
+  wt --help, -h        Show this help.
+
+OUTPUT:
+  The picker and --name print a single worktree path to stdout; --list prints a
+  table to stdout. All UI, progress, and errors go to stderr. A process cannot
+  cd its parent shell, so to actually switch, cd into the printed path, e.g.:
+      cd "$(wt --name ATOM-1234)"
+  or wrap wt in a shell function that cd's into its stdout.
+
+REPO RESOLUTION:
+  The repo root is resolved from the shared git dir (git rev-parse
+  --git-common-dir), so wt works from the main checkout and from inside any
+  linked worktree — it always sees the full worktree set.
+
+EXAMPLES:
+  cd "$(wt)"                  # fuzzy-pick, then switch
+  wt --list                  # list all worktrees
+  cd "$(wt --name ATOM-1234)" # switch, creating from origin/main if missing
 EOF
 }
 
@@ -66,13 +97,13 @@ main() {
 
   case "${1:-}" in
   --list | -l)
-    list_worktrees | column -t -s $'\t' >&2
+    list_worktrees | column -t -s $'\t'
     ;;
   --name | -n)
     local name="${2:-}"
     [[ -n "$name" ]] || {
       echo "wt: --name requires a worktree name" >&2
-      usage
+      usage >&2
       return 1
     }
     # Return the existing worktree when name uniquely matches; else create it.
@@ -85,7 +116,7 @@ main() {
     fi
     ;;
   -h | --help)
-    usage
+    help_text
     ;;
   "")
     # Interactive picker (fzf via lib), print the chosen path for the shell to cd.
@@ -93,7 +124,7 @@ main() {
     ;;
   *)
     echo "wt: unknown argument: $1" >&2
-    usage
+    usage >&2
     return 1
     ;;
   esac
